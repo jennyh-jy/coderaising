@@ -1,0 +1,35 @@
+{
+  "name": "coderaising-mongodb",
+  "version": "1.0.0",
+  "description": "A CodeRaising API",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server",
+    "dev-react": "webpack -d --watch"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.4",
+    "express": "^4.14.0",
+    "jquery": "^3.1.1",
+    "mongoose": "^4.5.7",
+    "morgan": "^1.7.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "css-loader": "^0.28.4",
+    "eslint": "^3.3.1",
+    "file-loader": "^0.11.2",
+    "nodemon": "^1.11.0",
+    "style-loader": "^0.18.2",
+    "supertest": "^2.0.0",
+    "url-loader": "^0.5.9",
+    "webpack": "^1.13.2"
+  }
+}

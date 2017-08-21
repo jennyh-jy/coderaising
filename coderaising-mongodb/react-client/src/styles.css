@@ -1,0 +1,147 @@
+@font-face{
+  font-family: "Aaargh";
+  src: url(Aaargh.ttf) format("truetype");
+}
+
+body, html{
+  height:100%;
+}
+body{
+  margin: 30px;
+  background-size: 100% 100%;
+  font-family: "Aaargh";
+}
+
+hr{
+  border: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+button{
+  margin-left: 10px;
+}
+
+h3{
+  color: #454747;
+}
+
+#title{
+  font-size: 60px;
+}
+
+#create-button{
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+#link{
+  margin-top: 15px;
+  margin-bottom: 70px;
+  font-size: 13px;
+}
+
+#type-filtering{
+  font-size: 15px;
+}
+
+.pokemon{
+  margin: 40px 40px 40px 40px;
+}
+
+.image{
+  margin-bottom: 10px;
+}
+
+.name{
+  margin-right: 13px;
+  font-size: 14px;
+}
+
+.type{
+  margin-right: 13px;
+  font-size: 14px;
+}
+
+.imageURL{
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.making-new-pokemons-title{
+  margin-top: 70px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.number{
+  color: #949596;
+  font-size: 14px;
+}
+
+.types{
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.grass{
+  color: #31af6e;
+}
+
+.poison{
+  color: #c06fdb;
+}
+
+.fire{
+  color: #f27f04;
+}
+
+.flying{
+  color: #03baf1;
+}
+
+.water{
+  color: #0c78b7;
+}
+
+.bug{
+  color: #087230;
+}
+
+.normal{
+  color: #616362;
+}
+
+.electric{
+  color: #a39801;
+}
+
+.ground{
+  color: #686106;
+}
+
+.fighting{
+  color: #aa370d;
+}
+
+.psychic{
+  color: #c151b4;
+}
+
+.rock{
+  color: #6d4d35;
+}
+
+.ice{
+  color: #0be0e0;
+}
+
+.ghost{
+  color: #5e5070;
+}
+
+.dragon{
+  color: #f46404;
+}
