@@ -14,6 +14,8 @@
     "express": "^4.14.0",
     "jquery": "^3.1.1",
     "mongoose": "^4.5.7",
+    "mongoose-auto-increment": "^5.0.1",
+    "mongoose-simpledb": "^5.1.0",
     "morgan": "^1.7.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
