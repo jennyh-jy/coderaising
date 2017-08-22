@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const ObjectId = require('mongoose-simpledb').Types.ObjectId;
-
+//Login 기능 구현하고 User로 바꾸기
 const postSchema = new Schema({
-  // _id: Number,
+  number: {
+    type: Number,
+    unique: true,
+  },
   username: String,
   title: {
     type: String,
@@ -19,6 +21,5 @@ const postSchema = new Schema({
   },
 });
 
-// Register the pokemonSchema with Mongoose as the 'Posts' collection.
 const Post = mongoose.model('Post', postSchema);
 module.exports = Post;

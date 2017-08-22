@@ -18,7 +18,8 @@
     "mongoose-simpledb": "^5.1.0",
     "morgan": "^1.7.0",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "react-router-dom": "^4.1.2"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
