@@ -7,14 +7,8 @@ const postSchema = new Schema({
     unique: true,
   },
   username: String,
-  title: {
-    type: String,
-    unique: true,
-  },
-  content: {
-    type: String,
-    unique: true,
-  },
+  title: String,
+  content: String,
   createdAt: {
     type: Date,
     default: Date.now,

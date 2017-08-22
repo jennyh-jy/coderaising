@@ -5,27 +5,37 @@ import {
   Link
 } from 'react-router-dom';
 
+import Posts from './Posts.js';
+import Charities from './Charities.js';
+import Login from './Login.js';
+import Signup from './Signup.js';
 import Newpost from './Newpost.js';
-import $ from 'jquery';
 import axios from 'axios';
 
-class App extends React.Component {
+const MainRouter = () => (
+  <Router>
+    <div>
+      <h1>CodeRaising</h1>
+      <Link to="/posts">Posts</Link>   <Link to="/charities">Charities</Link>   <Link to="/login">Log In</Link>   <Link to="/signup">Sign Up</Link>
+      <hr/>
+      <Route exact path="/" component={App}/>
+      <Route path="/posts" component={Posts} />
+      <Route path="/newpost" component={Newpost} />
+      <Route path="/charities" component={Charities} />
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
+    </div>
+  </Router>
+)
 
+class App extends React.Component {
   render() {
     return (
-      <Router>
-        <div>
-          <h1>CodeRaising</h1>
-          <button type="button"><Link to="/newpost">New Post</Link></button>
-
-          <hr/>
-          <Route path="/newpost" component={Newpost} />
-
-        </div>
-      </Router>
-
+      <div>
+      hi
+      </div>
     );
   }
 }
 
-export default App;
+export default MainRouter;

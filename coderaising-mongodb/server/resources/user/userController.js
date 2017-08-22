@@ -1,4 +1,4 @@
-// const User = require('./User');
+// const User = require('./userModel');
 
 
 //다 바꾸기
