@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { withRouter } from 'react-router';
 
 class Newpost extends React.Component {
   constructor(props) {
@@ -9,28 +10,32 @@ class Newpost extends React.Component {
       currentNumber: null,
       titleValue: null,
       contentValue: null,
+      isTitleTyped: false,
+      isContentTyped: false,
     };
   }
 
-  fetch() {
-    axios.get('http://localhost:8000/posts')
-    .then(res => {
-      this.setState({posts: res.data});
-    })
-    .catch(res => console.log('Failed to update posts data'));
-  }
-
   titleChange(event) {
-    this.setState({ titleValue: event.target.value });
+    this.setState({
+      titleValue: event.target.value,
+      isTitleTyped: true,
+    });
   }
 
   contentChange(event) {
-    this.setState({ contentValue: event.target.value });
+    this.setState({
+      contentValue: event.target.value,
+      isContentTyped: true,
+    });
   }
 
-  buttonClick(event) {
+  buttonClick() {
     const number = this.state.posts.length + 1;
-    this.setState({ currentNumber: number });
+    this.setState({
+      currentNumber: number,
+      isTitleTyped: false,
+      isContentTyped: false,
+    });
     const newpost = {
       number,
       username: 'yodoree',
@@ -41,24 +46,30 @@ class Newpost extends React.Component {
       .then(response => {
         console.log('Post has been submitted!');
         alert('Your post has been submitted!');
-        this.fetch();
+      })
+      .then(() => {
+        this.props.history.push('/posts');
       })
       .catch(response => console.log('Failed to post'));
   }
 
   componentDidMount() {
-    this.fetch();
+    axios.get('http://localhost:8000/posts')
+    .then(res => {
+      this.setState({posts: res.data});
+    })
+    .catch(res => console.log('Failed to fetch posts data'));
   }
 
   render() {
     return (
       <div>
-        Title: <input type="text" id="title-input" onChange={this.titleChange.bind(this)} /><br />
-        Content: <input type="text" id="content-input" onChange={this.contentChange.bind(this)} /><br />
-        <button type="button" id="submit-button" onClick={this.buttonClick.bind(this)}>Submit</button>
+        Title: <input type="text" id="title-input" style={{fontSize: '10pt', width: 430, height: 25}} placeholder="What kind of programming skills do you want to donate?" onChange={e => this.titleChange(e)} /><br />
+        Content: <input type="text" id="content-input" style={{fontSize: '10pt', width: 430, height: 200}} placeholder="How do you want to donate your skills? Please be as specific as possible!" onChange={e => this.contentChange(e)} /><br />
+        <button type="button" id="submit-button" onClick={() => this.buttonClick()}>Submit</button>
       </div>
     );
   }
 };
 
-export default Newpost;
+export default withRouter(Newpost);
