@@ -16,7 +16,11 @@ router.get('/posts', postController.retrieve);
 router.get('/posts/:number', postController.retrieveOne);
 router.post('/newpost', postController.createOne);
 
-
+router.get('/loginStatus', (req, res) => {
+  res.json({
+    isLoggedIn: req.isAuthenticated(),
+  });
+});
 
 // route for login form
 // route for processing the login form

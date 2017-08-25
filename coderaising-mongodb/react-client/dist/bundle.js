@@ -23366,6 +23366,10 @@
 	
 	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 191);
 	
+	var _axios = __webpack_require__(/*! axios */ 232);
+	
+	var _axios2 = _interopRequireDefault(_axios);
+	
 	var _Posts = __webpack_require__(/*! ./Posts.js */ 231);
 	
 	var _Posts2 = _interopRequireDefault(_Posts);
@@ -23390,6 +23394,10 @@
 	
 	var _EachPost2 = _interopRequireDefault(_EachPost);
 	
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 265);
+	
+	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23398,59 +23406,150 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var MainRouter = function MainRouter() {
-	  return _react2.default.createElement(
-	    _reactRouterDom.BrowserRouter,
-	    null,
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        'h1',
+	var MainRouter = function (_React$Component) {
+	  _inherits(MainRouter, _React$Component);
+	
+	  function MainRouter(props) {
+	    _classCallCheck(this, MainRouter);
+	
+	    var _this = _possibleConstructorReturn(this, (MainRouter.__proto__ || Object.getPrototypeOf(MainRouter)).call(this, props));
+	
+	    _this.state = {
+	      isLoading: true
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(MainRouter, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+	
+	      _axios2.default.get('http://localhost:8000/api/loginStatus').then(function (res) {
+	        var isLoggedIn = res.data.isLoggedIn; //{isLoggedIn: false}
+	
+	        console.log(res.data);
+	        if (isLoggedIn) {
+	          (0, _isLoggedIn.setLoggedIn)();
+	        }
+	        _this2.setState({
+	          isLoading: false
+	        });
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      if (this.state.isLoading) {
+	        return _react2.default.createElement('div', null);
+	      }
+	      return !(0, _isLoggedIn2.default)() ? _react2.default.createElement(
+	        _reactRouterDom.BrowserRouter,
 	        null,
 	        _react2.default.createElement(
-	          _reactRouterDom.Link,
-	          { to: '/' },
-	          'CodeRaising'
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'h1',
+	            null,
+	            _react2.default.createElement(
+	              _reactRouterDom.Link,
+	              { to: '/' },
+	              'CodeRaising'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/posts' },
+	            'Posts'
+	          ),
+	          '   ',
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/charities' },
+	            'Charities'
+	          ),
+	          '   ',
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/login' },
+	            'Log In'
+	          ),
+	          '   ',
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/signup' },
+	            'Sign Up'
+	          ),
+	          _react2.default.createElement('hr', null),
+	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: App }),
+	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/posts', component: _Posts2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/posts/:number', component: _EachPost2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/newpost', component: _Newpost2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/charities', component: _Charities2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/signup', component: _Signup2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/profile', component: _Login2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/logout', component: _Login2.default })
 	        )
-	      ),
-	      _react2.default.createElement(
-	        _reactRouterDom.Link,
-	        { to: '/posts' },
-	        'Posts'
-	      ),
-	      '   ',
-	      _react2.default.createElement(
-	        _reactRouterDom.Link,
-	        { to: '/charities' },
-	        'Charities'
-	      ),
-	      '   ',
-	      _react2.default.createElement(
-	        _reactRouterDom.Link,
-	        { to: '/login' },
-	        'Log In'
-	      ),
-	      '   ',
-	      _react2.default.createElement(
-	        _reactRouterDom.Link,
-	        { to: '/signup' },
-	        'Sign Up'
-	      ),
-	      _react2.default.createElement('hr', null),
-	      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: App }),
-	      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/posts', component: _Posts2.default }),
-	      _react2.default.createElement(_reactRouterDom.Route, { path: '/posts/:number', component: _EachPost2.default }),
-	      _react2.default.createElement(_reactRouterDom.Route, { path: '/newpost', component: _Newpost2.default }),
-	      _react2.default.createElement(_reactRouterDom.Route, { path: '/charities', component: _Charities2.default }),
-	      _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default }),
-	      _react2.default.createElement(_reactRouterDom.Route, { path: '/signup', component: _Signup2.default })
-	    )
-	  );
-	};
+	      ) : _react2.default.createElement(
+	        _reactRouterDom.BrowserRouter,
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'h1',
+	            null,
+	            _react2.default.createElement(
+	              _reactRouterDom.Link,
+	              { to: '/' },
+	              'CodeRaising'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/posts' },
+	            'Posts'
+	          ),
+	          '   ',
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/charities' },
+	            'Charities'
+	          ),
+	          '   ',
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/profile' },
+	            'Profile'
+	          ),
+	          '   ',
+	          _react2.default.createElement(
+	            _reactRouterDom.Link,
+	            { to: '/logout' },
+	            'Log Out'
+	          ),
+	          _react2.default.createElement('hr', null),
+	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: App }),
+	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/posts', component: _Posts2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/posts/:number', component: _EachPost2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/newpost', component: _Newpost2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/charities', component: _Charities2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/signup', component: _Signup2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/profile', component: _Login2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/logout', component: _Login2.default })
+	        )
+	      );
+	    }
+	  }]);
 	
-	var App = function (_React$Component) {
-	  _inherits(App, _React$Component);
+	  return MainRouter;
+	}(_react2.default.Component);
+	
+	var App = function (_React$Component2) {
+	  _inherits(App, _React$Component2);
 	
 	  function App() {
 	    _classCallCheck(this, App);
@@ -29440,6 +29539,30 @@
 	}(_react2.default.Component);
 	
 	exports.default = EachPost;
+
+/***/ }),
+/* 264 */,
+/* 265 */
+/*!****************************************!*\
+  !*** ./react-client/src/isLoggedIn.js ***!
+  \****************************************/
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.setLoggedIn = setLoggedIn;
+	exports.default = isLoggedIn;
+	var _isLoggedIn = false;
+	function setLoggedIn() {
+	  _isLoggedIn = true;
+	}
+	
+	function isLoggedIn() {
+	  return _isLoggedIn;
+	};
 
 /***/ })
 /******/ ]);

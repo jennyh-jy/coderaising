@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  number: {
-    type: Number,
-    unique: true,
-  },
   local: {
     email: {
       type: String,

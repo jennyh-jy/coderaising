@@ -4,7 +4,6 @@ const User = require('../resources/user/userModel');
 const configAuth = require('./auth');
 
 module.exports = (passport) => {
-
   // used to serialize the user for the session
   passport.serializeUser((user, done) => {
     done(null, user.id);
