@@ -1,7 +1,5 @@
-// const User = require('./userModel');
+const User = require('./userModel');
 
-
-//다 바꾸기
 exports.createOne = (req, res) => {
   Pokemon.findOne({number: req.body.number}, (err, obj) => {
     if (err) {

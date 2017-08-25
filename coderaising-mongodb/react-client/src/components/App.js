@@ -4,7 +4,6 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import axios from 'axios';
 
 import Posts from './Posts.js';
 import Charities from './Charities.js';

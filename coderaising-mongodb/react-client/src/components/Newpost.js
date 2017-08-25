@@ -42,7 +42,7 @@ class Newpost extends React.Component {
       title: this.state.titleValue,
       content: this.state.contentValue,
     }
-    axios.post('http://localhost:8000/newpost', newpost)
+    axios.post('http://localhost:8000/api/newpost', newpost)
       .then(response => {
         console.log('Post has been submitted!');
         alert('Your post has been submitted!');
@@ -54,7 +54,7 @@ class Newpost extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8000/posts')
+    axios.get('http://localhost:8000/api/posts')
     .then(res => {
       this.setState({posts: res.data});
     })

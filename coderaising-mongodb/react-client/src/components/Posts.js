@@ -17,13 +17,14 @@ class Posts extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8000/posts')
+    axios.get('http://localhost:8000/api/posts')
     .then(res => {
       this.setState({posts: res.data});
     })
-    .catch(res => console.log('Failed to update posts data'));
+    .catch(err => console.log(err));
   }
 
+// login 안 한 유저가 New Post 버튼 클릭했을 때 alert 띄우기?
   render() {
     return (
       <div>

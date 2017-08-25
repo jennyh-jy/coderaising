@@ -16,7 +16,7 @@ class EachPost extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:8000/posts/${this.props.match.params.number}`)
+    axios.get(`http://localhost:8000/api/posts/${this.props.match.params.number}`)
     .then(res => {
       this.setState({selectedPost: res.data});
     })
@@ -31,7 +31,7 @@ class EachPost extends React.Component {
           Username: {this.state.selectedPost.username} <br />
           Title: {this.state.selectedPost.title} <br />
           Content: {this.state.selectedPost.content} <br />
-          <button type="button" id="register-button">Register</button>  
+          <button type="button" id="register-button">Register</button>
         </div>
     )
   }

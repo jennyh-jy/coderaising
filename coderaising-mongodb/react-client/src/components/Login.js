@@ -7,27 +7,29 @@ class Login extends React.Component{
     super(props, context);
   }
 
-  responseGoogle (googleUser) {
-    const id_token = googleUser.getAuthResponse().id_token;
-    console.log({accessToken: id_token});
-    //anything else you want to do(save to localStorage)...
-
-    // axios.post('http://localhost:8000/newpost', newpost)
-    //   .then(response => {
-    //     console.log('Post has been submitted!');
-    //     alert('Your post has been submitted!');
-    //   })
-    //   .then(() => {
-    //     this.props.history.push('/posts');
-    //   })
-    //   .catch(response => console.log('Failed to post'));
-    //
-
-  }
+  // responseGoogle (googleUser) {
+  //   const id_token = googleUser.getAuthResponse().id_token;
+  //   console.log({accessToken: id_token});
+  //   //anything else you want to do(save to localStorage)...
+  //
+  //   // axios.post('http://localhost:8000/newpost', newpost)
+  //   //   .then(response => {
+  //   //     console.log('Post has been submitted!');
+  //   //     alert('Your post has been submitted!');
+  //   //   })
+  //   //   .then(() => {
+  //   //     this.props.history.push('/posts');
+  //   //   })
+  //   //   .catch(response => console.log('Failed to post'));
+  //   //
+  //
+  // }
 
   onSignIn(googleUser) {
     const profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    const id_token = googleUser.getAuthResponse().id_token;
+    console.log(profile);
+    console.log('ID token: ' + id_token); // Do not send to your backend! Use an ID token instead.
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
@@ -43,10 +45,10 @@ class Login extends React.Component{
   componentDidMount() {
     gapi.signin2.render('g-signin2', {
       'scope': 'profile email',
-      'width': 200,
-      'height': 50,
-      'longtitle': true,
-      'theme': 'dark',
+      'width': 150,
+      'height': 30,
+      'longtitle': false,
+      'theme': 'light',
       'onsuccess': this.onSignIn
     });
   }
@@ -58,11 +60,11 @@ class Login extends React.Component{
         Password: <input type="text" id="password-input" /><br />
         <button type="button">Log In</button><p/>
 
-        <div id="g-signin2" data-onsuccess={this.onSignIn} />
 
-          <div>
-            <a href="#" onClick={this.signOut}>Google Sign out</a>
-          </div>
+        <div>
+          <a href="/auth/google">Google Sign In</a>
+          <a href="#" onClick={this.signOut}>Google Sign out</a>
+        </div>
       </div>
     );
   }

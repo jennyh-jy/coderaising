@@ -1,19 +1,31 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-//Login 기능 구현하고 User로 바꾸기
-const postSchema = new Schema({
+
+const userSchema = new Schema({
   number: {
     type: Number,
     unique: true,
   },
-  username: String,
-  title: {
-    type: String,
-    unique: true,
+  local: {
+    email: {
+      type: String,
+      unique: true,
+    },
+    password: String,
   },
-  content: {
-    type: String,
-    unique: true,
+  google: {
+    id: {
+      type: String,
+      unique: true,
+    },
+    token: String,
+    name: String,
+    email: String,
+    imageUrl: String,
+  },
+  balance: {
+    type: Number,
+    default: 0,
   },
   createdAt: {
     type: Date,
@@ -21,5 +33,5 @@ const postSchema = new Schema({
   },
 });
 
-const Post = mongoose.model('Post', postSchema);
-module.exports = Post;
+const User = mongoose.model('User', userSchema);
+module.exports = User;
