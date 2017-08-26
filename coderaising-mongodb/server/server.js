@@ -43,6 +43,12 @@ app.get('/auth/google/callback',
     failureRedirect: '/'
   }));
 
+// route for logging out
+app.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
+});
+
 //(Similar to) server rendering
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../react-client/dist/index.html'));

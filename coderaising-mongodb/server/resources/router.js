@@ -34,23 +34,22 @@ router.get('/loginStatus', (req, res) => {
 //
 // router.get('/profile/:number', userController.retrieveOne);
 //
-// // route for showing the profile page
+// route for showing the profile page
 // router.get('/profile', isLoggedIn, (req, res) => {
 //   retrieveOne
 //   res.render('profile.ejs', {user: req.user}); // get the user out of session and pass to template
 // });
-//
+
 // // route for logging out
 // router.get('/logout', (req, res) => {
-//   req.logout();
-//   res.redirect('/');
+//   req.session.destroy(err => {
+//     res.redirect('/'); //Inside a callback… bulletproof!
+//   });
 // });
-//
+// //
 // send to google to do the authentication
 // profile gets us their basic information including their name
 // email gets their emails
-
-
 
 
 
