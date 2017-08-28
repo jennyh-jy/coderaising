@@ -28949,32 +28949,126 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 190);
+	
+	var _axios = __webpack_require__(/*! axios */ 230);
+	
+	var _axios2 = _interopRequireDefault(_axios);
+	
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 265);
+	
+	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Charities = function Charities() {
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'ul',
-	      null,
-	      _react2.default.createElement(
-	        'li',
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Charities = function (_React$Component) {
+	  _inherits(Charities, _React$Component);
+	
+	  function Charities(props) {
+	    _classCallCheck(this, Charities);
+	
+	    var _this = _possibleConstructorReturn(this, (Charities.__proto__ || Object.getPrototypeOf(Charities)).call(this, props));
+	
+	    _this.state = {
+	      charities: [],
+	      selectedCharity: null
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(Charities, [{
+	    key: 'fetch',
+	    value: function fetch() {
+	      var _this2 = this;
+	
+	      _axios2.default.get('http://localhost:8000/api/charities').then(function (res) {
+	        _this2.setState({ charities: res.data });
+	      }).catch(function (err) {
+	        return console.log(err);
+	      });
+	    }
+	  }, {
+	    key: 'donateClick',
+	    value: function donateClick(event) {
+	      var _this3 = this;
+	
+	      if (!(0, _isLoggedIn2.default)()) {
+	        alert('You should log in to proceed');
+	        this.props.history.push('/login');
+	      } else if (confirm("기부하면 1000원이 차감됩니다. 정말 기부할래?") === true) {
+	        this.setState({ selectedCharity: event.target.className });
+	        _axios2.default.get('http://localhost:8000/api/getUser').then(function (res) {
+	          if (res.data.balance >= 1000) {
+	            //logged in user balance update
+	            _axios2.default.put('http://localhost:8000/api/updateUserBalance').then(function (res) {
+	              console.log("logged in user's balance has been updated");
+	            }).catch(function (err) {
+	              return console.log('Logged in user balance update error');
+	            });
+	            //charity balance update
+	            _axios2.default.put('http://localhost:8000/api/updateCharityBalance', { name: _this3.state.selectedCharity }).then(function (res) {
+	              alert('기부되었습니다! ㄱㅅㄱㅅ');
+	              _this3.fetch(); // Charity balance 화면에서 바로 올라가게
+	            }).catch(function (err) {
+	              return console.log(err);
+	            });
+	          } else {
+	            alert("돈없다 충전해라");
+	          }
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.fetch();
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this4 = this;
+	
+	      return _react2.default.createElement(
+	        'div',
 	        null,
-	        'WorldVision'
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        'Red Cross'
-	      )
-	    )
-	  );
-	};
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Charities'
+	        ),
+	        this.state.charities.map(function (charity) {
+	          return _react2.default.createElement(
+	            'div',
+	            null,
+	            charity.name,
+	            '  ',
+	            charity.balance,
+	            '\uC6D0  ',
+	            _react2.default.createElement(
+	              'button',
+	              { type: 'button', className: charity.name, onClick: _this4.donateClick.bind(_this4) },
+	              'Donate'
+	            )
+	          );
+	        })
+	      );
+	    }
+	  }]);
+	
+	  return Charities;
+	}(_react2.default.Component);
 	
 	exports.default = Charities;
 
@@ -29391,8 +29485,6 @@
 	
 	var _axios2 = _interopRequireDefault(_axios);
 	
-	var _reactRouter = __webpack_require__(/*! react-router */ 203);
-	
 	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 265);
 	
 	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
@@ -29529,7 +29621,7 @@
 	
 	;
 	
-	exports.default = (0, _reactRouter.withRouter)(Newpost);
+	exports.default = Newpost;
 
 /***/ }),
 /* 265 */
@@ -29609,18 +29701,26 @@
 	  _createClass(EachPost, [{
 	    key: 'registerClick',
 	    value: function registerClick() {
+	      var _this2 = this;
+	
 	      if (confirm("If you register for this session, 1000 won will be deducted from your account. Do you really want to proceed?") === true) {
-	        //logged in user balance update
-	        _axios2.default.put('http://localhost:8000/api/updateUserBalance').then(function (res) {
-	          console.log("logged in user's balance has been updated");
-	        }).catch(function (err) {
-	          return console.log('Logged in user balance update error');
-	        });
-	        //post owner balance update
-	        _axios2.default.put('http://localhost:8000/api/updatePostOwnerBalance', { email: this.state.selectedPostOwnerEmail }).then(function (res) {
-	          alert('You have been registered!');
-	        }).catch(function (err) {
-	          return console.log('Post owner balance update error');
+	        _axios2.default.get('http://localhost:8000/api/getUser').then(function (res) {
+	          // if (res.data.balance >= 1000) {
+	          //logged in user balance update
+	          _axios2.default.put('http://localhost:8000/api/updateUserBalance').then(function (res) {
+	            console.log("logged in user's balance has been updated");
+	          }).catch(function (err) {
+	            return console.log('Logged in user balance update error');
+	          });
+	          //post owner balance update
+	          _axios2.default.put('http://localhost:8000/api/updatePostOwnerBalance', { email: _this2.state.selectedPostOwnerEmail }).then(function (res) {
+	            alert('You have been registered!');
+	          }).catch(function (err) {
+	            return console.log('Post owner balance update error');
+	          });
+	          // } else {
+	          //   alert("돈없다 충전해라");
+	          // }
 	        });
 	      }
 	    }
@@ -29635,11 +29735,11 @@
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this2 = this;
+	      var _this3 = this;
 	
 	      _axios2.default.get('http://localhost:8000/api/posts/' + this.props.match.params.number).then(function (res) {
 	        console.log(res.data);
-	        _this2.setState({
+	        _this3.setState({
 	          selectedPost: res.data,
 	          selectedPostOwnerEmail: res.data.email
 	        });
@@ -29656,7 +29756,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this3 = this;
+	      var _this4 = this;
 	
 	      return !this.state.selectedPost ? _react2.default.createElement('div', null) : _react2.default.createElement(
 	        'div',
@@ -29676,7 +29776,7 @@
 	        _react2.default.createElement(
 	          'button',
 	          { type: 'button', id: 'register-button', onClick: function onClick() {
-	              return _this3.registerClick();
+	              return _this4.registerClick();
 	            } },
 	          'Register'
 	        )

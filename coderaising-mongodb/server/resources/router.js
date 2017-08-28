@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const postController = require('./post/postController');
 const userController = require('./user/userController');
+const charityController = require('./charities/charityController');
 
 // route middleware to make sure a user is logged in
 const isLoggedIn = (req, res, next) => {
@@ -24,9 +25,11 @@ router.get('/loginStatus', (req, res) => {
 router.get('/allUsers', userController.retrieve);
 router.get('/profile', userController.loggedInUserRetrieve);
 router.get('/getUser', userController.loggedInUserRetrieve);
-// router.get('/getPostOwner', userController.postOwnerRetrieve);
-
 router.put('/updateUserBalance', userController.loggedInUserBalanceUpdate);
 router.put('/updatePostOwnerBalance', userController.postOwnerBalanceUpdate);
+
+router.get('/charities', charityController.retrieve);
+router.put('/updateCharityBalance', charityController.charityBalanceUpdate);
+
 
 module.exports = router;

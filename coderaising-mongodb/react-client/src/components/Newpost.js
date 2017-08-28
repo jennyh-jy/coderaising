@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { withRouter } from 'react-router';
 
 import isLoggedIn from '../isLoggedIn';
 
@@ -93,4 +92,4 @@ class Newpost extends React.Component {
   }
 };
 
-export default withRouter(Newpost);
+export default Newpost;
