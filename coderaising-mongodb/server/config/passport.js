@@ -40,11 +40,14 @@ module.exports = (passport) => {
           // if the user isnt in our database, create a new user
           const newUser = new User();
           // set all of the relevant information
+          const newSize="150"
+          const originalImg = profile.photos[0].value;
+          const biggerImg = originalImg.split("?sz=50")[0]+"?sz="+newSize;
           newUser.google.id = profile.id;
           newUser.google.token = token;
           newUser.google.name = profile.displayName;
           newUser.google.email = profile.emails[0].value; // pull the first emai
-          newUser.google.imageUrl = profile.photos[0].value;
+          newUser.google.imageUrl = biggerImg;
 
           // save the user
           newUser.save((err) => {

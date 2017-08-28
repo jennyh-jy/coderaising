@@ -57,15 +57,21 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	__webpack_require__(/*! ./styles.css */ 224);
+	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 190);
 	
-	var _MainRouter = __webpack_require__(/*! ./components/MainRouter */ 229);
+	__webpack_require__(/*! ./styles.css */ 184);
+	
+	var _MainRouter = __webpack_require__(/*! ./components/MainRouter */ 189);
 	
 	var _MainRouter2 = _interopRequireDefault(_MainRouter);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_reactDom2.default.render(_react2.default.createElement(_MainRouter2.default, null), document.getElementById('app'));
+	_reactDom2.default.render(_react2.default.createElement(
+	  _reactRouterDom.BrowserRouter,
+	  null,
+	  _react2.default.createElement(_MainRouter2.default, null)
+	), document.getElementById('app'));
 
 /***/ }),
 /* 1 */
@@ -22743,6 +22749,754 @@
 /***/ }),
 /* 184 */
 /*!*************************************!*\
+  !*** ./react-client/src/styles.css ***!
+  \*************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !../../~/css-loader!./styles.css */ 185);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// Prepare cssTransformation
+	var transform;
+	
+	var options = {}
+	options.transform = transform
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ../../~/style-loader/lib/addStyles.js */ 187)(content, options);
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../node_modules/css-loader/index.js!./styles.css", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!./styles.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 185 */
+/*!****************************************************!*\
+  !*** ./~/css-loader!./react-client/src/styles.css ***!
+  \****************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ../../~/css-loader/lib/css-base.js */ 186)(undefined);
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "body, html{\n  height:100%;\n}\nbody{\n  margin: 30px;\n  background-size: 100% 100%;\n  font-family: 'Source Sans Pro', sans-serif;\n}\n\n/*hr{\n  border: none;\n}*/\n\na{\n  text-decoration: none;\n}\n\nbutton{\n  margin-left: 10px;\n}\n\nh3{\n  color: #454747;\n}\n\n#title{\n  font-size: 60px;\n}\n\n#create-button{\n  margin-left: 8px;\n  vertical-align: middle;\n}\n\n#link{\n  margin-top: 15px;\n  margin-bottom: 70px;\n  font-size: 13px;\n}\n\n#type-filtering{\n  font-size: 15px;\n}\n\n.pokemon{\n  margin: 40px 40px 40px 40px;\n}\n\n.image{\n  margin-bottom: 10px;\n}\n\n.name{\n  margin-right: 13px;\n  font-size: 14px;\n}\n\n.type{\n  margin-right: 13px;\n  font-size: 14px;\n}\n\n.imageURL{\n  margin-right: 8px;\n  font-size: 14px;\n}\n\n.making-new-pokemons-title{\n  margin-top: 70px;\n  margin-bottom: 20px;\n  font-size: 20px;\n}\n\n.number{\n  color: #949596;\n  font-size: 14px;\n}\n\n.types{\n  font-size: 12px;\n  font-weight: bold;\n}\n\n.grass{\n  color: #31af6e;\n}\n\n.poison{\n  color: #c06fdb;\n}\n\n.fire{\n  color: #f27f04;\n}\n\n.flying{\n  color: #03baf1;\n}\n\n.water{\n  color: #0c78b7;\n}\n\n.bug{\n  color: #087230;\n}\n\n.normal{\n  color: #616362;\n}\n\n.electric{\n  color: #a39801;\n}\n\n.ground{\n  color: #686106;\n}\n\n.fighting{\n  color: #aa370d;\n}\n\n.psychic{\n  color: #c151b4;\n}\n\n.rock{\n  color: #6d4d35;\n}\n\n.ice{\n  color: #0be0e0;\n}\n\n.ghost{\n  color: #5e5070;\n}\n\n.dragon{\n  color: #f46404;\n}\n", ""]);
+	
+	// exports
+
+
+/***/ }),
+/* 186 */
+/*!**************************************!*\
+  !*** ./~/css-loader/lib/css-base.js ***!
+  \**************************************/
+/***/ (function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function(useSourceMap) {
+		var list = [];
+	
+		// return the list of modules as css string
+		list.toString = function toString() {
+			return this.map(function (item) {
+				var content = cssWithMappingToString(item, useSourceMap);
+				if(item[2]) {
+					return "@media " + item[2] + "{" + content + "}";
+				} else {
+					return content;
+				}
+			}).join("");
+		};
+	
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+	
+	function cssWithMappingToString(item, useSourceMap) {
+		var content = item[1] || '';
+		var cssMapping = item[3];
+		if (!cssMapping) {
+			return content;
+		}
+	
+		if (useSourceMap && typeof btoa === 'function') {
+			var sourceMapping = toComment(cssMapping);
+			var sourceURLs = cssMapping.sources.map(function (source) {
+				return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+			});
+	
+			return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+		}
+	
+		return [content].join('\n');
+	}
+	
+	// Adapted from convert-source-map (MIT)
+	function toComment(sourceMap) {
+		// eslint-disable-next-line no-undef
+		var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+		var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+	
+		return '/*# ' + data + ' */';
+	}
+
+
+/***/ }),
+/* 187 */
+/*!*****************************************!*\
+  !*** ./~/style-loader/lib/addStyles.js ***!
+  \*****************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	
+	var stylesInDom = {};
+	
+	var	memoize = function (fn) {
+		var memo;
+	
+		return function () {
+			if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+			return memo;
+		};
+	};
+	
+	var isOldIE = memoize(function () {
+		// Test for IE <= 9 as proposed by Browserhacks
+		// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+		// Tests for existence of standard globals is to allow style-loader
+		// to operate correctly into non-standard environments
+		// @see https://github.com/webpack-contrib/style-loader/issues/177
+		return window && document && document.all && !window.atob;
+	});
+	
+	var getElement = (function (fn) {
+		var memo = {};
+	
+		return function(selector) {
+			if (typeof memo[selector] === "undefined") {
+				memo[selector] = fn.call(this, selector);
+			}
+	
+			return memo[selector]
+		};
+	})(function (target) {
+		return document.querySelector(target)
+	});
+	
+	var singleton = null;
+	var	singletonCounter = 0;
+	var	stylesInsertedAtTop = [];
+	
+	var	fixUrls = __webpack_require__(/*! ./urls */ 188);
+	
+	module.exports = function(list, options) {
+		if (true) {
+			if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+	
+		options = options || {};
+	
+		options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+	
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (!options.singleton) options.singleton = isOldIE();
+	
+		// By default, add <style> tags to the <head> element
+		if (!options.insertInto) options.insertInto = "head";
+	
+		// By default, add <style> tags to the bottom of the target
+		if (!options.insertAt) options.insertAt = "bottom";
+	
+		var styles = listToStyles(list, options);
+	
+		addStylesToDom(styles, options);
+	
+		return function update (newList) {
+			var mayRemove = [];
+	
+			for (var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+	
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+	
+			if(newList) {
+				var newStyles = listToStyles(newList, options);
+				addStylesToDom(newStyles, options);
+			}
+	
+			for (var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+	
+				if(domStyle.refs === 0) {
+					for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
+	
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	};
+	
+	function addStylesToDom (styles, options) {
+		for (var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+	
+			if(domStyle) {
+				domStyle.refs++;
+	
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+	
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+	
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+	
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+	
+	function listToStyles (list, options) {
+		var styles = [];
+		var newStyles = {};
+	
+		for (var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = options.base ? item[0] + options.base : item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+	
+			if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
+			else newStyles[id].parts.push(part);
+		}
+	
+		return styles;
+	}
+	
+	function insertStyleElement (options, style) {
+		var target = getElement(options.insertInto)
+	
+		if (!target) {
+			throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+		}
+	
+		var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+	
+		if (options.insertAt === "top") {
+			if (!lastStyleElementInsertedAtTop) {
+				target.insertBefore(style, target.firstChild);
+			} else if (lastStyleElementInsertedAtTop.nextSibling) {
+				target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				target.appendChild(style);
+			}
+			stylesInsertedAtTop.push(style);
+		} else if (options.insertAt === "bottom") {
+			target.appendChild(style);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+	
+	function removeStyleElement (style) {
+		if (style.parentNode === null) return false;
+		style.parentNode.removeChild(style);
+	
+		var idx = stylesInsertedAtTop.indexOf(style);
+		if(idx >= 0) {
+			stylesInsertedAtTop.splice(idx, 1);
+		}
+	}
+	
+	function createStyleElement (options) {
+		var style = document.createElement("style");
+	
+		options.attrs.type = "text/css";
+	
+		addAttrs(style, options.attrs);
+		insertStyleElement(options, style);
+	
+		return style;
+	}
+	
+	function createLinkElement (options) {
+		var link = document.createElement("link");
+	
+		options.attrs.type = "text/css";
+		options.attrs.rel = "stylesheet";
+	
+		addAttrs(link, options.attrs);
+		insertStyleElement(options, link);
+	
+		return link;
+	}
+	
+	function addAttrs (el, attrs) {
+		Object.keys(attrs).forEach(function (key) {
+			el.setAttribute(key, attrs[key]);
+		});
+	}
+	
+	function addStyle (obj, options) {
+		var style, update, remove, result;
+	
+		// If a transform function was defined, run it on the css
+		if (options.transform && obj.css) {
+		    result = options.transform(obj.css);
+	
+		    if (result) {
+		    	// If transform returns a value, use that instead of the original css.
+		    	// This allows running runtime transformations on the css.
+		    	obj.css = result;
+		    } else {
+		    	// If the transform function returns a falsy value, don't add this css.
+		    	// This allows conditional loading of css
+		    	return function() {
+		    		// noop
+		    	};
+		    }
+		}
+	
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+	
+			style = singleton || (singleton = createStyleElement(options));
+	
+			update = applyToSingletonTag.bind(null, style, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+	
+		} else if (
+			obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function"
+		) {
+			style = createLinkElement(options);
+			update = updateLink.bind(null, style, options);
+			remove = function () {
+				removeStyleElement(style);
+	
+				if(style.href) URL.revokeObjectURL(style.href);
+			};
+		} else {
+			style = createStyleElement(options);
+			update = applyToTag.bind(null, style);
+			remove = function () {
+				removeStyleElement(style);
+			};
+		}
+	
+		update(obj);
+	
+		return function updateStyle (newObj) {
+			if (newObj) {
+				if (
+					newObj.css === obj.css &&
+					newObj.media === obj.media &&
+					newObj.sourceMap === obj.sourceMap
+				) {
+					return;
+				}
+	
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+	
+	var replaceText = (function () {
+		var textStore = [];
+	
+		return function (index, replacement) {
+			textStore[index] = replacement;
+	
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+	
+	function applyToSingletonTag (style, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+	
+		if (style.styleSheet) {
+			style.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = style.childNodes;
+	
+			if (childNodes[index]) style.removeChild(childNodes[index]);
+	
+			if (childNodes.length) {
+				style.insertBefore(cssNode, childNodes[index]);
+			} else {
+				style.appendChild(cssNode);
+			}
+		}
+	}
+	
+	function applyToTag (style, obj) {
+		var css = obj.css;
+		var media = obj.media;
+	
+		if(media) {
+			style.setAttribute("media", media)
+		}
+	
+		if(style.styleSheet) {
+			style.styleSheet.cssText = css;
+		} else {
+			while(style.firstChild) {
+				style.removeChild(style.firstChild);
+			}
+	
+			style.appendChild(document.createTextNode(css));
+		}
+	}
+	
+	function updateLink (link, options, obj) {
+		var css = obj.css;
+		var sourceMap = obj.sourceMap;
+	
+		/*
+			If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+			and there is no publicPath defined then lets turn convertToAbsoluteUrls
+			on by default.  Otherwise default to the convertToAbsoluteUrls option
+			directly
+		*/
+		var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+	
+		if (options.convertToAbsoluteUrls || autoFixUrls) {
+			css = fixUrls(css);
+		}
+	
+		if (sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+	
+		var blob = new Blob([css], { type: "text/css" });
+	
+		var oldSrc = link.href;
+	
+		link.href = URL.createObjectURL(blob);
+	
+		if(oldSrc) URL.revokeObjectURL(oldSrc);
+	}
+
+
+/***/ }),
+/* 188 */
+/*!************************************!*\
+  !*** ./~/style-loader/lib/urls.js ***!
+  \************************************/
+/***/ (function(module, exports) {
+
+	
+	/**
+	 * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+	 * embed the css on the page. This breaks all relative urls because now they are relative to a
+	 * bundle instead of the current page.
+	 *
+	 * One solution is to only use full urls, but that may be impossible.
+	 *
+	 * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+	 *
+	 * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+	 *
+	 */
+	
+	module.exports = function (css) {
+	  // get current location
+	  var location = typeof window !== "undefined" && window.location;
+	
+	  if (!location) {
+	    throw new Error("fixUrls requires window.location");
+	  }
+	
+		// blank or null?
+		if (!css || typeof css !== "string") {
+		  return css;
+	  }
+	
+	  var baseUrl = location.protocol + "//" + location.host;
+	  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+	
+		// convert each url(...)
+		/*
+		This regular expression is just a way to recursively match brackets within
+		a string.
+	
+		 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+		   (  = Start a capturing group
+		     (?:  = Start a non-capturing group
+		         [^)(]  = Match anything that isn't a parentheses
+		         |  = OR
+		         \(  = Match a start parentheses
+		             (?:  = Start another non-capturing groups
+		                 [^)(]+  = Match anything that isn't a parentheses
+		                 |  = OR
+		                 \(  = Match a start parentheses
+		                     [^)(]*  = Match anything that isn't a parentheses
+		                 \)  = Match a end parentheses
+		             )  = End Group
+	              *\) = Match anything and then a close parens
+	          )  = Close non-capturing group
+	          *  = Match anything
+	       )  = Close capturing group
+		 \)  = Match a close parens
+	
+		 /gi  = Get all matches, not the first.  Be case insensitive.
+		 */
+		var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+			// strip quotes (if they exist)
+			var unquotedOrigUrl = origUrl
+				.trim()
+				.replace(/^"(.*)"$/, function(o, $1){ return $1; })
+				.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+	
+			// already a full url? no change
+			if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
+			  return fullMatch;
+			}
+	
+			// convert the url to a full url
+			var newUrl;
+	
+			if (unquotedOrigUrl.indexOf("//") === 0) {
+			  	//TODO: should we add protocol?
+				newUrl = unquotedOrigUrl;
+			} else if (unquotedOrigUrl.indexOf("/") === 0) {
+				// path should be relative to the base url
+				newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+			} else {
+				// path should be relative to current directory
+				newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+			}
+	
+			// send back the fixed url(...)
+			return "url(" + JSON.stringify(newUrl) + ")";
+		});
+	
+		// send back the fixed css
+		return fixedCss;
+	};
+
+
+/***/ }),
+/* 189 */
+/*!***************************************************!*\
+  !*** ./react-client/src/components/MainRouter.js ***!
+  \***************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 190);
+	
+	var _axios = __webpack_require__(/*! axios */ 230);
+	
+	var _axios2 = _interopRequireDefault(_axios);
+	
+	var _Header = __webpack_require__(/*! ./Header */ 256);
+	
+	var _Header2 = _interopRequireDefault(_Header);
+	
+	var _App = __webpack_require__(/*! ./App */ 257);
+	
+	var _App2 = _interopRequireDefault(_App);
+	
+	var _Posts = __webpack_require__(/*! ./Posts */ 258);
+	
+	var _Posts2 = _interopRequireDefault(_Posts);
+	
+	var _Charities = __webpack_require__(/*! ./Charities */ 259);
+	
+	var _Charities2 = _interopRequireDefault(_Charities);
+	
+	var _Login = __webpack_require__(/*! ./Login */ 260);
+	
+	var _Login2 = _interopRequireDefault(_Login);
+	
+	var _Signup = __webpack_require__(/*! ./Signup */ 262);
+	
+	var _Signup2 = _interopRequireDefault(_Signup);
+	
+	var _Profile = __webpack_require__(/*! ./Profile */ 263);
+	
+	var _Profile2 = _interopRequireDefault(_Profile);
+	
+	var _Newpost = __webpack_require__(/*! ./Newpost */ 264);
+	
+	var _Newpost2 = _interopRequireDefault(_Newpost);
+	
+	var _EachPost = __webpack_require__(/*! ./EachPost */ 266);
+	
+	var _EachPost2 = _interopRequireDefault(_EachPost);
+	
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 265);
+	
+	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var MainRouter = function (_React$Component) {
+	  _inherits(MainRouter, _React$Component);
+	
+	  function MainRouter(props) {
+	    _classCallCheck(this, MainRouter);
+	
+	    var _this = _possibleConstructorReturn(this, (MainRouter.__proto__ || Object.getPrototypeOf(MainRouter)).call(this, props));
+	
+	    _this.state = {
+	      isLoading: true,
+	      isLoggedIn: (0, _isLoggedIn2.default)()
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(MainRouter, [{
+	    key: 'logoutClick',
+	    value: function logoutClick() {
+	      var _this2 = this;
+	
+	      _axios2.default.get('http://localhost:8000/logout').then(function (res) {
+	        alert('byebye');
+	      }).then(function () {
+	        _this2.setState({
+	          isLoggedIn: !_this2.state.isLoggedIn
+	        });
+	      }).catch(function (err) {
+	        console.log(err);
+	      });
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this3 = this;
+	
+	      _axios2.default.get('http://localhost:8000/api/loginStatus').then(function (res) {
+	        var isLoggedIn = res.data.isLoggedIn; // default: {isLoggedIn: false}
+	
+	        console.log(res.data);
+	        if (isLoggedIn) {
+	          (0, _isLoggedIn.setLoggedIn)();
+	        }
+	        _this3.setState({
+	          isLoading: false,
+	          isLoggedIn: isLoggedIn
+	        });
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      if (this.state.isLoading) {
+	        return _react2.default.createElement('div', null);
+	      }
+	      return _react2.default.createElement(
+	        _reactRouterDom.BrowserRouter,
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(_Header2.default, { loginStatus: this.state.isLoggedIn, logoutClick: this.logoutClick.bind(this) }),
+	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _App2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/posts', component: _Posts2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/posts/:number', component: _EachPost2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/newpost', component: _Newpost2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/charities', component: _Charities2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/signup', component: _Signup2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: '/profile', component: _Profile2.default })
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return MainRouter;
+	}(_react2.default.Component);
+	
+	exports.default = (0, _reactRouterDom.withRouter)(MainRouter);
+
+/***/ }),
+/* 190 */
+/*!*************************************!*\
   !*** ./~/react-router-dom/index.js ***!
   \*************************************/
 /***/ (function(module, exports, __webpack_require__) {
@@ -22752,55 +23506,55 @@
 	exports.__esModule = true;
 	exports.withRouter = exports.matchPath = exports.Switch = exports.StaticRouter = exports.Router = exports.Route = exports.Redirect = exports.Prompt = exports.NavLink = exports.MemoryRouter = exports.Link = exports.HashRouter = exports.BrowserRouter = undefined;
 	
-	var _BrowserRouter2 = __webpack_require__(/*! ./BrowserRouter */ 185);
+	var _BrowserRouter2 = __webpack_require__(/*! ./BrowserRouter */ 191);
 	
 	var _BrowserRouter3 = _interopRequireDefault(_BrowserRouter2);
 	
-	var _HashRouter2 = __webpack_require__(/*! ./HashRouter */ 211);
+	var _HashRouter2 = __webpack_require__(/*! ./HashRouter */ 217);
 	
 	var _HashRouter3 = _interopRequireDefault(_HashRouter2);
 	
-	var _Link2 = __webpack_require__(/*! ./Link */ 213);
+	var _Link2 = __webpack_require__(/*! ./Link */ 219);
 	
 	var _Link3 = _interopRequireDefault(_Link2);
 	
-	var _MemoryRouter2 = __webpack_require__(/*! ./MemoryRouter */ 214);
+	var _MemoryRouter2 = __webpack_require__(/*! ./MemoryRouter */ 220);
 	
 	var _MemoryRouter3 = _interopRequireDefault(_MemoryRouter2);
 	
-	var _NavLink2 = __webpack_require__(/*! ./NavLink */ 215);
+	var _NavLink2 = __webpack_require__(/*! ./NavLink */ 221);
 	
 	var _NavLink3 = _interopRequireDefault(_NavLink2);
 	
-	var _Prompt2 = __webpack_require__(/*! ./Prompt */ 216);
+	var _Prompt2 = __webpack_require__(/*! ./Prompt */ 222);
 	
 	var _Prompt3 = _interopRequireDefault(_Prompt2);
 	
-	var _Redirect2 = __webpack_require__(/*! ./Redirect */ 217);
+	var _Redirect2 = __webpack_require__(/*! ./Redirect */ 223);
 	
 	var _Redirect3 = _interopRequireDefault(_Redirect2);
 	
-	var _Route2 = __webpack_require__(/*! ./Route */ 218);
+	var _Route2 = __webpack_require__(/*! ./Route */ 224);
 	
 	var _Route3 = _interopRequireDefault(_Route2);
 	
-	var _Router2 = __webpack_require__(/*! ./Router */ 219);
+	var _Router2 = __webpack_require__(/*! ./Router */ 225);
 	
 	var _Router3 = _interopRequireDefault(_Router2);
 	
-	var _StaticRouter2 = __webpack_require__(/*! ./StaticRouter */ 220);
+	var _StaticRouter2 = __webpack_require__(/*! ./StaticRouter */ 226);
 	
 	var _StaticRouter3 = _interopRequireDefault(_StaticRouter2);
 	
-	var _Switch2 = __webpack_require__(/*! ./Switch */ 221);
+	var _Switch2 = __webpack_require__(/*! ./Switch */ 227);
 	
 	var _Switch3 = _interopRequireDefault(_Switch2);
 	
-	var _matchPath2 = __webpack_require__(/*! ./matchPath */ 222);
+	var _matchPath2 = __webpack_require__(/*! ./matchPath */ 228);
 	
 	var _matchPath3 = _interopRequireDefault(_matchPath2);
 	
-	var _withRouter2 = __webpack_require__(/*! ./withRouter */ 223);
+	var _withRouter2 = __webpack_require__(/*! ./withRouter */ 229);
 	
 	var _withRouter3 = _interopRequireDefault(_withRouter2);
 	
@@ -22821,7 +23575,7 @@
 	exports.withRouter = _withRouter3.default;
 
 /***/ }),
-/* 185 */
+/* 191 */
 /*!*********************************************!*\
   !*** ./~/react-router-dom/BrowserRouter.js ***!
   \*********************************************/
@@ -22835,15 +23589,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _propTypes = __webpack_require__(/*! prop-types */ 186);
+	var _propTypes = __webpack_require__(/*! prop-types */ 192);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _createBrowserHistory = __webpack_require__(/*! history/createBrowserHistory */ 188);
+	var _createBrowserHistory = __webpack_require__(/*! history/createBrowserHistory */ 194);
 	
 	var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
 	
-	var _reactRouter = __webpack_require__(/*! react-router */ 197);
+	var _reactRouter = __webpack_require__(/*! react-router */ 203);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22888,7 +23642,7 @@
 	exports.default = BrowserRouter;
 
 /***/ }),
-/* 186 */
+/* 192 */
 /*!*******************************!*\
   !*** ./~/prop-types/index.js ***!
   \*******************************/
@@ -22922,13 +23676,13 @@
 	} else {
 	  // By explicitly using `prop-types` you are opting into new production behavior.
 	  // http://fb.me/prop-types-in-prod
-	  module.exports = __webpack_require__(/*! ./factoryWithThrowingShims */ 187)();
+	  module.exports = __webpack_require__(/*! ./factoryWithThrowingShims */ 193)();
 	}
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../process/browser.js */ 3)))
 
 /***/ }),
-/* 187 */
+/* 193 */
 /*!**************************************************!*\
   !*** ./~/prop-types/factoryWithThrowingShims.js ***!
   \**************************************************/
@@ -22996,7 +23750,7 @@
 
 
 /***/ }),
-/* 188 */
+/* 194 */
 /*!*******************************************!*\
   !*** ./~/history/createBrowserHistory.js ***!
   \*******************************************/
@@ -23010,23 +23764,23 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _warning = __webpack_require__(/*! warning */ 189);
+	var _warning = __webpack_require__(/*! warning */ 195);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
-	var _invariant = __webpack_require__(/*! invariant */ 190);
+	var _invariant = __webpack_require__(/*! invariant */ 196);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _LocationUtils = __webpack_require__(/*! ./LocationUtils */ 191);
+	var _LocationUtils = __webpack_require__(/*! ./LocationUtils */ 197);
 	
-	var _PathUtils = __webpack_require__(/*! ./PathUtils */ 194);
+	var _PathUtils = __webpack_require__(/*! ./PathUtils */ 200);
 	
-	var _createTransitionManager = __webpack_require__(/*! ./createTransitionManager */ 195);
+	var _createTransitionManager = __webpack_require__(/*! ./createTransitionManager */ 201);
 	
 	var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 	
-	var _DOMUtils = __webpack_require__(/*! ./DOMUtils */ 196);
+	var _DOMUtils = __webpack_require__(/*! ./DOMUtils */ 202);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -23311,7 +24065,7 @@
 	exports.default = createBrowserHistory;
 
 /***/ }),
-/* 189 */
+/* 195 */
 /*!******************************!*\
   !*** ./~/warning/browser.js ***!
   \******************************/
@@ -23381,7 +24135,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../process/browser.js */ 3)))
 
 /***/ }),
-/* 190 */
+/* 196 */
 /*!********************************!*\
   !*** ./~/invariant/browser.js ***!
   \********************************/
@@ -23442,7 +24196,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../process/browser.js */ 3)))
 
 /***/ }),
-/* 191 */
+/* 197 */
 /*!************************************!*\
   !*** ./~/history/LocationUtils.js ***!
   \************************************/
@@ -23455,15 +24209,15 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _resolvePathname = __webpack_require__(/*! resolve-pathname */ 192);
+	var _resolvePathname = __webpack_require__(/*! resolve-pathname */ 198);
 	
 	var _resolvePathname2 = _interopRequireDefault(_resolvePathname);
 	
-	var _valueEqual = __webpack_require__(/*! value-equal */ 193);
+	var _valueEqual = __webpack_require__(/*! value-equal */ 199);
 	
 	var _valueEqual2 = _interopRequireDefault(_valueEqual);
 	
-	var _PathUtils = __webpack_require__(/*! ./PathUtils */ 194);
+	var _PathUtils = __webpack_require__(/*! ./PathUtils */ 200);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -23528,7 +24282,7 @@
 	};
 
 /***/ }),
-/* 192 */
+/* 198 */
 /*!*************************************!*\
   !*** ./~/resolve-pathname/index.js ***!
   \*************************************/
@@ -23606,7 +24360,7 @@
 	module.exports = resolvePathname;
 
 /***/ }),
-/* 193 */
+/* 199 */
 /*!********************************!*\
   !*** ./~/value-equal/index.js ***!
   \********************************/
@@ -23654,7 +24408,7 @@
 	exports.default = valueEqual;
 
 /***/ }),
-/* 194 */
+/* 200 */
 /*!********************************!*\
   !*** ./~/history/PathUtils.js ***!
   \********************************/
@@ -23723,7 +24477,7 @@
 	};
 
 /***/ }),
-/* 195 */
+/* 201 */
 /*!**********************************************!*\
   !*** ./~/history/createTransitionManager.js ***!
   \**********************************************/
@@ -23733,7 +24487,7 @@
 	
 	exports.__esModule = true;
 	
-	var _warning = __webpack_require__(/*! warning */ 189);
+	var _warning = __webpack_require__(/*! warning */ 195);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -23816,7 +24570,7 @@
 	exports.default = createTransitionManager;
 
 /***/ }),
-/* 196 */
+/* 202 */
 /*!*******************************!*\
   !*** ./~/history/DOMUtils.js ***!
   \*******************************/
@@ -23879,7 +24633,7 @@
 	};
 
 /***/ }),
-/* 197 */
+/* 203 */
 /*!*********************************!*\
   !*** ./~/react-router/index.js ***!
   \*********************************/
@@ -23890,39 +24644,39 @@
 	exports.__esModule = true;
 	exports.withRouter = exports.matchPath = exports.Switch = exports.StaticRouter = exports.Router = exports.Route = exports.Redirect = exports.Prompt = exports.MemoryRouter = undefined;
 	
-	var _MemoryRouter2 = __webpack_require__(/*! ./MemoryRouter */ 198);
+	var _MemoryRouter2 = __webpack_require__(/*! ./MemoryRouter */ 204);
 	
 	var _MemoryRouter3 = _interopRequireDefault(_MemoryRouter2);
 	
-	var _Prompt2 = __webpack_require__(/*! ./Prompt */ 201);
+	var _Prompt2 = __webpack_require__(/*! ./Prompt */ 207);
 	
 	var _Prompt3 = _interopRequireDefault(_Prompt2);
 	
-	var _Redirect2 = __webpack_require__(/*! ./Redirect */ 202);
+	var _Redirect2 = __webpack_require__(/*! ./Redirect */ 208);
 	
 	var _Redirect3 = _interopRequireDefault(_Redirect2);
 	
-	var _Route2 = __webpack_require__(/*! ./Route */ 203);
+	var _Route2 = __webpack_require__(/*! ./Route */ 209);
 	
 	var _Route3 = _interopRequireDefault(_Route2);
 	
-	var _Router2 = __webpack_require__(/*! ./Router */ 200);
+	var _Router2 = __webpack_require__(/*! ./Router */ 206);
 	
 	var _Router3 = _interopRequireDefault(_Router2);
 	
-	var _StaticRouter2 = __webpack_require__(/*! ./StaticRouter */ 207);
+	var _StaticRouter2 = __webpack_require__(/*! ./StaticRouter */ 213);
 	
 	var _StaticRouter3 = _interopRequireDefault(_StaticRouter2);
 	
-	var _Switch2 = __webpack_require__(/*! ./Switch */ 208);
+	var _Switch2 = __webpack_require__(/*! ./Switch */ 214);
 	
 	var _Switch3 = _interopRequireDefault(_Switch2);
 	
-	var _matchPath2 = __webpack_require__(/*! ./matchPath */ 204);
+	var _matchPath2 = __webpack_require__(/*! ./matchPath */ 210);
 	
 	var _matchPath3 = _interopRequireDefault(_matchPath2);
 	
-	var _withRouter2 = __webpack_require__(/*! ./withRouter */ 209);
+	var _withRouter2 = __webpack_require__(/*! ./withRouter */ 215);
 	
 	var _withRouter3 = _interopRequireDefault(_withRouter2);
 	
@@ -23939,7 +24693,7 @@
 	exports.withRouter = _withRouter3.default;
 
 /***/ }),
-/* 198 */
+/* 204 */
 /*!****************************************!*\
   !*** ./~/react-router/MemoryRouter.js ***!
   \****************************************/
@@ -23953,15 +24707,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _propTypes = __webpack_require__(/*! prop-types */ 186);
+	var _propTypes = __webpack_require__(/*! prop-types */ 192);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _createMemoryHistory = __webpack_require__(/*! history/createMemoryHistory */ 199);
+	var _createMemoryHistory = __webpack_require__(/*! history/createMemoryHistory */ 205);
 	
 	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
 	
-	var _Router = __webpack_require__(/*! ./Router */ 200);
+	var _Router = __webpack_require__(/*! ./Router */ 206);
 	
 	var _Router2 = _interopRequireDefault(_Router);
 	
@@ -24008,7 +24762,7 @@
 	exports.default = MemoryRouter;
 
 /***/ }),
-/* 199 */
+/* 205 */
 /*!******************************************!*\
   !*** ./~/history/createMemoryHistory.js ***!
   \******************************************/
@@ -24022,15 +24776,15 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _warning = __webpack_require__(/*! warning */ 189);
+	var _warning = __webpack_require__(/*! warning */ 195);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
-	var _PathUtils = __webpack_require__(/*! ./PathUtils */ 194);
+	var _PathUtils = __webpack_require__(/*! ./PathUtils */ 200);
 	
-	var _LocationUtils = __webpack_require__(/*! ./LocationUtils */ 191);
+	var _LocationUtils = __webpack_require__(/*! ./LocationUtils */ 197);
 	
-	var _createTransitionManager = __webpack_require__(/*! ./createTransitionManager */ 195);
+	var _createTransitionManager = __webpack_require__(/*! ./createTransitionManager */ 201);
 	
 	var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 	
@@ -24186,7 +24940,7 @@
 	exports.default = createMemoryHistory;
 
 /***/ }),
-/* 200 */
+/* 206 */
 /*!**********************************!*\
   !*** ./~/react-router/Router.js ***!
   \**********************************/
@@ -24198,11 +24952,11 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _warning = __webpack_require__(/*! warning */ 189);
+	var _warning = __webpack_require__(/*! warning */ 195);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
-	var _invariant = __webpack_require__(/*! invariant */ 190);
+	var _invariant = __webpack_require__(/*! invariant */ 196);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
@@ -24210,7 +24964,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _propTypes = __webpack_require__(/*! prop-types */ 186);
+	var _propTypes = __webpack_require__(/*! prop-types */ 192);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
@@ -24313,7 +25067,7 @@
 	exports.default = Router;
 
 /***/ }),
-/* 201 */
+/* 207 */
 /*!**********************************!*\
   !*** ./~/react-router/Prompt.js ***!
   \**********************************/
@@ -24327,7 +25081,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _propTypes = __webpack_require__(/*! prop-types */ 186);
+	var _propTypes = __webpack_require__(/*! prop-types */ 192);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
@@ -24405,7 +25159,7 @@
 	exports.default = Prompt;
 
 /***/ }),
-/* 202 */
+/* 208 */
 /*!************************************!*\
   !*** ./~/react-router/Redirect.js ***!
   \************************************/
@@ -24419,7 +25173,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _propTypes = __webpack_require__(/*! prop-types */ 186);
+	var _propTypes = __webpack_require__(/*! prop-types */ 192);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
@@ -24497,7 +25251,7 @@
 	exports.default = Redirect;
 
 /***/ }),
-/* 203 */
+/* 209 */
 /*!*********************************!*\
   !*** ./~/react-router/Route.js ***!
   \*********************************/
@@ -24509,7 +25263,7 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _warning = __webpack_require__(/*! warning */ 189);
+	var _warning = __webpack_require__(/*! warning */ 195);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -24517,11 +25271,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _propTypes = __webpack_require__(/*! prop-types */ 186);
+	var _propTypes = __webpack_require__(/*! prop-types */ 192);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _matchPath = __webpack_require__(/*! ./matchPath */ 204);
+	var _matchPath = __webpack_require__(/*! ./matchPath */ 210);
 	
 	var _matchPath2 = _interopRequireDefault(_matchPath);
 	
@@ -24650,7 +25404,7 @@
 	exports.default = Route;
 
 /***/ }),
-/* 204 */
+/* 210 */
 /*!*************************************!*\
   !*** ./~/react-router/matchPath.js ***!
   \*************************************/
@@ -24660,7 +25414,7 @@
 	
 	exports.__esModule = true;
 	
-	var _pathToRegexp = __webpack_require__(/*! path-to-regexp */ 205);
+	var _pathToRegexp = __webpack_require__(/*! path-to-regexp */ 211);
 	
 	var _pathToRegexp2 = _interopRequireDefault(_pathToRegexp);
 	
@@ -24733,13 +25487,13 @@
 	exports.default = matchPath;
 
 /***/ }),
-/* 205 */
+/* 211 */
 /*!**************************************************!*\
   !*** ./~/react-router/~/path-to-regexp/index.js ***!
   \**************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	var isarray = __webpack_require__(/*! isarray */ 206)
+	var isarray = __webpack_require__(/*! isarray */ 212)
 	
 	/**
 	 * Expose `pathToRegexp`.
@@ -25168,7 +25922,7 @@
 
 
 /***/ }),
-/* 206 */
+/* 212 */
 /*!*******************************************!*\
   !*** ./~/react-router/~/isarray/index.js ***!
   \*******************************************/
@@ -25180,7 +25934,7 @@
 
 
 /***/ }),
-/* 207 */
+/* 213 */
 /*!****************************************!*\
   !*** ./~/react-router/StaticRouter.js ***!
   \****************************************/
@@ -25192,7 +25946,7 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _invariant = __webpack_require__(/*! invariant */ 190);
+	var _invariant = __webpack_require__(/*! invariant */ 196);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
@@ -25200,13 +25954,13 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _propTypes = __webpack_require__(/*! prop-types */ 186);
+	var _propTypes = __webpack_require__(/*! prop-types */ 192);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _PathUtils = __webpack_require__(/*! history/PathUtils */ 194);
+	var _PathUtils = __webpack_require__(/*! history/PathUtils */ 200);
 	
-	var _Router = __webpack_require__(/*! ./Router */ 200);
+	var _Router = __webpack_require__(/*! ./Router */ 206);
 	
 	var _Router2 = _interopRequireDefault(_Router);
 	
@@ -25365,7 +26119,7 @@
 	exports.default = StaticRouter;
 
 /***/ }),
-/* 208 */
+/* 214 */
 /*!**********************************!*\
   !*** ./~/react-router/Switch.js ***!
   \**********************************/
@@ -25379,15 +26133,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _propTypes = __webpack_require__(/*! prop-types */ 186);
+	var _propTypes = __webpack_require__(/*! prop-types */ 192);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _warning = __webpack_require__(/*! warning */ 189);
+	var _warning = __webpack_require__(/*! warning */ 195);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
-	var _matchPath = __webpack_require__(/*! ./matchPath */ 204);
+	var _matchPath = __webpack_require__(/*! ./matchPath */ 210);
 	
 	var _matchPath2 = _interopRequireDefault(_matchPath);
 	
@@ -25460,7 +26214,7 @@
 	exports.default = Switch;
 
 /***/ }),
-/* 209 */
+/* 215 */
 /*!**************************************!*\
   !*** ./~/react-router/withRouter.js ***!
   \**************************************/
@@ -25476,15 +26230,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _propTypes = __webpack_require__(/*! prop-types */ 186);
+	var _propTypes = __webpack_require__(/*! prop-types */ 192);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _hoistNonReactStatics = __webpack_require__(/*! hoist-non-react-statics */ 210);
+	var _hoistNonReactStatics = __webpack_require__(/*! hoist-non-react-statics */ 216);
 	
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 	
-	var _Route = __webpack_require__(/*! ./Route */ 203);
+	var _Route = __webpack_require__(/*! ./Route */ 209);
 	
 	var _Route2 = _interopRequireDefault(_Route);
 	
@@ -25517,7 +26271,7 @@
 	exports.default = withRouter;
 
 /***/ }),
-/* 210 */
+/* 216 */
 /*!********************************************!*\
   !*** ./~/hoist-non-react-statics/index.js ***!
   \********************************************/
@@ -25576,7 +26330,7 @@
 
 
 /***/ }),
-/* 211 */
+/* 217 */
 /*!******************************************!*\
   !*** ./~/react-router-dom/HashRouter.js ***!
   \******************************************/
@@ -25590,15 +26344,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _propTypes = __webpack_require__(/*! prop-types */ 186);
+	var _propTypes = __webpack_require__(/*! prop-types */ 192);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _createHashHistory = __webpack_require__(/*! history/createHashHistory */ 212);
+	var _createHashHistory = __webpack_require__(/*! history/createHashHistory */ 218);
 	
 	var _createHashHistory2 = _interopRequireDefault(_createHashHistory);
 	
-	var _reactRouter = __webpack_require__(/*! react-router */ 197);
+	var _reactRouter = __webpack_require__(/*! react-router */ 203);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -25642,7 +26396,7 @@
 	exports.default = HashRouter;
 
 /***/ }),
-/* 212 */
+/* 218 */
 /*!****************************************!*\
   !*** ./~/history/createHashHistory.js ***!
   \****************************************/
@@ -25654,23 +26408,23 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _warning = __webpack_require__(/*! warning */ 189);
+	var _warning = __webpack_require__(/*! warning */ 195);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
-	var _invariant = __webpack_require__(/*! invariant */ 190);
+	var _invariant = __webpack_require__(/*! invariant */ 196);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _LocationUtils = __webpack_require__(/*! ./LocationUtils */ 191);
+	var _LocationUtils = __webpack_require__(/*! ./LocationUtils */ 197);
 	
-	var _PathUtils = __webpack_require__(/*! ./PathUtils */ 194);
+	var _PathUtils = __webpack_require__(/*! ./PathUtils */ 200);
 	
-	var _createTransitionManager = __webpack_require__(/*! ./createTransitionManager */ 195);
+	var _createTransitionManager = __webpack_require__(/*! ./createTransitionManager */ 201);
 	
 	var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 	
-	var _DOMUtils = __webpack_require__(/*! ./DOMUtils */ 196);
+	var _DOMUtils = __webpack_require__(/*! ./DOMUtils */ 202);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -25974,7 +26728,7 @@
 	exports.default = createHashHistory;
 
 /***/ }),
-/* 213 */
+/* 219 */
 /*!************************************!*\
   !*** ./~/react-router-dom/Link.js ***!
   \************************************/
@@ -25990,7 +26744,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _propTypes = __webpack_require__(/*! prop-types */ 186);
+	var _propTypes = __webpack_require__(/*! prop-types */ 192);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
@@ -26084,7 +26838,7 @@
 	exports.default = Link;
 
 /***/ }),
-/* 214 */
+/* 220 */
 /*!********************************************!*\
   !*** ./~/react-router-dom/MemoryRouter.js ***!
   \********************************************/
@@ -26094,7 +26848,7 @@
 	
 	exports.__esModule = true;
 	
-	var _reactRouter = __webpack_require__(/*! react-router */ 197);
+	var _reactRouter = __webpack_require__(/*! react-router */ 203);
 	
 	Object.defineProperty(exports, 'default', {
 	  enumerable: true,
@@ -26104,7 +26858,7 @@
 	});
 
 /***/ }),
-/* 215 */
+/* 221 */
 /*!***************************************!*\
   !*** ./~/react-router-dom/NavLink.js ***!
   \***************************************/
@@ -26122,13 +26876,13 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _propTypes = __webpack_require__(/*! prop-types */ 186);
+	var _propTypes = __webpack_require__(/*! prop-types */ 192);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _reactRouter = __webpack_require__(/*! react-router */ 197);
+	var _reactRouter = __webpack_require__(/*! react-router */ 203);
 	
-	var _Link = __webpack_require__(/*! ./Link */ 213);
+	var _Link = __webpack_require__(/*! ./Link */ 219);
 	
 	var _Link2 = _interopRequireDefault(_Link);
 	
@@ -26192,7 +26946,7 @@
 	exports.default = NavLink;
 
 /***/ }),
-/* 216 */
+/* 222 */
 /*!**************************************!*\
   !*** ./~/react-router-dom/Prompt.js ***!
   \**************************************/
@@ -26202,7 +26956,7 @@
 	
 	exports.__esModule = true;
 	
-	var _reactRouter = __webpack_require__(/*! react-router */ 197);
+	var _reactRouter = __webpack_require__(/*! react-router */ 203);
 	
 	Object.defineProperty(exports, 'default', {
 	  enumerable: true,
@@ -26212,7 +26966,7 @@
 	});
 
 /***/ }),
-/* 217 */
+/* 223 */
 /*!****************************************!*\
   !*** ./~/react-router-dom/Redirect.js ***!
   \****************************************/
@@ -26222,7 +26976,7 @@
 	
 	exports.__esModule = true;
 	
-	var _reactRouter = __webpack_require__(/*! react-router */ 197);
+	var _reactRouter = __webpack_require__(/*! react-router */ 203);
 	
 	Object.defineProperty(exports, 'default', {
 	  enumerable: true,
@@ -26232,7 +26986,7 @@
 	});
 
 /***/ }),
-/* 218 */
+/* 224 */
 /*!*************************************!*\
   !*** ./~/react-router-dom/Route.js ***!
   \*************************************/
@@ -26242,7 +26996,7 @@
 	
 	exports.__esModule = true;
 	
-	var _reactRouter = __webpack_require__(/*! react-router */ 197);
+	var _reactRouter = __webpack_require__(/*! react-router */ 203);
 	
 	Object.defineProperty(exports, 'default', {
 	  enumerable: true,
@@ -26252,7 +27006,7 @@
 	});
 
 /***/ }),
-/* 219 */
+/* 225 */
 /*!**************************************!*\
   !*** ./~/react-router-dom/Router.js ***!
   \**************************************/
@@ -26262,7 +27016,7 @@
 	
 	exports.__esModule = true;
 	
-	var _reactRouter = __webpack_require__(/*! react-router */ 197);
+	var _reactRouter = __webpack_require__(/*! react-router */ 203);
 	
 	Object.defineProperty(exports, 'default', {
 	  enumerable: true,
@@ -26272,7 +27026,7 @@
 	});
 
 /***/ }),
-/* 220 */
+/* 226 */
 /*!********************************************!*\
   !*** ./~/react-router-dom/StaticRouter.js ***!
   \********************************************/
@@ -26282,7 +27036,7 @@
 	
 	exports.__esModule = true;
 	
-	var _reactRouter = __webpack_require__(/*! react-router */ 197);
+	var _reactRouter = __webpack_require__(/*! react-router */ 203);
 	
 	Object.defineProperty(exports, 'default', {
 	  enumerable: true,
@@ -26292,7 +27046,7 @@
 	});
 
 /***/ }),
-/* 221 */
+/* 227 */
 /*!**************************************!*\
   !*** ./~/react-router-dom/Switch.js ***!
   \**************************************/
@@ -26302,7 +27056,7 @@
 	
 	exports.__esModule = true;
 	
-	var _reactRouter = __webpack_require__(/*! react-router */ 197);
+	var _reactRouter = __webpack_require__(/*! react-router */ 203);
 	
 	Object.defineProperty(exports, 'default', {
 	  enumerable: true,
@@ -26312,7 +27066,7 @@
 	});
 
 /***/ }),
-/* 222 */
+/* 228 */
 /*!*****************************************!*\
   !*** ./~/react-router-dom/matchPath.js ***!
   \*****************************************/
@@ -26322,7 +27076,7 @@
 	
 	exports.__esModule = true;
 	
-	var _reactRouter = __webpack_require__(/*! react-router */ 197);
+	var _reactRouter = __webpack_require__(/*! react-router */ 203);
 	
 	Object.defineProperty(exports, 'default', {
 	  enumerable: true,
@@ -26332,7 +27086,7 @@
 	});
 
 /***/ }),
-/* 223 */
+/* 229 */
 /*!******************************************!*\
   !*** ./~/react-router-dom/withRouter.js ***!
   \******************************************/
@@ -26342,7 +27096,7 @@
 	
 	exports.__esModule = true;
 	
-	var _reactRouter = __webpack_require__(/*! react-router */ 197);
+	var _reactRouter = __webpack_require__(/*! react-router */ 203);
 	
 	Object.defineProperty(exports, 'default', {
 	  enumerable: true,
@@ -26350,754 +27104,6 @@
 	    return _reactRouter.withRouter;
 	  }
 	});
-
-/***/ }),
-/* 224 */
-/*!*************************************!*\
-  !*** ./react-client/src/styles.css ***!
-  \*************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(/*! !../../~/css-loader!./styles.css */ 225);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// Prepare cssTransformation
-	var transform;
-	
-	var options = {}
-	options.transform = transform
-	// add the styles to the DOM
-	var update = __webpack_require__(/*! ../../~/style-loader/lib/addStyles.js */ 227)(content, options);
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!../../node_modules/css-loader/index.js!./styles.css", function() {
-				var newContent = require("!!../../node_modules/css-loader/index.js!./styles.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ }),
-/* 225 */
-/*!****************************************************!*\
-  !*** ./~/css-loader!./react-client/src/styles.css ***!
-  \****************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(/*! ../../~/css-loader/lib/css-base.js */ 226)(undefined);
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "body, html{\n  height:100%;\n}\nbody{\n  margin: 30px;\n  background-size: 100% 100%;\n  font-family: 'Source Sans Pro', sans-serif;\n}\n\n/*hr{\n  border: none;\n}*/\n\na{\n  text-decoration: none;\n}\n\nbutton{\n  margin-left: 10px;\n}\n\nh3{\n  color: #454747;\n}\n\n#title{\n  font-size: 60px;\n}\n\n#create-button{\n  margin-left: 8px;\n  vertical-align: middle;\n}\n\n#link{\n  margin-top: 15px;\n  margin-bottom: 70px;\n  font-size: 13px;\n}\n\n#type-filtering{\n  font-size: 15px;\n}\n\n.pokemon{\n  margin: 40px 40px 40px 40px;\n}\n\n.image{\n  margin-bottom: 10px;\n}\n\n.name{\n  margin-right: 13px;\n  font-size: 14px;\n}\n\n.type{\n  margin-right: 13px;\n  font-size: 14px;\n}\n\n.imageURL{\n  margin-right: 8px;\n  font-size: 14px;\n}\n\n.making-new-pokemons-title{\n  margin-top: 70px;\n  margin-bottom: 20px;\n  font-size: 20px;\n}\n\n.number{\n  color: #949596;\n  font-size: 14px;\n}\n\n.types{\n  font-size: 12px;\n  font-weight: bold;\n}\n\n.grass{\n  color: #31af6e;\n}\n\n.poison{\n  color: #c06fdb;\n}\n\n.fire{\n  color: #f27f04;\n}\n\n.flying{\n  color: #03baf1;\n}\n\n.water{\n  color: #0c78b7;\n}\n\n.bug{\n  color: #087230;\n}\n\n.normal{\n  color: #616362;\n}\n\n.electric{\n  color: #a39801;\n}\n\n.ground{\n  color: #686106;\n}\n\n.fighting{\n  color: #aa370d;\n}\n\n.psychic{\n  color: #c151b4;\n}\n\n.rock{\n  color: #6d4d35;\n}\n\n.ice{\n  color: #0be0e0;\n}\n\n.ghost{\n  color: #5e5070;\n}\n\n.dragon{\n  color: #f46404;\n}\n", ""]);
-	
-	// exports
-
-
-/***/ }),
-/* 226 */
-/*!**************************************!*\
-  !*** ./~/css-loader/lib/css-base.js ***!
-  \**************************************/
-/***/ (function(module, exports) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function(useSourceMap) {
-		var list = [];
-	
-		// return the list of modules as css string
-		list.toString = function toString() {
-			return this.map(function (item) {
-				var content = cssWithMappingToString(item, useSourceMap);
-				if(item[2]) {
-					return "@media " + item[2] + "{" + content + "}";
-				} else {
-					return content;
-				}
-			}).join("");
-		};
-	
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-	
-	function cssWithMappingToString(item, useSourceMap) {
-		var content = item[1] || '';
-		var cssMapping = item[3];
-		if (!cssMapping) {
-			return content;
-		}
-	
-		if (useSourceMap && typeof btoa === 'function') {
-			var sourceMapping = toComment(cssMapping);
-			var sourceURLs = cssMapping.sources.map(function (source) {
-				return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-			});
-	
-			return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-		}
-	
-		return [content].join('\n');
-	}
-	
-	// Adapted from convert-source-map (MIT)
-	function toComment(sourceMap) {
-		// eslint-disable-next-line no-undef
-		var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-		var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-	
-		return '/*# ' + data + ' */';
-	}
-
-
-/***/ }),
-/* 227 */
-/*!*****************************************!*\
-  !*** ./~/style-loader/lib/addStyles.js ***!
-  \*****************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	
-	var stylesInDom = {};
-	
-	var	memoize = function (fn) {
-		var memo;
-	
-		return function () {
-			if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-			return memo;
-		};
-	};
-	
-	var isOldIE = memoize(function () {
-		// Test for IE <= 9 as proposed by Browserhacks
-		// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-		// Tests for existence of standard globals is to allow style-loader
-		// to operate correctly into non-standard environments
-		// @see https://github.com/webpack-contrib/style-loader/issues/177
-		return window && document && document.all && !window.atob;
-	});
-	
-	var getElement = (function (fn) {
-		var memo = {};
-	
-		return function(selector) {
-			if (typeof memo[selector] === "undefined") {
-				memo[selector] = fn.call(this, selector);
-			}
-	
-			return memo[selector]
-		};
-	})(function (target) {
-		return document.querySelector(target)
-	});
-	
-	var singleton = null;
-	var	singletonCounter = 0;
-	var	stylesInsertedAtTop = [];
-	
-	var	fixUrls = __webpack_require__(/*! ./urls */ 228);
-	
-	module.exports = function(list, options) {
-		if (true) {
-			if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-		}
-	
-		options = options || {};
-	
-		options.attrs = typeof options.attrs === "object" ? options.attrs : {};
-	
-		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-		// tags it will allow on a page
-		if (!options.singleton) options.singleton = isOldIE();
-	
-		// By default, add <style> tags to the <head> element
-		if (!options.insertInto) options.insertInto = "head";
-	
-		// By default, add <style> tags to the bottom of the target
-		if (!options.insertAt) options.insertAt = "bottom";
-	
-		var styles = listToStyles(list, options);
-	
-		addStylesToDom(styles, options);
-	
-		return function update (newList) {
-			var mayRemove = [];
-	
-			for (var i = 0; i < styles.length; i++) {
-				var item = styles[i];
-				var domStyle = stylesInDom[item.id];
-	
-				domStyle.refs--;
-				mayRemove.push(domStyle);
-			}
-	
-			if(newList) {
-				var newStyles = listToStyles(newList, options);
-				addStylesToDom(newStyles, options);
-			}
-	
-			for (var i = 0; i < mayRemove.length; i++) {
-				var domStyle = mayRemove[i];
-	
-				if(domStyle.refs === 0) {
-					for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
-	
-					delete stylesInDom[domStyle.id];
-				}
-			}
-		};
-	};
-	
-	function addStylesToDom (styles, options) {
-		for (var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-	
-			if(domStyle) {
-				domStyle.refs++;
-	
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-	
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-	
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-	
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
-	}
-	
-	function listToStyles (list, options) {
-		var styles = [];
-		var newStyles = {};
-	
-		for (var i = 0; i < list.length; i++) {
-			var item = list[i];
-			var id = options.base ? item[0] + options.base : item[0];
-			var css = item[1];
-			var media = item[2];
-			var sourceMap = item[3];
-			var part = {css: css, media: media, sourceMap: sourceMap};
-	
-			if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
-			else newStyles[id].parts.push(part);
-		}
-	
-		return styles;
-	}
-	
-	function insertStyleElement (options, style) {
-		var target = getElement(options.insertInto)
-	
-		if (!target) {
-			throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
-		}
-	
-		var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-	
-		if (options.insertAt === "top") {
-			if (!lastStyleElementInsertedAtTop) {
-				target.insertBefore(style, target.firstChild);
-			} else if (lastStyleElementInsertedAtTop.nextSibling) {
-				target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-			} else {
-				target.appendChild(style);
-			}
-			stylesInsertedAtTop.push(style);
-		} else if (options.insertAt === "bottom") {
-			target.appendChild(style);
-		} else {
-			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-		}
-	}
-	
-	function removeStyleElement (style) {
-		if (style.parentNode === null) return false;
-		style.parentNode.removeChild(style);
-	
-		var idx = stylesInsertedAtTop.indexOf(style);
-		if(idx >= 0) {
-			stylesInsertedAtTop.splice(idx, 1);
-		}
-	}
-	
-	function createStyleElement (options) {
-		var style = document.createElement("style");
-	
-		options.attrs.type = "text/css";
-	
-		addAttrs(style, options.attrs);
-		insertStyleElement(options, style);
-	
-		return style;
-	}
-	
-	function createLinkElement (options) {
-		var link = document.createElement("link");
-	
-		options.attrs.type = "text/css";
-		options.attrs.rel = "stylesheet";
-	
-		addAttrs(link, options.attrs);
-		insertStyleElement(options, link);
-	
-		return link;
-	}
-	
-	function addAttrs (el, attrs) {
-		Object.keys(attrs).forEach(function (key) {
-			el.setAttribute(key, attrs[key]);
-		});
-	}
-	
-	function addStyle (obj, options) {
-		var style, update, remove, result;
-	
-		// If a transform function was defined, run it on the css
-		if (options.transform && obj.css) {
-		    result = options.transform(obj.css);
-	
-		    if (result) {
-		    	// If transform returns a value, use that instead of the original css.
-		    	// This allows running runtime transformations on the css.
-		    	obj.css = result;
-		    } else {
-		    	// If the transform function returns a falsy value, don't add this css.
-		    	// This allows conditional loading of css
-		    	return function() {
-		    		// noop
-		    	};
-		    }
-		}
-	
-		if (options.singleton) {
-			var styleIndex = singletonCounter++;
-	
-			style = singleton || (singleton = createStyleElement(options));
-	
-			update = applyToSingletonTag.bind(null, style, styleIndex, false);
-			remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-	
-		} else if (
-			obj.sourceMap &&
-			typeof URL === "function" &&
-			typeof URL.createObjectURL === "function" &&
-			typeof URL.revokeObjectURL === "function" &&
-			typeof Blob === "function" &&
-			typeof btoa === "function"
-		) {
-			style = createLinkElement(options);
-			update = updateLink.bind(null, style, options);
-			remove = function () {
-				removeStyleElement(style);
-	
-				if(style.href) URL.revokeObjectURL(style.href);
-			};
-		} else {
-			style = createStyleElement(options);
-			update = applyToTag.bind(null, style);
-			remove = function () {
-				removeStyleElement(style);
-			};
-		}
-	
-		update(obj);
-	
-		return function updateStyle (newObj) {
-			if (newObj) {
-				if (
-					newObj.css === obj.css &&
-					newObj.media === obj.media &&
-					newObj.sourceMap === obj.sourceMap
-				) {
-					return;
-				}
-	
-				update(obj = newObj);
-			} else {
-				remove();
-			}
-		};
-	}
-	
-	var replaceText = (function () {
-		var textStore = [];
-	
-		return function (index, replacement) {
-			textStore[index] = replacement;
-	
-			return textStore.filter(Boolean).join('\n');
-		};
-	})();
-	
-	function applyToSingletonTag (style, index, remove, obj) {
-		var css = remove ? "" : obj.css;
-	
-		if (style.styleSheet) {
-			style.styleSheet.cssText = replaceText(index, css);
-		} else {
-			var cssNode = document.createTextNode(css);
-			var childNodes = style.childNodes;
-	
-			if (childNodes[index]) style.removeChild(childNodes[index]);
-	
-			if (childNodes.length) {
-				style.insertBefore(cssNode, childNodes[index]);
-			} else {
-				style.appendChild(cssNode);
-			}
-		}
-	}
-	
-	function applyToTag (style, obj) {
-		var css = obj.css;
-		var media = obj.media;
-	
-		if(media) {
-			style.setAttribute("media", media)
-		}
-	
-		if(style.styleSheet) {
-			style.styleSheet.cssText = css;
-		} else {
-			while(style.firstChild) {
-				style.removeChild(style.firstChild);
-			}
-	
-			style.appendChild(document.createTextNode(css));
-		}
-	}
-	
-	function updateLink (link, options, obj) {
-		var css = obj.css;
-		var sourceMap = obj.sourceMap;
-	
-		/*
-			If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-			and there is no publicPath defined then lets turn convertToAbsoluteUrls
-			on by default.  Otherwise default to the convertToAbsoluteUrls option
-			directly
-		*/
-		var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-	
-		if (options.convertToAbsoluteUrls || autoFixUrls) {
-			css = fixUrls(css);
-		}
-	
-		if (sourceMap) {
-			// http://stackoverflow.com/a/26603875
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-		}
-	
-		var blob = new Blob([css], { type: "text/css" });
-	
-		var oldSrc = link.href;
-	
-		link.href = URL.createObjectURL(blob);
-	
-		if(oldSrc) URL.revokeObjectURL(oldSrc);
-	}
-
-
-/***/ }),
-/* 228 */
-/*!************************************!*\
-  !*** ./~/style-loader/lib/urls.js ***!
-  \************************************/
-/***/ (function(module, exports) {
-
-	
-	/**
-	 * When source maps are enabled, `style-loader` uses a link element with a data-uri to
-	 * embed the css on the page. This breaks all relative urls because now they are relative to a
-	 * bundle instead of the current page.
-	 *
-	 * One solution is to only use full urls, but that may be impossible.
-	 *
-	 * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
-	 *
-	 * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
-	 *
-	 */
-	
-	module.exports = function (css) {
-	  // get current location
-	  var location = typeof window !== "undefined" && window.location;
-	
-	  if (!location) {
-	    throw new Error("fixUrls requires window.location");
-	  }
-	
-		// blank or null?
-		if (!css || typeof css !== "string") {
-		  return css;
-	  }
-	
-	  var baseUrl = location.protocol + "//" + location.host;
-	  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
-	
-		// convert each url(...)
-		/*
-		This regular expression is just a way to recursively match brackets within
-		a string.
-	
-		 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-		   (  = Start a capturing group
-		     (?:  = Start a non-capturing group
-		         [^)(]  = Match anything that isn't a parentheses
-		         |  = OR
-		         \(  = Match a start parentheses
-		             (?:  = Start another non-capturing groups
-		                 [^)(]+  = Match anything that isn't a parentheses
-		                 |  = OR
-		                 \(  = Match a start parentheses
-		                     [^)(]*  = Match anything that isn't a parentheses
-		                 \)  = Match a end parentheses
-		             )  = End Group
-	              *\) = Match anything and then a close parens
-	          )  = Close non-capturing group
-	          *  = Match anything
-	       )  = Close capturing group
-		 \)  = Match a close parens
-	
-		 /gi  = Get all matches, not the first.  Be case insensitive.
-		 */
-		var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-			// strip quotes (if they exist)
-			var unquotedOrigUrl = origUrl
-				.trim()
-				.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-				.replace(/^'(.*)'$/, function(o, $1){ return $1; });
-	
-			// already a full url? no change
-			if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
-			  return fullMatch;
-			}
-	
-			// convert the url to a full url
-			var newUrl;
-	
-			if (unquotedOrigUrl.indexOf("//") === 0) {
-			  	//TODO: should we add protocol?
-				newUrl = unquotedOrigUrl;
-			} else if (unquotedOrigUrl.indexOf("/") === 0) {
-				// path should be relative to the base url
-				newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-			} else {
-				// path should be relative to current directory
-				newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-			}
-	
-			// send back the fixed url(...)
-			return "url(" + JSON.stringify(newUrl) + ")";
-		});
-	
-		// send back the fixed css
-		return fixedCss;
-	};
-
-
-/***/ }),
-/* 229 */
-/*!***************************************************!*\
-  !*** ./react-client/src/components/MainRouter.js ***!
-  \***************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 184);
-	
-	var _axios = __webpack_require__(/*! axios */ 230);
-	
-	var _axios2 = _interopRequireDefault(_axios);
-	
-	var _Header = __webpack_require__(/*! ./Header */ 256);
-	
-	var _Header2 = _interopRequireDefault(_Header);
-	
-	var _App = __webpack_require__(/*! ./App */ 257);
-	
-	var _App2 = _interopRequireDefault(_App);
-	
-	var _Posts = __webpack_require__(/*! ./Posts */ 258);
-	
-	var _Posts2 = _interopRequireDefault(_Posts);
-	
-	var _Charities = __webpack_require__(/*! ./Charities */ 259);
-	
-	var _Charities2 = _interopRequireDefault(_Charities);
-	
-	var _Login = __webpack_require__(/*! ./Login */ 260);
-	
-	var _Login2 = _interopRequireDefault(_Login);
-	
-	var _Signup = __webpack_require__(/*! ./Signup */ 262);
-	
-	var _Signup2 = _interopRequireDefault(_Signup);
-	
-	var _Profile = __webpack_require__(/*! ./Profile */ 263);
-	
-	var _Profile2 = _interopRequireDefault(_Profile);
-	
-	var _Newpost = __webpack_require__(/*! ./Newpost */ 264);
-	
-	var _Newpost2 = _interopRequireDefault(_Newpost);
-	
-	var _EachPost = __webpack_require__(/*! ./EachPost */ 265);
-	
-	var _EachPost2 = _interopRequireDefault(_EachPost);
-	
-	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 266);
-	
-	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var MainRouter = function (_React$Component) {
-	  _inherits(MainRouter, _React$Component);
-	
-	  function MainRouter(props) {
-	    _classCallCheck(this, MainRouter);
-	
-	    var _this = _possibleConstructorReturn(this, (MainRouter.__proto__ || Object.getPrototypeOf(MainRouter)).call(this, props));
-	
-	    _this.state = {
-	      isLoading: true,
-	      isLoggedIn: (0, _isLoggedIn2.default)()
-	    };
-	    return _this;
-	  }
-	
-	  _createClass(MainRouter, [{
-	    key: 'logoutClick',
-	    value: function logoutClick() {
-	      var _this2 = this;
-	
-	      _axios2.default.get('http://localhost:8000/logout').then(function (res) {
-	        alert('byebye');
-	      }).then(function () {
-	        _this2.setState({
-	          isLoggedIn: !_this2.state.isLoggedIn
-	        });
-	      }).catch(function (err) {
-	        console.log(err);
-	      });
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this3 = this;
-	
-	      _axios2.default.get('http://localhost:8000/api/loginStatus').then(function (res) {
-	        var isLoggedIn = res.data.isLoggedIn; // default: {isLoggedIn: false}
-	
-	        console.log(res.data);
-	        if (isLoggedIn) {
-	          (0, _isLoggedIn.setLoggedIn)();
-	        }
-	        _this3.setState({
-	          isLoading: false,
-	          isLoggedIn: isLoggedIn
-	        });
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      if (this.state.isLoading) {
-	        return _react2.default.createElement('div', null);
-	      }
-	      return _react2.default.createElement(
-	        _reactRouterDom.BrowserRouter,
-	        null,
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(_Header2.default, { loginStatus: this.state.isLoggedIn, logoutClick: this.logoutClick.bind(this) }),
-	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _App2.default }),
-	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/posts', component: _Posts2.default }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: '/posts/:number', component: _EachPost2.default }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: '/newpost', component: _Newpost2.default }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: '/charities', component: _Charities2.default }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: '/signup', component: _Signup2.default }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: '/profile', component: _Profile2.default })
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return MainRouter;
-	}(_react2.default.Component);
-	
-	exports.default = MainRouter;
 
 /***/ }),
 /* 230 */
@@ -28723,7 +28729,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 184);
+	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 190);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -28782,8 +28788,8 @@
 	      ),
 	      '   ',
 	      _react2.default.createElement(
-	        'span',
-	        { onClick: function onClick() {
+	        'a',
+	        { href: '#', onClick: function onClick() {
 	            return logoutClick();
 	          } },
 	        'Log Out'
@@ -28866,7 +28872,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 184);
+	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 190);
 	
 	var _axios = __webpack_require__(/*! axios */ 230);
 	
@@ -28906,9 +28912,6 @@
 	        return console.log(err);
 	      });
 	    }
-	
-	    // login 안 한 유저가 New Post 버튼 클릭했을 때 alert 띄우기?
-	
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -29028,10 +29031,10 @@
 	var Login = function (_React$Component) {
 	  _inherits(Login, _React$Component);
 	
-	  function Login(props, context) {
+	  function Login(props) {
 	    _classCallCheck(this, Login);
 	
-	    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props, context));
+	    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
 	  }
 	
 	  // responseGoogle (googleUser) {
@@ -29051,69 +29054,45 @@
 	  //   //
 	  //
 	  // }
+	  //
+	  // onSignIn(googleUser) {
+	  //   const profile = googleUser.getBasicProfile();
+	  //   const id_token = googleUser.getAuthResponse().id_token;
+	  //   console.log(profile);
+	  //   console.log('ID token: ' + id_token); // Do not send to your backend! Use an ID token instead.
+	  //   console.log('Name: ' + profile.getName());
+	  //   console.log('Image URL: ' + profile.getImageUrl());
+	  //   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	  // }
+	  //
+	  // signOut() {
+	  //   const auth2 = gapi.auth2.getAuthInstance();
+	  //   auth2.signOut().then(() => {
+	  //     console.log('User signed out.');
+	  //   });
+	  // }
+	  //
+	  // componentDidMount() {
+	  //   gapi.signin2.render('g-signin2', {
+	  //     'scope': 'profile email',
+	  //     'width': 150,
+	  //     'height': 30,
+	  //     'longtitle': false,
+	  //     'theme': 'light',
+	  //     'onsuccess': this.onSignIn
+	  //   });
+	  // }
 	
 	  _createClass(Login, [{
-	    key: 'onSignIn',
-	    value: function onSignIn(googleUser) {
-	      var profile = googleUser.getBasicProfile();
-	      var id_token = googleUser.getAuthResponse().id_token;
-	      console.log(profile);
-	      console.log('ID token: ' + id_token); // Do not send to your backend! Use an ID token instead.
-	      console.log('Name: ' + profile.getName());
-	      console.log('Image URL: ' + profile.getImageUrl());
-	      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-	    }
-	  }, {
-	    key: 'signOut',
-	    value: function signOut() {
-	      var auth2 = gapi.auth2.getAuthInstance();
-	      auth2.signOut().then(function () {
-	        console.log('User signed out.');
-	      });
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      gapi.signin2.render('g-signin2', {
-	        'scope': 'profile email',
-	        'width': 150,
-	        'height': 30,
-	        'longtitle': false,
-	        'theme': 'light',
-	        'onsuccess': this.onSignIn
-	      });
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'Username: ',
-	        _react2.default.createElement('input', { type: 'text', id: 'username-input' }),
-	        _react2.default.createElement('br', null),
-	        'Password: ',
-	        _react2.default.createElement('input', { type: 'text', id: 'password-input' }),
-	        _react2.default.createElement('br', null),
 	        _react2.default.createElement(
-	          'button',
-	          { type: 'button' },
-	          'Log In'
-	        ),
-	        _react2.default.createElement('p', null),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(
-	            'a',
-	            { href: '/auth/google' },
-	            'Google Sign In'
-	          ),
-	          _react2.default.createElement(
-	            'a',
-	            { href: '#', onClick: this.signOut },
-	            'Google Sign out'
-	          )
+	          'a',
+	          { href: '/auth/google' },
+	          'Google Sign In'
 	        )
 	      );
 	    }
@@ -29384,7 +29363,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 184);
+	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 190);
 	
 	var _axios = __webpack_require__(/*! axios */ 230);
 	
@@ -29407,7 +29386,7 @@
 	    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
 	
 	    _this.state = {
-	      selectedPost: null
+	      currentUser: null
 	    };
 	    return _this;
 	  }
@@ -29417,8 +29396,8 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 	
-	      _axios2.default.get('http://localhost:8000/api/posts/' + this.props.match.params.number).then(function (res) {
-	        _this2.setState({ selectedPost: res.data });
+	      _axios2.default.get('http://localhost:8000/api/getUser/').then(function (res) {
+	        _this2.setState({ currentUser: res.data });
 	      }).catch(function (err) {
 	        return console.log(err);
 	      });
@@ -29426,26 +29405,23 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return !this.state.selectedPost ? _react2.default.createElement('div', null) : _react2.default.createElement(
+	      return !this.state.currentUser ? _react2.default.createElement('div', null) : _react2.default.createElement(
 	        'div',
 	        null,
-	        'Username: ',
-	        this.state.selectedPost.username,
+	        _react2.default.createElement('img', { src: this.state.currentUser.google.imageUrl }),
+	        _react2.default.createElement('br', null),
+	        'Name: ',
+	        this.state.currentUser.google.name,
 	        ' ',
 	        _react2.default.createElement('br', null),
-	        'Title: ',
-	        this.state.selectedPost.title,
+	        'Email: ',
+	        this.state.currentUser.google.email,
 	        ' ',
 	        _react2.default.createElement('br', null),
-	        'Content: ',
-	        this.state.selectedPost.content,
+	        'Balance: ',
+	        this.state.currentUser.balance,
 	        ' ',
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement(
-	          'button',
-	          { type: 'button', id: 'register-button' },
-	          'Register'
-	        )
+	        _react2.default.createElement('br', null)
 	      );
 	    }
 	  }]);
@@ -29478,7 +29454,11 @@
 	
 	var _axios2 = _interopRequireDefault(_axios);
 	
-	var _reactRouter = __webpack_require__(/*! react-router */ 197);
+	var _reactRouter = __webpack_require__(/*! react-router */ 203);
+	
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 265);
+	
+	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -29499,6 +29479,7 @@
 	    _this.state = {
 	      posts: [],
 	      currentNumber: null,
+	      currentUsername: null,
 	      titleValue: null,
 	      contentValue: null,
 	      isTitleTyped: false,
@@ -29529,14 +29510,14 @@
 	      var _this2 = this;
 	
 	      var number = this.state.posts.length + 1;
-	      this.setState({
-	        currentNumber: number,
-	        isTitleTyped: false,
-	        isContentTyped: false
+	      _axios2.default.get('http://localhost:8000/api/getUser').then(function (res) {
+	        _this2.setState({
+	          currentNumber: number
+	        });
 	      });
 	      var newpost = {
 	        number: number,
-	        username: 'yodoree',
+	        username: this.state.currentUsername,
 	        title: this.state.titleValue,
 	        content: this.state.contentValue
 	      };
@@ -29550,6 +29531,14 @@
 	      });
 	    }
 	  }, {
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      if (!(0, _isLoggedIn2.default)()) {
+	        alert('You should log in to proceed');
+	        this.props.history.push('/login');
+	      }
+	    }
+	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      var _this3 = this;
@@ -29558,6 +29547,11 @@
 	        _this3.setState({ posts: res.data });
 	      }).catch(function (res) {
 	        return console.log('Failed to fetch posts data');
+	      });
+	      _axios2.default.get('http://localhost:8000/api/getUser').then(function (res) {
+	        _this3.setState({ currentUsername: res.data.google.name });
+	      }).catch(function (err) {
+	        return console.log(err);
 	      });
 	    }
 	  }, {
@@ -29598,6 +29592,29 @@
 
 /***/ }),
 /* 265 */
+/*!****************************************!*\
+  !*** ./react-client/src/isLoggedIn.js ***!
+  \****************************************/
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.setLoggedIn = setLoggedIn;
+	exports.default = isLoggedIn;
+	var _isLoggedIn = false;
+	function setLoggedIn() {
+	  _isLoggedIn = true;
+	}
+	
+	function isLoggedIn() {
+	  return _isLoggedIn;
+	};
+
+/***/ }),
+/* 266 */
 /*!*************************************************!*\
   !*** ./react-client/src/components/EachPost.js ***!
   \*************************************************/
@@ -29615,11 +29632,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 184);
+	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 190);
 	
 	var _axios = __webpack_require__(/*! axios */ 230);
 	
 	var _axios2 = _interopRequireDefault(_axios);
+	
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 265);
+	
+	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -29644,6 +29665,14 @@
 	  }
 	
 	  _createClass(EachPost, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      if (!(0, _isLoggedIn2.default)()) {
+	        alert('You should log in to proceed');
+	        this.props.history.push('/login');
+	      }
+	    }
+	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      var _this2 = this;
@@ -29684,30 +29713,7 @@
 	  return EachPost;
 	}(_react2.default.Component);
 	
-	exports.default = EachPost;
-
-/***/ }),
-/* 266 */
-/*!****************************************!*\
-  !*** ./react-client/src/isLoggedIn.js ***!
-  \****************************************/
-/***/ (function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.setLoggedIn = setLoggedIn;
-	exports.default = isLoggedIn;
-	var _isLoggedIn = false;
-	function setLoggedIn() {
-	  _isLoggedIn = true;
-	}
-	
-	function isLoggedIn() {
-	  return _isLoggedIn;
-	};
+	exports.default = (0, _reactRouterDom.withRouter)(EachPost);
 
 /***/ })
 /******/ ]);

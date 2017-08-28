@@ -11,27 +11,27 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedPost: null,
+      currentUser: null,
     };
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:8000/api/posts/${this.props.match.params.number}`)
+    axios.get('http://localhost:8000/api/getUser/')
     .then(res => {
-      this.setState({selectedPost: res.data});
+      this.setState({currentUser: res.data});
     })
     .catch(err => console.log(err));
   }
 
   render() {
     return (
-    (!this.state.selectedPost)
+    (!this.state.currentUser)
       ? <div></div>
       : <div>
-          Username: {this.state.selectedPost.username} <br />
-          Title: {this.state.selectedPost.title} <br />
-          Content: {this.state.selectedPost.content} <br />
-          <button type="button" id="register-button">Register</button>
+          <img src={this.state.currentUser.google.imageUrl} /><br />
+          Name: {this.state.currentUser.google.name} <br />
+          Email: {this.state.currentUser.google.email} <br />
+          Balance: {this.state.currentUser.balance} <br />
         </div>
     )
   }

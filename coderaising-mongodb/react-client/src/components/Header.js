@@ -9,7 +9,7 @@ const Header = ({loginStatus, logoutClick}) => {
        <div><Link to="/posts">Posts</Link>   <Link to="/charities">Charities</Link></div>
         {!loginStatus
         ? <div><Link to="/login">Log In</Link>   <Link to="/signup">Sign Up</Link></div>
-        : <div><Link to="/profile">Profile</Link>   <span onClick={() => logoutClick()}>Log Out</span></div>}
+        : <div><Link to="/profile">Profile</Link>   <a href='#' onClick={() => logoutClick()}>Log Out</a></div>}
       <hr/>
     </div>
   );

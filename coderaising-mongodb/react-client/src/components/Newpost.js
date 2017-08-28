@@ -2,12 +2,16 @@ import React from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router';
 
+import isLoggedIn from '../isLoggedIn';
+
+
 class Newpost extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       posts: [],
       currentNumber: null,
+      currentUsername: null,
       titleValue: null,
       contentValue: null,
       isTitleTyped: false,
@@ -31,26 +35,34 @@ class Newpost extends React.Component {
 
   buttonClick() {
     const number = this.state.posts.length + 1;
-    this.setState({
-      currentNumber: number,
-      isTitleTyped: false,
-      isContentTyped: false,
-    });
+    axios.get('http://localhost:8000/api/getUser')
+    .then(res => {
+      this.setState({
+        currentNumber: number,
+      });
+    })
     const newpost = {
       number,
-      username: 'yodoree',
+      username: this.state.currentUsername,
       title: this.state.titleValue,
       content: this.state.contentValue,
     }
     axios.post('http://localhost:8000/api/newpost', newpost)
-      .then(response => {
-        console.log('Post has been submitted!');
-        alert('Your post has been submitted!');
-      })
-      .then(() => {
-        this.props.history.push('/posts');
-      })
-      .catch(response => console.log('Failed to post'));
+    .then(response => {
+      console.log('Post has been submitted!');
+      alert('Your post has been submitted!');
+    })
+    .then(() => {
+      this.props.history.push('/posts');
+    })
+    .catch(response => console.log('Failed to post'));
+  }
+
+  componentWillMount() {
+    if (!isLoggedIn()) {
+      alert('You should log in to proceed');
+      this.props.history.push('/login');
+    }
   }
 
   componentDidMount() {
@@ -59,6 +71,11 @@ class Newpost extends React.Component {
       this.setState({posts: res.data});
     })
     .catch(res => console.log('Failed to fetch posts data'));
+    axios.get('http://localhost:8000/api/getUser')
+    .then(res => {
+      this.setState({currentUsername: res.data.google.name});
+    })
+    .catch(err => console.log(err));
   }
 
   render() {

@@ -3,8 +3,8 @@ import { GoogleLogin } from 'react-google-login-component';
 import axios from 'axios';
 
 class Login extends React.Component{
-  constructor (props, context) {
-    super(props, context);
+  constructor (props) {
+    super(props);
   }
 
   // responseGoogle (googleUser) {
@@ -24,47 +24,39 @@ class Login extends React.Component{
   //   //
   //
   // }
-
-  onSignIn(googleUser) {
-    const profile = googleUser.getBasicProfile();
-    const id_token = googleUser.getAuthResponse().id_token;
-    console.log(profile);
-    console.log('ID token: ' + id_token); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-  }
-
-  signOut() {
-    const auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(() => {
-      console.log('User signed out.');
-    });
-  }
-
-  componentDidMount() {
-    gapi.signin2.render('g-signin2', {
-      'scope': 'profile email',
-      'width': 150,
-      'height': 30,
-      'longtitle': false,
-      'theme': 'light',
-      'onsuccess': this.onSignIn
-    });
-  }
+  //
+  // onSignIn(googleUser) {
+  //   const profile = googleUser.getBasicProfile();
+  //   const id_token = googleUser.getAuthResponse().id_token;
+  //   console.log(profile);
+  //   console.log('ID token: ' + id_token); // Do not send to your backend! Use an ID token instead.
+  //   console.log('Name: ' + profile.getName());
+  //   console.log('Image URL: ' + profile.getImageUrl());
+  //   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  // }
+  //
+  // signOut() {
+  //   const auth2 = gapi.auth2.getAuthInstance();
+  //   auth2.signOut().then(() => {
+  //     console.log('User signed out.');
+  //   });
+  // }
+  //
+  // componentDidMount() {
+  //   gapi.signin2.render('g-signin2', {
+  //     'scope': 'profile email',
+  //     'width': 150,
+  //     'height': 30,
+  //     'longtitle': false,
+  //     'theme': 'light',
+  //     'onsuccess': this.onSignIn
+  //   });
+  // }
 
   render () {
     return (
       <div>
-        Username: <input type="text" id="username-input" /><br />
-        Password: <input type="text" id="password-input" /><br />
-        <button type="button">Log In</button><p/>
-
-
-        <div>
-          <a href="/auth/google">Google Sign In</a>
-          <a href="#" onClick={this.signOut}>Google Sign out</a>
-        </div>
+        <a href="/auth/google">Google Sign In</a>
       </div>
     );
   }

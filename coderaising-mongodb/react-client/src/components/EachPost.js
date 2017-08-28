@@ -2,9 +2,12 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  withRouter
 } from 'react-router-dom';
 import axios from 'axios';
+
+import isLoggedIn from '../isLoggedIn';
 
 
 class EachPost extends React.Component {
@@ -13,6 +16,13 @@ class EachPost extends React.Component {
     this.state = {
       selectedPost: null,
     };
+  }
+
+  componentWillMount() {
+    if (!isLoggedIn()) {
+      alert('You should log in to proceed');
+      this.props.history.push('/login');
+    }
   }
 
   componentDidMount() {
@@ -37,4 +47,4 @@ class EachPost extends React.Component {
   }
 }
 
-export default EachPost;
+export default withRouter(EachPost);

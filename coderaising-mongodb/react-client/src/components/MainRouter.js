@@ -2,7 +2,8 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  withRouter
 } from 'react-router-dom';
 import axios from 'axios';
 
@@ -67,7 +68,7 @@ class MainRouter extends React.Component {
       <Router>
         <div>
           <Header loginStatus={this.state.isLoggedIn} logoutClick={this.logoutClick.bind(this)}/>
-            <Route exact path="/" component={App}/>
+            <Route exact path="/" component={App} />
             <Route exact path="/posts" component={Posts} />
             <Route path="/posts/:number" component={EachPost} />
             <Route path="/newpost" component={Newpost} />
@@ -81,4 +82,4 @@ class MainRouter extends React.Component {
   }
 }
 
-export default MainRouter;
+export default withRouter(MainRouter);

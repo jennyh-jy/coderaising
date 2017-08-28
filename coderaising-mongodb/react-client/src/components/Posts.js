@@ -24,7 +24,6 @@ class Posts extends React.Component {
     .catch(err => console.log(err));
   }
 
-// login 안 한 유저가 New Post 버튼 클릭했을 때 alert 띄우기?
   render() {
     return (
       <div>
