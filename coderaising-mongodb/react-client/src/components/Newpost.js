@@ -12,6 +12,7 @@ class Newpost extends React.Component {
       posts: [],
       currentNumber: null,
       currentUsername: null,
+      currentUserEmail: null,
       titleValue: null,
       contentValue: null,
       isTitleTyped: false,
@@ -44,18 +45,18 @@ class Newpost extends React.Component {
     const newpost = {
       number,
       username: this.state.currentUsername,
+      email: this.state.currentUserEmail,
       title: this.state.titleValue,
       content: this.state.contentValue,
     }
     axios.post('http://localhost:8000/api/newpost', newpost)
     .then(response => {
-      console.log('Post has been submitted!');
       alert('Your post has been submitted!');
     })
     .then(() => {
       this.props.history.push('/posts');
     })
-    .catch(response => console.log('Failed to post'));
+    .catch(err => console.log(err));
   }
 
   componentWillMount() {
@@ -73,7 +74,10 @@ class Newpost extends React.Component {
     .catch(res => console.log('Failed to fetch posts data'));
     axios.get('http://localhost:8000/api/getUser')
     .then(res => {
-      this.setState({currentUsername: res.data.google.name});
+      this.setState({
+        currentUsername: res.data.google.name,
+        currentUserEmail: res.data.google.email
+      });
     })
     .catch(err => console.log(err));
   }

@@ -2,8 +2,7 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
-  withRouter
+  Link
 } from 'react-router-dom';
 import axios from 'axios';
 
@@ -12,7 +11,6 @@ import App from './App';
 import Posts from './Posts';
 import Charities from './Charities';
 import Login from './Login';
-import Signup from './Signup';
 import Profile from './Profile';
 import Newpost from './Newpost';
 import EachPost from './EachPost';
@@ -74,7 +72,6 @@ class MainRouter extends React.Component {
             <Route path="/newpost" component={Newpost} />
             <Route path="/charities" component={Charities} />
             <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
             <Route path="/profile" component={Profile} />
         </div>
       </Router>
@@ -82,4 +79,4 @@ class MainRouter extends React.Component {
   }
 }
 
-export default withRouter(MainRouter);
+export default MainRouter;

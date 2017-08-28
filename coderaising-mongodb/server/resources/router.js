@@ -21,8 +21,12 @@ router.get('/loginStatus', (req, res) => {
   });
 });
 
-router.get('/getUser', userController.retrieveOne);
 router.get('/allUsers', userController.retrieve);
-router.get('/profile', userController.retrieveOne);
+router.get('/profile', userController.loggedInUserRetrieve);
+router.get('/getUser', userController.loggedInUserRetrieve);
+// router.get('/getPostOwner', userController.postOwnerRetrieve);
+
+router.put('/updateUserBalance', userController.loggedInUserBalanceUpdate);
+router.put('/updatePostOwnerBalance', userController.postOwnerBalanceUpdate);
 
 module.exports = router;

@@ -57,8 +57,6 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 190);
-	
 	__webpack_require__(/*! ./styles.css */ 184);
 	
 	var _MainRouter = __webpack_require__(/*! ./components/MainRouter */ 189);
@@ -67,11 +65,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_reactDom2.default.render(_react2.default.createElement(
-	  _reactRouterDom.BrowserRouter,
-	  null,
-	  _react2.default.createElement(_MainRouter2.default, null)
-	), document.getElementById('app'));
+	_reactDom2.default.render(_react2.default.createElement(_MainRouter2.default, null), document.getElementById('app'));
 
 /***/ }),
 /* 1 */
@@ -23387,10 +23381,6 @@
 	
 	var _Login2 = _interopRequireDefault(_Login);
 	
-	var _Signup = __webpack_require__(/*! ./Signup */ 262);
-	
-	var _Signup2 = _interopRequireDefault(_Signup);
-	
 	var _Profile = __webpack_require__(/*! ./Profile */ 263);
 	
 	var _Profile2 = _interopRequireDefault(_Profile);
@@ -23482,7 +23472,6 @@
 	          _react2.default.createElement(_reactRouterDom.Route, { path: '/newpost', component: _Newpost2.default }),
 	          _react2.default.createElement(_reactRouterDom.Route, { path: '/charities', component: _Charities2.default }),
 	          _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: '/signup', component: _Signup2.default }),
 	          _react2.default.createElement(_reactRouterDom.Route, { path: '/profile', component: _Profile2.default })
 	        )
 	      );
@@ -23492,7 +23481,7 @@
 	  return MainRouter;
 	}(_react2.default.Component);
 	
-	exports.default = (0, _reactRouterDom.withRouter)(MainRouter);
+	exports.default = MainRouter;
 
 /***/ }),
 /* 190 */
@@ -28770,13 +28759,7 @@
 	      _react2.default.createElement(
 	        _reactRouterDom.Link,
 	        { to: '/login' },
-	        'Log In'
-	      ),
-	      '   ',
-	      _react2.default.createElement(
-	        _reactRouterDom.Link,
-	        { to: '/signup' },
-	        'Sign Up'
+	        'Log In/Sign Up'
 	      )
 	    ) : _react2.default.createElement(
 	      'div',
@@ -29298,53 +29281,7 @@
 	;
 
 /***/ }),
-/* 262 */
-/*!***********************************************!*\
-  !*** ./react-client/src/components/Signup.js ***!
-  \***********************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Signup = function Signup() {
-	  return _react2.default.createElement(
-	    "div",
-	    null,
-	    "Username: ",
-	    _react2.default.createElement("input", { type: "text", id: "username-input" }),
-	    _react2.default.createElement(
-	      "button",
-	      { type: "button" },
-	      "Check Username"
-	    ),
-	    _react2.default.createElement("br", null),
-	    "Password: ",
-	    _react2.default.createElement("input", { type: "text", id: "password-input" }),
-	    _react2.default.createElement("br", null),
-	    "Name: ",
-	    _react2.default.createElement("input", { type: "text", id: "password-input" }),
-	    _react2.default.createElement("br", null),
-	    _react2.default.createElement(
-	      "button",
-	      { type: "button" },
-	      "Sign Up"
-	    )
-	  );
-	};
-	
-	exports.default = Signup;
-
-/***/ }),
+/* 262 */,
 /* 263 */
 /*!************************************************!*\
   !*** ./react-client/src/components/Profile.js ***!
@@ -29480,6 +29417,7 @@
 	      posts: [],
 	      currentNumber: null,
 	      currentUsername: null,
+	      currentUserEmail: null,
 	      titleValue: null,
 	      contentValue: null,
 	      isTitleTyped: false,
@@ -29518,16 +29456,16 @@
 	      var newpost = {
 	        number: number,
 	        username: this.state.currentUsername,
+	        email: this.state.currentUserEmail,
 	        title: this.state.titleValue,
 	        content: this.state.contentValue
 	      };
 	      _axios2.default.post('http://localhost:8000/api/newpost', newpost).then(function (response) {
-	        console.log('Post has been submitted!');
 	        alert('Your post has been submitted!');
 	      }).then(function () {
 	        _this2.props.history.push('/posts');
-	      }).catch(function (response) {
-	        return console.log('Failed to post');
+	      }).catch(function (err) {
+	        return console.log(err);
 	      });
 	    }
 	  }, {
@@ -29549,7 +29487,10 @@
 	        return console.log('Failed to fetch posts data');
 	      });
 	      _axios2.default.get('http://localhost:8000/api/getUser').then(function (res) {
-	        _this3.setState({ currentUsername: res.data.google.name });
+	        _this3.setState({
+	          currentUsername: res.data.google.name,
+	          currentUserEmail: res.data.google.email
+	        });
 	      }).catch(function (err) {
 	        return console.log(err);
 	      });
@@ -29659,12 +29600,31 @@
 	    var _this = _possibleConstructorReturn(this, (EachPost.__proto__ || Object.getPrototypeOf(EachPost)).call(this, props));
 	
 	    _this.state = {
-	      selectedPost: null
+	      selectedPost: null,
+	      selectedPostOwnerEmail: null
 	    };
 	    return _this;
 	  }
 	
 	  _createClass(EachPost, [{
+	    key: 'registerClick',
+	    value: function registerClick() {
+	      if (confirm("If you register for this session, 1000 won will be deducted from your account. Do you really want to proceed?") === true) {
+	        //logged in user balance update
+	        _axios2.default.put('http://localhost:8000/api/updateUserBalance').then(function (res) {
+	          console.log("logged in user's balance has been updated");
+	        }).catch(function (err) {
+	          return console.log('Logged in user balance update error');
+	        });
+	        //post owner balance update
+	        _axios2.default.put('http://localhost:8000/api/updatePostOwnerBalance', { email: this.state.selectedPostOwnerEmail }).then(function (res) {
+	          alert('You have been registered!');
+	        }).catch(function (err) {
+	          return console.log('Post owner balance update error');
+	        });
+	      }
+	    }
+	  }, {
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
 	      if (!(0, _isLoggedIn2.default)()) {
@@ -29678,14 +29638,26 @@
 	      var _this2 = this;
 	
 	      _axios2.default.get('http://localhost:8000/api/posts/' + this.props.match.params.number).then(function (res) {
-	        _this2.setState({ selectedPost: res.data });
+	        console.log(res.data);
+	        _this2.setState({
+	          selectedPost: res.data,
+	          selectedPostOwnerEmail: res.data.email
+	        });
 	      }).catch(function (err) {
 	        return console.log(err);
 	      });
+	
+	      // axios.get('http://localhost:8000/api/getUser')
+	      // .then(res => {
+	      //   this.setState({loggedInUserBalance: res.data.balance});
+	      // })
+	      // .catch(err => console.log(err));
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this3 = this;
+	
 	      return !this.state.selectedPost ? _react2.default.createElement('div', null) : _react2.default.createElement(
 	        'div',
 	        null,
@@ -29703,7 +29675,9 @@
 	        _react2.default.createElement('br', null),
 	        _react2.default.createElement(
 	          'button',
-	          { type: 'button', id: 'register-button' },
+	          { type: 'button', id: 'register-button', onClick: function onClick() {
+	              return _this3.registerClick();
+	            } },
 	          'Register'
 	        )
 	      );

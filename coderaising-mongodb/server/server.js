@@ -19,11 +19,13 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../react-client/dist'))); //To load index page
 
-
 app.use(session({
   secret: 'asdfsdafadsfdsafasdfadsfad',
   resave: false,
   saveUninitialized: true,
+  cookie: {
+    maxAge: 3600000 // session 유지 시간 (1시간)
+  }
 }));
 
 app.use(passport.initialize());

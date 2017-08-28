@@ -6,7 +6,10 @@ const userSchema = new Schema({
     id: String,
     token: String,
     name: String,
-    email: String,
+    email: {
+      type: String,
+      unique: true
+    },
     imageUrl: String,
   },
   balance: {
