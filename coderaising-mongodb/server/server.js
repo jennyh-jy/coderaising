@@ -48,7 +48,7 @@ app.get('/auth/google/callback',
 // route for logging out
 app.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('/');
+  res.sendStatus(200);
 });
 
 //(Similar to) server rendering

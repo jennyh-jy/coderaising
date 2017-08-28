@@ -23431,6 +23431,8 @@
 	        _this2.setState({
 	          isLoggedIn: !_this2.state.isLoggedIn
 	        });
+	        (0, _isLoggedIn.setLoggedIn)(false);
+	        window.location = '/';
 	      }).catch(function (err) {
 	        console.log(err);
 	      });
@@ -29639,7 +29641,9 @@
 	exports.default = isLoggedIn;
 	var _isLoggedIn = false;
 	function setLoggedIn() {
-	  _isLoggedIn = true;
+	  var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+	
+	  _isLoggedIn = value;
 	}
 	
 	function isLoggedIn() {
@@ -29705,22 +29709,22 @@
 	
 	      if (confirm("If you register for this session, 1000 won will be deducted from your account. Do you really want to proceed?") === true) {
 	        _axios2.default.get('http://localhost:8000/api/getUser').then(function (res) {
-	          // if (res.data.balance >= 1000) {
-	          //logged in user balance update
-	          _axios2.default.put('http://localhost:8000/api/updateUserBalance').then(function (res) {
-	            console.log("logged in user's balance has been updated");
-	          }).catch(function (err) {
-	            return console.log('Logged in user balance update error');
-	          });
-	          //post owner balance update
-	          _axios2.default.put('http://localhost:8000/api/updatePostOwnerBalance', { email: _this2.state.selectedPostOwnerEmail }).then(function (res) {
-	            alert('You have been registered!');
-	          }).catch(function (err) {
-	            return console.log('Post owner balance update error');
-	          });
-	          // } else {
-	          //   alert("돈없다 충전해라");
-	          // }
+	          if (res.data.balance >= 1000) {
+	            // logged in user balance update
+	            _axios2.default.put('http://localhost:8000/api/updateUserBalance').then(function (res) {
+	              console.log("logged in user's balance has been updated");
+	            }).catch(function (err) {
+	              return console.log('Logged in user balance update error');
+	            });
+	            //post owner balance update
+	            _axios2.default.put('http://localhost:8000/api/updatePostOwnerBalance', { email: _this2.state.selectedPostOwnerEmail }).then(function (res) {
+	              alert('You have been registered!');
+	            }).catch(function (err) {
+	              return console.log('Post owner balance update error');
+	            });
+	          } else {
+	            alert("돈없다 충전해라");
+	          }
 	        });
 	      }
 	    }
@@ -29738,7 +29742,6 @@
 	      var _this3 = this;
 	
 	      _axios2.default.get('http://localhost:8000/api/posts/' + this.props.match.params.number).then(function (res) {
-	        console.log(res.data);
 	        _this3.setState({
 	          selectedPost: res.data,
 	          selectedPostOwnerEmail: res.data.email

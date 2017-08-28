@@ -1,6 +1,6 @@
 let _isLoggedIn = false;
-export function setLoggedIn() {
-  _isLoggedIn = true;
+export function setLoggedIn(value = true) {
+  _isLoggedIn = value;
 }
 
 export default function isLoggedIn() {

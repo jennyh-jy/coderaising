@@ -23,8 +23,8 @@ class EachPost extends React.Component {
     if (confirm("If you register for this session, 1000 won will be deducted from your account. Do you really want to proceed?") === true) {
       axios.get('http://localhost:8000/api/getUser')
       .then(res => {
-        // if (res.data.balance >= 1000) {
-          //logged in user balance update
+        if (res.data.balance >= 1000) {
+          // logged in user balance update
           axios.put('http://localhost:8000/api/updateUserBalance')
           .then(res => {
             console.log("logged in user's balance has been updated");
@@ -36,9 +36,9 @@ class EachPost extends React.Component {
             alert('You have been registered!');
           })
           .catch(err => console.log('Post owner balance update error'));
-        // } else {
-        //   alert("돈없다 충전해라");
-        // }
+        } else {
+          alert("돈없다 충전해라");
+        }
       })
     }
   }
@@ -53,7 +53,6 @@ class EachPost extends React.Component {
   componentDidMount() {
     axios.get(`http://localhost:8000/api/posts/${this.props.match.params.number}`)
     .then(res => {
-      console.log(res.data)
       this.setState({
         selectedPost: res.data,
         selectedPostOwnerEmail: res.data.email

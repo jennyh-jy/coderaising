@@ -35,6 +35,8 @@ class MainRouter extends React.Component {
       this.setState({
         isLoggedIn: !this.state.isLoggedIn,
       });
+      setLoggedIn(false);
+      window.location = '/';
     })
     .catch(err => {
       console.log(err);
