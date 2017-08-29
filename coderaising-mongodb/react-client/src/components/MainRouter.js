@@ -10,7 +10,6 @@ import Header from './Header';
 import App from './App';
 import Posts from './Posts';
 import Charities from './Charities';
-import Login from './Login';
 import Profile from './Profile';
 import Newpost from './Newpost';
 import EachPost from './EachPost';
@@ -70,7 +69,6 @@ class MainRouter extends React.Component {
             <Route path="/posts/:number" component={EachPost} />
             <Route path="/newpost" component={Newpost} />
             <Route path="/charities" component={Charities} />
-            <Route path="/login" component={Login} />
             <Route path="/profile" component={Profile} />
         </div>
       </Router>
