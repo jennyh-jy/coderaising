@@ -64,3 +64,23 @@ exports.postOwnerBalanceUpdate = (req, res) => {
     }
   });
 };
+
+exports.userAccountDeposit = (req, res) => {
+  User.findOne({'_id': req.session.passport.user}, (err, obj) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      obj.balance += 5000;
+      obj.save((err, obj) => {
+        if (err) {
+          console.log(err);
+          res.sendStatus(500);
+        } else {
+          console.log("User's account balance has been updated!")
+          res.json(obj);
+        }
+      });
+    }
+  });
+};

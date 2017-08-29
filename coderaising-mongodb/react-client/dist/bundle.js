@@ -22786,7 +22786,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body, html{\n  height:100%;\n}\nbody{\n  margin: 30px;\n  background-size: 100% 100%;\n  font-family: 'Source Sans Pro', sans-serif;\n}\n\n/*hr{\n  border: none;\n}*/\n\na{\n  text-decoration: none;\n}\n\nbutton{\n  margin-left: 10px;\n}\n\nh3{\n  color: #454747;\n}\n\n#title{\n  font-size: 60px;\n}\n\n#create-button{\n  margin-left: 8px;\n  vertical-align: middle;\n}\n\n#link{\n  margin-top: 15px;\n  margin-bottom: 70px;\n  font-size: 13px;\n}\n\n#type-filtering{\n  font-size: 15px;\n}\n\n.pokemon{\n  margin: 40px 40px 40px 40px;\n}\n\n.image{\n  margin-bottom: 10px;\n}\n\n.name{\n  margin-right: 13px;\n  font-size: 14px;\n}\n\n.type{\n  margin-right: 13px;\n  font-size: 14px;\n}\n\n.imageURL{\n  margin-right: 8px;\n  font-size: 14px;\n}\n\n.making-new-pokemons-title{\n  margin-top: 70px;\n  margin-bottom: 20px;\n  font-size: 20px;\n}\n\n.number{\n  color: #949596;\n  font-size: 14px;\n}\n\n.types{\n  font-size: 12px;\n  font-weight: bold;\n}\n\n.grass{\n  color: #31af6e;\n}\n\n.poison{\n  color: #c06fdb;\n}\n\n.fire{\n  color: #f27f04;\n}\n\n.flying{\n  color: #03baf1;\n}\n\n.water{\n  color: #0c78b7;\n}\n\n.bug{\n  color: #087230;\n}\n\n.normal{\n  color: #616362;\n}\n\n.electric{\n  color: #a39801;\n}\n\n.ground{\n  color: #686106;\n}\n\n.fighting{\n  color: #aa370d;\n}\n\n.psychic{\n  color: #c151b4;\n}\n\n.rock{\n  color: #6d4d35;\n}\n\n.ice{\n  color: #0be0e0;\n}\n\n.ghost{\n  color: #5e5070;\n}\n\n.dragon{\n  color: #f46404;\n}\n", ""]);
+	exports.push([module.id, "body, html{\n  height:100%;\n}\nbody{\n  margin: 0px;\n  font-family: 'Source Sans Pro', sans-serif;\n}\n\nhr{\n  border: none;\n}\n\na{\n  text-decoration: none;\n}\n\nimg.tint{\n  display: inline-block;\n  max-width: 100%;\n  width: 100;\n  background: rgba(0, 0, 0, 0.7);\n}\n\n#title{\n  color: grey;\n}\n\n#create-button{\n  margin-left: 8px;\n  vertical-align: middle;\n}\n\n#link{\n  margin-top: 15px;\n  margin-bottom: 70px;\n  font-size: 13px;\n}\n\n.pokemon{\n  margin: 40px 40px 40px 40px;\n}\n\n.image{\n  margin-bottom: 10px;\n}\n\n.number{\n  color: #949596;\n  font-size: 14px;\n}\n\n.types{\n  font-size: 12px;\n  font-weight: bold;\n}\n", ""]);
 	
 	// exports
 
@@ -23377,7 +23377,7 @@
 	
 	var _Charities2 = _interopRequireDefault(_Charities);
 	
-	var _Login = __webpack_require__(/*! ./Login */ 260);
+	var _Login = __webpack_require__(/*! ./Login */ 261);
 	
 	var _Login2 = _interopRequireDefault(_Login);
 	
@@ -23389,11 +23389,11 @@
 	
 	var _Newpost2 = _interopRequireDefault(_Newpost);
 	
-	var _EachPost = __webpack_require__(/*! ./EachPost */ 266);
+	var _EachPost = __webpack_require__(/*! ./EachPost */ 265);
 	
 	var _EachPost2 = _interopRequireDefault(_EachPost);
 	
-	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 265);
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 260);
 	
 	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
 	
@@ -23425,9 +23425,7 @@
 	    value: function logoutClick() {
 	      var _this2 = this;
 	
-	      _axios2.default.get('http://localhost:8000/logout').then(function (res) {
-	        alert('byebye');
-	      }).then(function () {
+	      _axios2.default.get('http://localhost:8000/logout').then(function () {
 	        _this2.setState({
 	          isLoggedIn: !_this2.state.isLoggedIn
 	        });
@@ -28728,6 +28726,9 @@
 	  var loginStatus = _ref.loginStatus,
 	      logoutClick = _ref.logoutClick;
 	
+	  // const divStyle = {
+	  //   backgroundColor: '#ffb2b2',
+	  // };
 	  return _react2.default.createElement(
 	    'div',
 	    null,
@@ -28735,46 +28736,50 @@
 	      'h1',
 	      null,
 	      _react2.default.createElement(
-	        _reactRouterDom.Link,
-	        { to: '/' },
-	        'CodeRaising'
+	        'center',
+	        null,
+	        _react2.default.createElement(
+	          _reactRouterDom.Link,
+	          { to: '/', style: { color: 'grey' } },
+	          'CodeRaising'
+	        )
 	      )
 	    ),
 	    _react2.default.createElement(
 	      'div',
-	      null,
+	      { style: { display: 'inline-block' } },
 	      _react2.default.createElement(
 	        _reactRouterDom.Link,
-	        { to: '/posts' },
+	        { to: '/posts', style: { color: 'grey' } },
 	        'Posts'
 	      ),
 	      '   ',
 	      _react2.default.createElement(
 	        _reactRouterDom.Link,
-	        { to: '/charities' },
+	        { to: '/charities', style: { color: 'grey' } },
 	        'Charities'
 	      )
 	    ),
 	    !loginStatus ? _react2.default.createElement(
 	      'div',
-	      null,
+	      { style: { display: 'inline-block' } },
 	      _react2.default.createElement(
 	        _reactRouterDom.Link,
-	        { to: '/login' },
+	        { to: '/login', style: { color: 'grey' } },
 	        'Log In/Sign Up'
 	      )
 	    ) : _react2.default.createElement(
 	      'div',
-	      null,
+	      { style: { display: 'inline-block' } },
 	      _react2.default.createElement(
 	        _reactRouterDom.Link,
-	        { to: '/profile' },
+	        { to: '/profile', style: { color: 'grey' } },
 	        'Profile'
 	      ),
 	      '   ',
 	      _react2.default.createElement(
 	        'a',
-	        { href: '#', onClick: function onClick() {
+	        { href: '#', style: { color: 'grey' }, onClick: function onClick() {
 	            return logoutClick();
 	          } },
 	        'Log Out'
@@ -28793,7 +28798,7 @@
   \********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -28823,12 +28828,19 @@
 	  }
 	
 	  _createClass(App, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
+	      // const divStyle = {
+	      //   backgroundSize: 'cover',
+	      //   backgroundRepeat  : 'no-repeat',
+	      //   backgroundPosition: 'center',
+	      //   overflow: 'hidden',
+	      // };
 	      return _react2.default.createElement(
-	        'div',
+	        "div",
 	        null,
-	        'hi'
+	        _react2.default.createElement("img", { src: "https://s3.us-east-2.amazonaws.com/coderaising-cs/pexels-photo-306534-2.jpg", className: "tint" }),
+	        "hi"
 	      );
 	    }
 	  }]);
@@ -28912,7 +28924,7 @@
 	            'New Post'
 	          )
 	        ),
-	        this.state.posts.map(function (post) {
+	        this.state.posts.map(function (post, i) {
 	          return _react2.default.createElement(
 	            'div',
 	            null,
@@ -28963,7 +28975,7 @@
 	
 	var _axios2 = _interopRequireDefault(_axios);
 	
-	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 265);
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 260);
 	
 	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
 	
@@ -29050,7 +29062,7 @@
 	          null,
 	          'Charities'
 	        ),
-	        this.state.charities.map(function (charity) {
+	        this.state.charities.map(function (charity, i) {
 	          return _react2.default.createElement(
 	            'div',
 	            null,
@@ -29076,6 +29088,31 @@
 
 /***/ }),
 /* 260 */
+/*!****************************************!*\
+  !*** ./react-client/src/isLoggedIn.js ***!
+  \****************************************/
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.setLoggedIn = setLoggedIn;
+	exports.default = isLoggedIn;
+	var _isLoggedIn = false;
+	function setLoggedIn() {
+	  var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+	
+	  _isLoggedIn = value;
+	}
+	
+	function isLoggedIn() {
+	  return _isLoggedIn;
+	};
+
+/***/ }),
+/* 261 */
 /*!**********************************************!*\
   !*** ./react-client/src/components/Login.js ***!
   \**********************************************/
@@ -29093,7 +29130,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactGoogleLoginComponent = __webpack_require__(/*! react-google-login-component */ 261);
+	var _reactGoogleLoginComponent = __webpack_require__(/*! react-google-login-component */ 262);
 	
 	var _axios = __webpack_require__(/*! axios */ 230);
 	
@@ -29183,7 +29220,7 @@
 	exports.default = Login;
 
 /***/ }),
-/* 261 */
+/* 262 */
 /*!*****************************************************************************!*\
   !*** ./~/react-google-login-component/dist/react-google-login-component.js ***!
   \*****************************************************************************/
@@ -29377,7 +29414,6 @@
 	;
 
 /***/ }),
-/* 262 */,
 /* 263 */
 /*!************************************************!*\
   !*** ./react-client/src/components/Profile.js ***!
@@ -29425,8 +29461,8 @@
 	  }
 	
 	  _createClass(Profile, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
+	    key: 'fetch',
+	    value: function fetch() {
 	      var _this2 = this;
 	
 	      _axios2.default.get('http://localhost:8000/api/getUser/').then(function (res) {
@@ -29436,11 +29472,41 @@
 	      });
 	    }
 	  }, {
+	    key: 'depositClick',
+	    value: function depositClick() {
+	      var _this3 = this;
+	
+	      if (confirm('5000 won will be transferred from your linked credit card. Do you want to proceed?') === true) {
+	        _axios2.default.put('http://localhost:8000/api/deposit').then(function (res) {
+	          console.log("5000 won has been deposited into user's account");
+	          alert('5000 won has been deposited into your account');
+	          _this3.fetch();
+	        }).catch(function (err) {
+	          return console.log(err);
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.fetch();
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this4 = this;
+	
 	      return !this.state.currentUser ? _react2.default.createElement('div', null) : _react2.default.createElement(
 	        'div',
 	        null,
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'Hello ',
+	          this.state.currentUser.google.name.split(" ")[0],
+	          '!'
+	        ),
+	        _react2.default.createElement('br', null),
 	        _react2.default.createElement('img', { src: this.state.currentUser.google.imageUrl }),
 	        _react2.default.createElement('br', null),
 	        'Name: ',
@@ -29451,10 +29517,28 @@
 	        this.state.currentUser.google.email,
 	        ' ',
 	        _react2.default.createElement('br', null),
-	        'Balance: ',
+	        'Balance: KRW ',
 	        this.state.currentUser.balance,
-	        ' ',
-	        _react2.default.createElement('br', null)
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'button', onClick: function onClick() {
+	              return _this4.depositClick();
+	            } },
+	          'Make a Deposit'
+	        ),
+	        _react2.default.createElement('br', null),
+	        'Your credit cards',
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'button' },
+	          'Link a credit card'
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement('img', {
+	          src: 'http://www.infomerchant.net/images/creditcards/visalogo-big.gif',
+	          style: { width: "45px", height: "30px", verticalAlign: "middle" }
+	        }),
+	        'Visa #2038'
 	      );
 	    }
 	  }]);
@@ -29487,7 +29571,7 @@
 	
 	var _axios2 = _interopRequireDefault(_axios);
 	
-	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 265);
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 260);
 	
 	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
 	
@@ -29627,31 +29711,6 @@
 
 /***/ }),
 /* 265 */
-/*!****************************************!*\
-  !*** ./react-client/src/isLoggedIn.js ***!
-  \****************************************/
-/***/ (function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.setLoggedIn = setLoggedIn;
-	exports.default = isLoggedIn;
-	var _isLoggedIn = false;
-	function setLoggedIn() {
-	  var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-	
-	  _isLoggedIn = value;
-	}
-	
-	function isLoggedIn() {
-	  return _isLoggedIn;
-	};
-
-/***/ }),
-/* 266 */
 /*!*************************************************!*\
   !*** ./react-client/src/components/EachPost.js ***!
   \*************************************************/
@@ -29675,7 +29734,7 @@
 	
 	var _axios2 = _interopRequireDefault(_axios);
 	
-	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 265);
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 260);
 	
 	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
 	

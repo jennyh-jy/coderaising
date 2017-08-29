@@ -24,7 +24,7 @@ class Posts extends React.Component {
     return (
       <div>
       <button type="button"><Link to="/newpost">New Post</Link></button>
-        {this.state.posts.map((post) =>
+        {this.state.posts.map((post, i) =>
           <div>
           {post.number}  <Link to={`/posts/${post.number}`}>{post.title}</Link>   {post.username}   {post.createdAt}
           </div>

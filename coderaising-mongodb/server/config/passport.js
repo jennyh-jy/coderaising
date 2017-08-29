@@ -40,9 +40,8 @@ module.exports = (passport) => {
           // if the user isnt in our database, create a new user
           const newUser = new User();
           // set all of the relevant information
-          const newSize="150"
           const originalImg = profile.photos[0].value;
-          const biggerImg = originalImg.split("?sz=50")[0]+"?sz="+newSize;
+          const biggerImg = originalImg.split("?sz=50")[0]+"?sz=150";
           newUser.google.id = profile.id;
           newUser.google.token = token;
           newUser.google.name = profile.displayName;

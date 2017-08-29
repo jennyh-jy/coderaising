@@ -12,21 +12,22 @@ const isLoggedIn = (req, res, next) => {
   res.sendStatus(400);
 }
 
-router.get('/posts', postController.retrieve);
-router.get('/posts/:number', postController.retrieveOne);
-router.post('/newpost', postController.createOne);
-
 router.get('/loginStatus', (req, res) => {
   res.json({
     isLoggedIn: req.isAuthenticated(),
   });
 });
 
+router.get('/posts', postController.retrieve);
+router.get('/posts/:number', postController.retrieveOne);
+router.post('/newpost', postController.createOne);
+
 router.get('/allUsers', userController.retrieve);
 router.get('/profile', userController.loggedInUserRetrieve);
 router.get('/getUser', userController.loggedInUserRetrieve);
 router.put('/updateUserBalance', userController.loggedInUserBalanceUpdate);
 router.put('/updatePostOwnerBalance', userController.postOwnerBalanceUpdate);
+router.put('/deposit', userController.userAccountDeposit);
 
 router.get('/charities', charityController.retrieve);
 router.put('/updateCharityBalance', charityController.charityBalanceUpdate);

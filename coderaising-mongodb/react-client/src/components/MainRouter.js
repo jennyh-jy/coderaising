@@ -28,9 +28,6 @@ class MainRouter extends React.Component {
 
   logoutClick() {
     axios.get('http://localhost:8000/logout')
-    .then(res => {
-      alert('byebye');
-    })
     .then(() => {
       this.setState({
         isLoggedIn: !this.state.isLoggedIn,
