@@ -28980,7 +28980,7 @@
 	
 	    _this.state = {
 	      posts: [],
-	      selectedPost: null
+	      selectedCategory: null
 	    };
 	    return _this;
 	  }
@@ -28994,6 +28994,13 @@
 	        _this2.setState({ posts: res.data });
 	      }).catch(function (err) {
 	        return console.log(err);
+	      });
+	    }
+	  }, {
+	    key: 'categoryChange',
+	    value: function categoryChange(event) {
+	      this.setState({
+	        selectedCategory: event.target.value
 	      });
 	    }
 	  }, {
@@ -29035,11 +29042,15 @@
 	            _react2.default.createElement(
 	              'option',
 	              { value: 'select', selected: 'selected' },
-	              '\uC120\uD0DD\uD558\uC138\uC694'
+	              'select'
 	            )
 	          )
 	        ),
-	        this.state.posts.map(function (post, i) {
+	        this.state.posts.filter(function (post, i) {
+	          if (_this3.state.selectedCategory === null || _this3.state.selectedCategory === 'select') {
+	            return true;
+	          }return post.categories.includes(_this3.state.selectedCategory);
+	        }).map(function (post, i) {
 	          return _react2.default.createElement(
 	            'div',
 	            null,
