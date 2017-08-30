@@ -6,6 +6,7 @@ const charitySchema = new Schema({
     type: String,
     unique: true,
   },
+  content: String,
   balance: {
     type: Number,
     default: 0,

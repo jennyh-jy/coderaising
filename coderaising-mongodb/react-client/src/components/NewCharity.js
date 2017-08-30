@@ -8,13 +8,14 @@ class NewCharity extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      nameValue: null,
+      contentValue: null,
     };
   }
 
-  titleChange(event) {
+  nameValue(event) {
     this.setState({
-      titleValue: event.target.value,
+      nameValue: event.target.value,
       isTitleTyped: true,
     });
   }
@@ -26,34 +27,17 @@ class NewCharity extends React.Component {
     });
   }
 
-  categoryChange(event) {
-    this.setState({
-      categoryValue: event.target.value
-    })
-  }
-
   buttonClick() {
-    const number = this.state.posts.length + 1;
-    axios.get('http://localhost:8000/api/getUser')
-    .then(res => {
-      this.setState({
-        currentNumber: number,
-      });
-    })
-    const newpost = {
-      number,
-      username: this.state.currentUsername,
-      email: this.state.currentUserEmail,
-      categories: this.state.categoryValue,
-      title: this.state.titleValue,
+    const newcharity = {
+      name: this.state.contentValue,
       content: this.state.contentValue,
     }
-    axios.post('http://localhost:8000/api/newpost', newpost)
-    .then(response => {
-      alert('Your post has been submitted!');
+    axios.post('http://localhost:8000/api/newcharity', newcharity)
+    .then(res => {
+      alert('Your charity has been submitted!');
     })
     .then(() => {
-      this.props.history.push('/posts');
+      this.props.history.push('/Charities');
     })
     .catch(err => console.log(err));
   }
@@ -66,26 +50,14 @@ class NewCharity extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8000/api/posts')
-    .then(res => {
-      this.setState({posts: res.data});
-    })
-    .catch(res => console.log('Failed to fetch posts data'));
-    axios.get('http://localhost:8000/api/getUser')
-    .then(res => {
-      this.setState({
-        currentUsername: res.data.google.name,
-        currentUserEmail: res.data.google.email
-      });
-    })
-    .catch(err => console.log(err));
+
   }
 
   render() {
     return (
       <div className="margin-top">
-        name: <input type="text" id="title-input" style={{fontSize: '10pt', width: 430, height: 25}} placeholder="What kind of programming skills do you want to donate?" onChange={e => this.titleChange(e)} /><br />
-        Content: <input type="text" id="content-input" style={{fontSize: '10pt', width: 430, height: 200}} placeholder="How do you want to donate your skills? Please be as specific as possible!" onChange={e => this.contentChange(e)} /><br />
+        name: <input type="text" id="title-input" style={{fontSize: '10pt', width: 430, height: 25}} placeholder="Name of the charity" onChange={e => this.nameValue(e)} /><br />
+        Content: <input type="text" id="content-input" style={{fontSize: '10pt', width: 430, height: 200}} placeholder="Why you want to support this charity" onChange={e => this.contentChange(e)} /><br />
         <button type="button" id="submit-button" onClick={() => this.buttonClick()}>Submit</button>
       </div>
     );
