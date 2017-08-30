@@ -22786,7 +22786,7 @@
 	
 	
 	// module
-	exports.push([module.id, "*{\n  box-sizing: border-box;\n}\nbody, html{\n  height:100%;\n  overflow-x: hidden;\n}\nbody{\n  margin: 0px;\n  font-family: 'Hind', sans-serif;\n}\n\na{\n  text-decoration: none;\n}\n\n#header {\n  /*position: absolute;\n  top: 0;\n  left: 0;*/\n  padding: 21px;\n  z-index: 999;\n  width: 100%;\n  /*border-bottom: 1px solid #fff;*/\n  overflow: hidden;\n}\n\n#picture-container{\n  position: relative;\n}\n\n.logo{\n  float: left;\n  font-size: 30px;\n}\n\n.menu{\n  float: right;\n}\n\n.menu a{\n  display: inline-block;\n  margin-left: 24px;\n}\n/*#create-button{\n  margin-left: 8px;\n  vertical-align: middle;\n}\n\n#link{\n  margin-top: 15px;\n  margin-bottom: 70px;\n  font-size: 13px;\n}*/\n\n.tint{\n  display: inline-block;\n  max-width: 100%;\n  width: 100;\n}\n\n.main-statement{\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  display: block;\n  color: white;\n  max-width: 1024px;\n  margin: 0 24px;\n  transform: translate(-50%, -50%);\n}\n\n/*.margin-top{\n  margin-top: 120px;\n}*/\n\n\n.login-btn {\n\tbackground-color:transparent;\n\t-moz-border-radius:6px;\n\t-webkit-border-radius:6px;\n\tborder-radius:6px;\n\tborder:1px solid #6c6c6d;\n\tdisplay:inline-block;\n\tcursor:pointer;\n\tcolor:#6c6c6d;\n\tfont-family:'Hind', sans-serif;\n\tfont-size:15px;\n\tpadding:6px 7px;\n\ttext-decoration:none;\n}\n.login-btn:hover {\n\tbackground-color:transparent;\n}\n.login-btn:active {\n\tposition:relative;\n\ttop:1px;\n}\n\n\n/*.number{\n  color: #949596;\n  font-size: 14px;\n}\n\n.types{\n  font-size: 12px;\n  font-weight: bold;\n}*/\n", ""]);
+	exports.push([module.id, "*{\n  box-sizing: border-box;\n}\nbody, html{\n  height:100%;\n  overflow-x: hidden;\n}\nbody{\n  margin: 0px;\n  font-family: 'Hind', sans-serif;\n}\n\na{\n  text-decoration: none;\n}\n\n#header {\n  /*position: absolute;\n  top: 0;\n  left: 0;*/\n  padding: 21px;\n  z-index: 999;\n  width: 100%;\n  /*border-bottom: 1px solid #fff;*/\n  overflow: hidden;\n}\n\n#picture-container{\n  position: relative;\n}\n\n.logo{\n  float: left;\n  font-size: 30px;\n}\n\n.menu{\n  float: right;\n}\n\n.menu a{\n  display: inline-block;\n  margin-left: 24px;\n  vertical-align: middle;\n}\n/*#create-button{\n  margin-left: 8px;\n  vertical-align: middle;\n}\n\n#link{\n  margin-top: 15px;\n  margin-bottom: 70px;\n  font-size: 13px;\n}*/\n\n.tint{\n  display: inline-block;\n  max-width: 100%;\n  width: 100;\n}\n\n.main-statement{\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  display: block;\n  color: white;\n  max-width: 1024px;\n  margin: 0 28px;\n  transform: translate(-50%, -50%);\n}\n\n/*.margin-top{\n  margin-top: 120px;\n}*/\n\n\n.login-btn {\n\tbackground-color:transparent;\n\t-moz-border-radius:6px;\n\t-webkit-border-radius:6px;\n\tborder-radius:6px;\n\tborder:1px solid #6c6c6d;\n\tdisplay:inline-block;\n\tcursor:pointer;\n\tcolor:#6c6c6d;\n\tfont-family:'Hind', sans-serif;\n\tfont-size:15px;\n\tpadding:6px 7px;\n\ttext-decoration:none;\n}\n.login-btn:hover {\n\tbackground-color:transparent;\n}\n.login-btn:active {\n\tposition:relative;\n\ttop:1px;\n}\n\n\n/*.number{\n  color: #949596;\n  font-size: 14px;\n}\n\n.types{\n  font-size: 12px;\n  font-weight: bold;\n}*/\n", ""]);
 	
 	// exports
 
@@ -23485,7 +23485,8 @@
 	            _react2.default.createElement(_reactRouterDom.Route, { path: '/charities', component: _Charities2.default }),
 	            _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default }),
 	            _react2.default.createElement(_reactRouterDom.Route, { path: '/profile', component: _Profile2.default })
-	          )
+	          ),
+	          _react2.default.createElement(_Footer2.default, null)
 	        )
 	      );
 	    }
@@ -28834,6 +28835,22 @@
 	    _react2.default.createElement("br", null),
 	    "3. dmsaklfm ",
 	    _react2.default.createElement("br", null),
+	    "4. dmsaklfm ",
+	    _react2.default.createElement("br", null),
+	    "4. dmsaklfm ",
+	    _react2.default.createElement("br", null),
+	    "4. dmsaklfm ",
+	    _react2.default.createElement("br", null),
+	    "4. dmsaklfm ",
+	    _react2.default.createElement("br", null),
+	    "4. dmsaklfm ",
+	    _react2.default.createElement("br", null),
+	    "4. dmsaklfm ",
+	    _react2.default.createElement("br", null),
+	    "4. dmsaklfm ",
+	    _react2.default.createElement("br", null),
+	    "4. dmsaklfm ",
+	    _react2.default.createElement("br", null),
 	    "Contact Us"
 	  );
 	};
@@ -29352,6 +29369,7 @@
 	      currentUserEmail: null,
 	      titleValue: null,
 	      contentValue: null,
+	      categoryValue: null,
 	      isTitleTyped: false,
 	      isContentTyped: false
 	    };
@@ -29375,6 +29393,13 @@
 	      });
 	    }
 	  }, {
+	    key: 'categoryChange',
+	    value: function categoryChange(event) {
+	      this.setState({
+	        categoryValue: event.target.value
+	      });
+	    }
+	  }, {
 	    key: 'buttonClick',
 	    value: function buttonClick() {
 	      var _this2 = this;
@@ -29389,6 +29414,7 @@
 	        number: number,
 	        username: this.state.currentUsername,
 	        email: this.state.currentUserEmail,
+	        categories: this.state.categoryValue,
 	        title: this.state.titleValue,
 	        content: this.state.contentValue
 	      };
@@ -29435,6 +29461,32 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'margin-top' },
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          'categories: ',
+	          _react2.default.createElement(
+	            'select',
+	            { name: 'categories', onChange: function onChange(e) {
+	                return _this4.categoryChange(e);
+	              } },
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'C++' },
+	              'C++'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'JavaScript' },
+	              'JavaScript'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'select', selected: 'selected' },
+	              '\uC120\uD0DD\uD558\uC138\uC694'
+	            )
+	          )
+	        ),
 	        'Title: ',
 	        _react2.default.createElement('input', { type: 'text', id: 'title-input', style: { fontSize: '10pt', width: 430, height: 25 }, placeholder: 'What kind of programming skills do you want to donate?', onChange: function onChange(e) {
 	            return _this4.titleChange(e);
@@ -29580,6 +29632,9 @@
 	        'Username: ',
 	        this.state.selectedPost.username,
 	        ' ',
+	        _react2.default.createElement('br', null),
+	        'category: ',
+	        this.state.selectedPost.categories,
 	        _react2.default.createElement('br', null),
 	        'Title: ',
 	        this.state.selectedPost.title,

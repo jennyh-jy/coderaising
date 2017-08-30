@@ -76,7 +76,8 @@ class MainRouter extends React.Component {
             <Route path="/charities" component={Charities} />
             <Route path="/login" component={Login} />
             <Route path="/profile" component={Profile} />
-        </div>
+          </div>
+        <Footer/>
         </div>
       </Router>
     );

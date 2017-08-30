@@ -41,6 +41,7 @@ a{
 .menu a{
   display: inline-block;
   margin-left: 24px;
+  vertical-align: middle;
 }
 /*#create-button{
   margin-left: 8px;
@@ -66,7 +67,7 @@ a{
   display: block;
   color: white;
   max-width: 1024px;
-  margin: 0 24px;
+  margin: 0 28px;
   transform: translate(-50%, -50%);
 }
 
