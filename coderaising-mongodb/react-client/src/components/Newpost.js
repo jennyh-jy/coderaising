@@ -91,7 +91,7 @@ class Newpost extends React.Component {
 
   render() {
     return (
-      <div className="margin-top">
+      <div className="content-padding">
         <div>
         categories: <select name="categories" onChange={e => this.categoryChange(e)}>
                    <option value="C++">C++</option>

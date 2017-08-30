@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className="margin-top">
+    <div className="content-padding">
     About CodeRaising
     </div>
   );
