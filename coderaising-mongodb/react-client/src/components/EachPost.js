@@ -73,6 +73,7 @@ class EachPost extends React.Component {
       ? <div></div>
       : <div className="margin-top">
           Username: {this.state.selectedPost.username} <br />
+          category: {this.state.selectedPost.categories}<br />
           Title: {this.state.selectedPost.title} <br />
           Content: {this.state.selectedPost.content} <br />
           <button type="button" id="register-button" onClick={() => this.registerClick()}>Register</button>
