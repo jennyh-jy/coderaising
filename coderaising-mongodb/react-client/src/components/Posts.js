@@ -2,14 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+const DEFAULT_CATEGORY = '--SELECT--';
 
 class Posts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       posts: [],
-      selectedCategory: null,
+      selectedCategory: DEFAULT_CATEGORY,
     };
+  }
+
+  categoryChange(event) {
+    this.setState({
+      selectedCategory: event.target.value
+    })
   }
 
   componentDidMount() {
@@ -20,27 +27,22 @@ class Posts extends React.Component {
     .catch(err => console.log(err));
   }
 
-  categoryChange(event) {
-    this.setState({
-      selectedCategory: event.target.value
-    })
-  }
-
   render() {
     return (
-      <div className="margin-top">
+      <div className="content-padding">
       <button type="button"><Link to="/newpost">New Post</Link></button>
       <div>
-      categories: <select name="categories" onChange={e => this.categoryChange(e)}>
-                 <option value="C++">C++</option>
-                 <option value="JavaScript">JavaScript</option>
-                 <option value="select" selected="selected">select</option>
-                 </select>
+      Categories: <select onChange={this.categoryChange.bind(this)}>
+          <option value="--SELECT--">--SELECT--</option>
+          <option value="C++">C++</option>
+          <option value="JavaScript">JavaScript</option>
+        </select>
       </div>
         {this.state.posts.filter((post, i) => {
-          if (this.state.selectedCategory === null || this.state.selectedCategory === 'select') {
+          if (this.state.selectedCategory === DEFAULT_CATEGORY) {
             return true;
-          } return post.categories.includes(this.state.selectedCategory)
+          }
+          return post.categories === this.state.selectedCategory;
         })
           .map((post, i) =>
           <div>

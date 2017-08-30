@@ -5,7 +5,7 @@ const App = () => {
     <div id="picture-container">
       <span className="main-statement">kjqehrdkajsreawnr,asnrl</span>
       <img src="https://s3.us-east-2.amazonaws.com/coderaising-cs/pexels-photo-306534-2.jpg" className="tint" />
-      <div className="index-content">
+      <div className="index-content content-padding">
       1. At CodeRaising, dsjnkafjkndfv <br/>
       2. dmsalknmkldf <br/>
       3. dmsaklfm <br/>

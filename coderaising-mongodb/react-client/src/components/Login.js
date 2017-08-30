@@ -55,7 +55,7 @@ class Login extends React.Component{
 
   render () {
     return (
-      <div>
+      <div className="content-padding">
         <a href="/auth/google">Google Sign In</a>
       </div>
     );

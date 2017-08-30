@@ -73,7 +73,7 @@ class EachPost extends React.Component {
     return (
     (!this.state.selectedPost)
       ? <div></div>
-      : <div className="margin-top">
+      : <div className="content-padding">
           Username: {this.state.selectedPost.username} <br />
           category: {this.state.selectedPost.categories}<br />
           Title: {this.state.selectedPost.title} <br />
