@@ -65,7 +65,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_reactDom2.default.render(_react2.default.createElement(_MainRouter2.default, null), document.getElementById('app'));
+	_reactDom2.default.render(_react2.default.createElement(_MainRouter2.default, null), document.getElementById('mainrouter'));
 
 /***/ }),
 /* 1 */
@@ -22786,7 +22786,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body, html{\n  height:100%;\n}\nbody{\n  margin: 0px;\n  font-family: 'Source Sans Pro', sans-serif;\n}\n\nhr{\n  border: none;\n}\n\na{\n  text-decoration: none;\n}\n\nimg.tint{\n  display: inline-block;\n  max-width: 100%;\n  width: 100;\n  background: rgba(0, 0, 0, 0.7);\n}\n\n#title{\n  color: grey;\n}\n\n#create-button{\n  margin-left: 8px;\n  vertical-align: middle;\n}\n\n#link{\n  margin-top: 15px;\n  margin-bottom: 70px;\n  font-size: 13px;\n}\n\n.pokemon{\n  margin: 40px 40px 40px 40px;\n}\n\n.image{\n  margin-bottom: 10px;\n}\n\n.number{\n  color: #949596;\n  font-size: 14px;\n}\n\n.types{\n  font-size: 12px;\n  font-weight: bold;\n}\n", ""]);
+	exports.push([module.id, "body, html{\n  height:100%;\n}\nbody{\n  margin: 0px;\n  font-family: 'Hind', sans-serif;\n}\n\na{\n  text-decoration: none;\n}\n\n#header {\n  /*position: absolute;\n  top: 0;\n  left: 0;*/\n  z-index: 999;\n  width: 100%;\n  /*border-bottom: 1px solid #fff;*/\n}\n\n#title{\n  color: grey;\n}\n\n#picture-container{\n  position: relative;\n}\n\n/*#create-button{\n  margin-left: 8px;\n  vertical-align: middle;\n}\n\n#link{\n  margin-top: 15px;\n  margin-bottom: 70px;\n  font-size: 13px;\n}*/\n\n.tint{\n  display: inline-block;\n  max-width: 100%;\n  width: 100;\n}\n\n.main-statement{\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  display: block;\n  color: white;\n  max-width: 1024px;\n  margin: 0 24px;\n  transform: translate(-50%, -50%);\n}\n\n/*.margin-top{\n  margin-top: 120px;\n}*/\n\n\n.login-btn {\n\tbackground-color:transparent;\n\t-moz-border-radius:6px;\n\t-webkit-border-radius:6px;\n\tborder-radius:6px;\n\tborder:1px solid #6c6c6d;\n\tdisplay:inline-block;\n\tcursor:pointer;\n\tcolor:#6c6c6d;\n\tfont-family:'Hind', sans-serif;\n\tfont-size:15px;\n\tpadding:6px 7px;\n\ttext-decoration:none;\n}\n.login-btn:hover {\n\tbackground-color:transparent;\n}\n.login-btn:active {\n\tposition:relative;\n\ttop:1px;\n}\n\n\n/*.number{\n  color: #949596;\n  font-size: 14px;\n}\n\n.types{\n  font-size: 12px;\n  font-weight: bold;\n}*/\n", ""]);
 	
 	// exports
 
@@ -23369,27 +23369,31 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _Posts = __webpack_require__(/*! ./Posts */ 258);
+	var _About = __webpack_require__(/*! ./About */ 258);
+	
+	var _About2 = _interopRequireDefault(_About);
+	
+	var _Posts = __webpack_require__(/*! ./Posts */ 259);
 	
 	var _Posts2 = _interopRequireDefault(_Posts);
 	
-	var _Charities = __webpack_require__(/*! ./Charities */ 259);
+	var _Charities = __webpack_require__(/*! ./Charities */ 260);
 	
 	var _Charities2 = _interopRequireDefault(_Charities);
 	
-	var _Profile = __webpack_require__(/*! ./Profile */ 263);
+	var _Profile = __webpack_require__(/*! ./Profile */ 262);
 	
 	var _Profile2 = _interopRequireDefault(_Profile);
 	
-	var _Newpost = __webpack_require__(/*! ./Newpost */ 264);
+	var _Newpost = __webpack_require__(/*! ./Newpost */ 263);
 	
 	var _Newpost2 = _interopRequireDefault(_Newpost);
 	
-	var _EachPost = __webpack_require__(/*! ./EachPost */ 265);
+	var _EachPost = __webpack_require__(/*! ./EachPost */ 264);
 	
 	var _EachPost2 = _interopRequireDefault(_EachPost);
 	
-	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 260);
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 261);
 	
 	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
 	
@@ -23462,12 +23466,17 @@
 	          'div',
 	          null,
 	          _react2.default.createElement(_Header2.default, { loginStatus: this.state.isLoggedIn, logoutClick: this.logoutClick.bind(this) }),
-	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _App2.default }),
-	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/posts', component: _Posts2.default }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: '/posts/:number', component: _EachPost2.default }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: '/newpost', component: _Newpost2.default }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: '/charities', component: _Charities2.default }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: '/profile', component: _Profile2.default })
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _App2.default }),
+	            _react2.default.createElement(_reactRouterDom.Route, { path: '/about', component: _About2.default }),
+	            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/posts', component: _Posts2.default }),
+	            _react2.default.createElement(_reactRouterDom.Route, { path: '/posts/:number', component: _EachPost2.default }),
+	            _react2.default.createElement(_reactRouterDom.Route, { path: '/newpost', component: _Newpost2.default }),
+	            _react2.default.createElement(_reactRouterDom.Route, { path: '/charities', component: _Charities2.default }),
+	            _react2.default.createElement(_reactRouterDom.Route, { path: '/profile', component: _Profile2.default })
+	          )
 	        )
 	      );
 	    }
@@ -28723,61 +28732,56 @@
 	
 	  return _react2.default.createElement(
 	    'div',
-	    null,
+	    { id: 'header' },
 	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      _react2.default.createElement(
-	        'center',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouterDom.Link,
-	          { to: '/', style: { color: 'grey' } },
-	          'CodeRaising'
-	        )
-	      )
+	      _reactRouterDom.NavLink,
+	      { to: '/', style: { display: 'inline', textAlign: 'left' } },
+	      'CodeRaising'
 	    ),
 	    _react2.default.createElement(
 	      'div',
-	      { style: { display: 'inline-block' } },
+	      { style: { display: 'inline', textAlign: 'right' } },
 	      _react2.default.createElement(
-	        _reactRouterDom.Link,
-	        { to: '/posts', style: { color: 'grey' } },
+	        _reactRouterDom.NavLink,
+	        { to: '/about' },
+	        'About'
+	      ),
+	      _react2.default.createElement(
+	        _reactRouterDom.NavLink,
+	        { to: '/posts' },
 	        'Posts'
 	      ),
-	      '   ',
 	      _react2.default.createElement(
-	        _reactRouterDom.Link,
-	        { to: '/charities', style: { color: 'grey' } },
+	        _reactRouterDom.NavLink,
+	        { to: '/charities' },
 	        'Charities'
 	      )
 	    ),
 	    !loginStatus ? _react2.default.createElement(
 	      'div',
-	      { style: { display: 'inline-block' } },
+	      { style: { textAlign: 'right' } },
 	      _react2.default.createElement(
 	        'a',
-	        { href: '/auth/google', style: { color: 'grey' } },
+	        { href: '/auth/google', className: 'login-btn' },
 	        'Log In/Sign Up with Google'
 	      )
 	    ) : _react2.default.createElement(
 	      'div',
-	      { style: { display: 'inline-block' } },
+	      { style: { textAlign: 'right' } },
 	      _react2.default.createElement(
-	        _reactRouterDom.Link,
-	        { to: '/profile', style: { color: 'grey' } },
+	        _reactRouterDom.NavLink,
+	        { to: '/profile' },
 	        'Profile'
 	      ),
 	      '   ',
 	      _react2.default.createElement(
 	        'a',
-	        { href: '#', style: { color: 'grey' }, onClick: function onClick() {
+	        { href: '#', onClick: function onClick() {
 	            return logoutClick();
 	          } },
 	        'Log Out'
 	      )
-	    ),
-	    _react2.default.createElement('hr', null)
+	    )
 	  );
 	};
 	
@@ -28796,7 +28800,83 @@
 	  value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var App = function App() {
+	  return _react2.default.createElement(
+	    "div",
+	    { id: "picture-container" },
+	    _react2.default.createElement(
+	      "span",
+	      { className: "main-statement" },
+	      "kjqehrdkajsreawnr,asnrlaknwr,awrn,amsndf,asmnra,mwrn,amwrna,wrn"
+	    ),
+	    _react2.default.createElement("img", { src: "https://s3.us-east-2.amazonaws.com/coderaising-cs/pexels-photo-306534-2.jpg", className: "tint" }),
+	    "1. At CodeRaising, dsjnkafjkndfv ",
+	    _react2.default.createElement("br", null),
+	    "2. dmsalknmkldf ",
+	    _react2.default.createElement("br", null),
+	    "3. dmsaklfm ",
+	    _react2.default.createElement("br", null),
+	    "Contact Us"
+	  );
+	};
+	
+	exports.default = App;
+	//
+	//
+	//
+	// // Banner component
+	// var Banner = React.createClass({
+	//
+	//   render : function() {
+	//     return (
+	//       <div>
+	//         <Nav /> // 메뉴
+	//         <div className="big-banner">
+	//               <h1>React Blog</h1>
+	//         </div>
+	//       </div>
+	//     )
+	//   }
+	// });
+	//
+	// // Nav component
+	// var Nav = React.createClass({
+	//
+	//   render : function() {
+	//     return (
+	//       <div className="top-bar">
+	//         <div className="top-bar-left">
+	//           <ul className="menu">
+	//             <li className="menu-text">React Blog</li>
+	//             <li><a href="#">One</a></li>
+	//             <li><a href="#">Two</a></li>
+	//             <li><a href="#">Three</a></li>
+	//           </ul>
+	//         </div>
+	//       </div>
+	//     )
+	//   }
+	//
+	// });
+
+/***/ }),
+/* 258 */
+/*!**********************************************!*\
+  !*** ./react-client/src/components/About.js ***!
+  \**********************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	
 	var _react = __webpack_require__(/*! react */ 1);
 	
@@ -28804,46 +28884,18 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var About = function About() {
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "margin-top" },
+	    "About CodeRaising"
+	  );
+	};
 	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var App = function (_React$Component) {
-	  _inherits(App, _React$Component);
-	
-	  function App() {
-	    _classCallCheck(this, App);
-	
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
-	  }
-	
-	  _createClass(App, [{
-	    key: "render",
-	    value: function render() {
-	      // const divStyle = {
-	      //   backgroundSize: 'cover',
-	      //   backgroundRepeat  : 'no-repeat',
-	      //   backgroundPosition: 'center',
-	      //   overflow: 'hidden',
-	      // };
-	      return _react2.default.createElement(
-	        "div",
-	        null,
-	        _react2.default.createElement("img", { src: "https://s3.us-east-2.amazonaws.com/coderaising-cs/pexels-photo-306534-2.jpg", className: "tint" }),
-	        "hi"
-	      );
-	    }
-	  }]);
-	
-	  return App;
-	}(_react2.default.Component);
-	
-	exports.default = App;
+	exports.default = About;
 
 /***/ }),
-/* 258 */
+/* 259 */
 /*!**********************************************!*\
   !*** ./react-client/src/components/Posts.js ***!
   \**********************************************/
@@ -28906,7 +28958,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'margin-top' },
 	        _react2.default.createElement(
 	          'button',
 	          { type: 'button' },
@@ -28943,7 +28995,7 @@
 	exports.default = Posts;
 
 /***/ }),
-/* 259 */
+/* 260 */
 /*!**************************************************!*\
   !*** ./react-client/src/components/Charities.js ***!
   \**************************************************/
@@ -28967,7 +29019,7 @@
 	
 	var _axios2 = _interopRequireDefault(_axios);
 	
-	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 260);
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 261);
 	
 	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
 	
@@ -29048,7 +29100,7 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'margin-top' },
 	        _react2.default.createElement(
 	          'h1',
 	          null,
@@ -29079,7 +29131,7 @@
 	exports.default = Charities;
 
 /***/ }),
-/* 260 */
+/* 261 */
 /*!****************************************!*\
   !*** ./react-client/src/isLoggedIn.js ***!
   \****************************************/
@@ -29104,9 +29156,7 @@
 	};
 
 /***/ }),
-/* 261 */,
-/* 262 */,
-/* 263 */
+/* 262 */
 /*!************************************************!*\
   !*** ./react-client/src/components/Profile.js ***!
   \************************************************/
@@ -29190,7 +29240,7 @@
 	
 	      return !this.state.currentUser ? _react2.default.createElement('div', null) : _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'margin-top' },
 	        _react2.default.createElement(
 	          'h3',
 	          null,
@@ -29241,7 +29291,7 @@
 	exports.default = Profile;
 
 /***/ }),
-/* 264 */
+/* 263 */
 /*!************************************************!*\
   !*** ./react-client/src/components/Newpost.js ***!
   \************************************************/
@@ -29263,7 +29313,7 @@
 	
 	var _axios2 = _interopRequireDefault(_axios);
 	
-	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 260);
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 261);
 	
 	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
 	
@@ -29372,7 +29422,7 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'margin-top' },
 	        'Title: ',
 	        _react2.default.createElement('input', { type: 'text', id: 'title-input', style: { fontSize: '10pt', width: 430, height: 25 }, placeholder: 'What kind of programming skills do you want to donate?', onChange: function onChange(e) {
 	            return _this4.titleChange(e);
@@ -29402,7 +29452,7 @@
 	exports.default = Newpost;
 
 /***/ }),
-/* 265 */
+/* 264 */
 /*!*************************************************!*\
   !*** ./react-client/src/components/EachPost.js ***!
   \*************************************************/
@@ -29426,7 +29476,7 @@
 	
 	var _axios2 = _interopRequireDefault(_axios);
 	
-	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 260);
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 261);
 	
 	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
 	
@@ -29484,7 +29534,7 @@
 	    value: function componentWillMount() {
 	      if (!(0, _isLoggedIn2.default)()) {
 	        alert('You should log in to proceed');
-	        this.props.history.push('/login');
+	        this.props.history.push('/auth/google');
 	      }
 	    }
 	  }, {
@@ -29514,7 +29564,7 @@
 	
 	      return !this.state.selectedPost ? _react2.default.createElement('div', null) : _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'margin-top' },
 	        'Username: ',
 	        this.state.selectedPost.username,
 	        ' ',

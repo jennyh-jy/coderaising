@@ -22,7 +22,7 @@ class Posts extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="margin-top">
       <button type="button"><Link to="/newpost">New Post</Link></button>
         {this.state.posts.map((post, i) =>
           <div>

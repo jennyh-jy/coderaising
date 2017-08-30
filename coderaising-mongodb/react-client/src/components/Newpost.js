@@ -83,7 +83,7 @@ class Newpost extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="margin-top">
         Title: <input type="text" id="title-input" style={{fontSize: '10pt', width: 430, height: 25}} placeholder="What kind of programming skills do you want to donate?" onChange={e => this.titleChange(e)} /><br />
         Content: <input type="text" id="content-input" style={{fontSize: '10pt', width: 430, height: 200}} placeholder="How do you want to donate your skills? Please be as specific as possible!" onChange={e => this.contentChange(e)} /><br />
         <button type="button" id="submit-button" onClick={() => this.buttonClick()}>Submit</button>

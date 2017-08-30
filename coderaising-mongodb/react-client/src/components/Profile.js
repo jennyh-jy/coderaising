@@ -43,7 +43,7 @@ class Profile extends React.Component {
     return (
     (!this.state.currentUser)
       ? <div></div>
-      : <div>
+      : <div className="margin-top">
           <h3>Hello {this.state.currentUser.google.name.split(" ")[0]}!</h3><br />
           <img src={this.state.currentUser.google.imageUrl} /><br />
           Name: {this.state.currentUser.google.name} <br />

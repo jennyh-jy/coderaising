@@ -3,29 +3,31 @@ body, html{
 }
 body{
   margin: 0px;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-hr{
-  border: none;
+  font-family: 'Hind', sans-serif;
 }
 
 a{
   text-decoration: none;
 }
 
-img.tint{
-  display: inline-block;
-  max-width: 100%;
-  width: 100;
-  background: rgba(0, 0, 0, 0.7);
+#header {
+  /*position: absolute;
+  top: 0;
+  left: 0;*/
+  z-index: 999;
+  width: 100%;
+  /*border-bottom: 1px solid #fff;*/
 }
 
 #title{
   color: grey;
 }
 
-#create-button{
+#picture-container{
+  position: relative;
+}
+
+/*#create-button{
   margin-left: 8px;
   vertical-align: middle;
 }
@@ -34,17 +36,54 @@ img.tint{
   margin-top: 15px;
   margin-bottom: 70px;
   font-size: 13px;
+}*/
+
+.tint{
+  display: inline-block;
+  max-width: 100%;
+  width: 100;
 }
 
-.pokemon{
-  margin: 40px 40px 40px 40px;
+.main-statement{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  color: white;
+  max-width: 1024px;
+  margin: 0 24px;
+  transform: translate(-50%, -50%);
 }
 
-.image{
-  margin-bottom: 10px;
+/*.margin-top{
+  margin-top: 120px;
+}*/
+
+
+.login-btn {
+	background-color:transparent;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #6c6c6d;
+	display:inline-block;
+	cursor:pointer;
+	color:#6c6c6d;
+	font-family:'Hind', sans-serif;
+	font-size:15px;
+	padding:6px 7px;
+	text-decoration:none;
+}
+.login-btn:hover {
+	background-color:transparent;
+}
+.login-btn:active {
+	position:relative;
+	top:1px;
 }
 
-.number{
+
+/*.number{
   color: #949596;
   font-size: 14px;
 }
@@ -52,4 +91,4 @@ img.tint{
 .types{
   font-size: 12px;
   font-weight: bold;
-}
+}*/

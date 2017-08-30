@@ -46,7 +46,7 @@ class EachPost extends React.Component {
   componentWillMount() {
     if (!isLoggedIn()) {
       alert('You should log in to proceed');
-      this.props.history.push('/login');
+      this.props.history.push('/auth/google');
     }
   }
 
@@ -71,7 +71,7 @@ class EachPost extends React.Component {
     return (
     (!this.state.selectedPost)
       ? <div></div>
-      : <div>
+      : <div className="margin-top">
           Username: {this.state.selectedPost.username} <br />
           Title: {this.state.selectedPost.title} <br />
           Content: {this.state.selectedPost.content} <br />

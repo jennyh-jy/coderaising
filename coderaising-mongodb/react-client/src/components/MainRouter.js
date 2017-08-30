@@ -8,6 +8,7 @@ import axios from 'axios';
 
 import Header from './Header';
 import App from './App';
+import About from './About';
 import Posts from './Posts';
 import Charities from './Charities';
 import Profile from './Profile';
@@ -64,12 +65,15 @@ class MainRouter extends React.Component {
       <Router>
         <div>
           <Header loginStatus={this.state.isLoggedIn} logoutClick={this.logoutClick.bind(this)}/>
+          <div>
             <Route exact path="/" component={App} />
+            <Route path="/about" component={About} />
             <Route exact path="/posts" component={Posts} />
             <Route path="/posts/:number" component={EachPost} />
             <Route path="/newpost" component={Newpost} />
             <Route path="/charities" component={Charities} />
             <Route path="/profile" component={Profile} />
+        </div>
         </div>
       </Router>
     );

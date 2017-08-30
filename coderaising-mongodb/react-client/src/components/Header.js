@@ -1,16 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 const Header = ({loginStatus, logoutClick}) => {
   return (
-    <div>
-      <h1><center><Link to="/" style={{color:'grey'}}>CodeRaising</Link></center></h1>
-       <div style={{display : 'inline-block'}}><Link to="/posts" style={{color:'grey'}}>Posts</Link>   <Link to="/charities" style={{color:'grey'}}>Charities</Link></div>
+    <div id="header">
+      <NavLink to="/" style={{display: 'inline', textAlign: 'left'}}>CodeRaising</NavLink>
+       <div style={{display: 'inline', textAlign: 'right'}}>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/posts">Posts</NavLink>
+        <NavLink to="/charities">Charities</NavLink>
+       </div>
         {!loginStatus
-        ? <div style={{display : 'inline-block'}}><a href="/auth/google" style={{color:'grey'}}>Log In/Sign Up with Google</a></div>
-        : <div style={{display : 'inline-block'}}><Link to="/profile" style={{color:'grey'}}>Profile</Link>   <a href='#' style={{color:'grey'}} onClick={() => logoutClick()}>Log Out</a></div>}
-      <hr/>
+        ? <div style={{textAlign: 'right'}}><a href="/auth/google" className="login-btn">Log In/Sign Up with Google</a></div>
+        : <div style={{textAlign: 'right'}}><NavLink to="/profile">Profile</NavLink>   <a href='#' onClick={() => logoutClick()}>Log Out</a></div>}
     </div>
   );
 
