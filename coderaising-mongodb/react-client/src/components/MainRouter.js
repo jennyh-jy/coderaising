@@ -7,6 +7,7 @@ import {
 import axios from 'axios';
 
 import Header from './Header';
+import Footer from './Footer';
 import App from './App';
 import About from './About';
 import Posts from './Posts';

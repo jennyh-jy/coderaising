@@ -22786,7 +22786,7 @@
 	
 	
 	// module
-	exports.push([module.id, "*{\n  box-sizing: border-box;\n}\nbody, html{\n  height:100%;\n  overflow-x: hidden;\n}\nbody{\n  margin: 0px;\n  font-family: 'Hind', sans-serif;\n}\n\na{\n  text-decoration: none;\n}\n\n#header {\n  /*position: absolute;\n  top: 0;\n  left: 0;*/\n  padding: 24px;\n  z-index: 999;\n  width: 100%;\n  /*border-bottom: 1px solid #fff;*/\n  overflow: hidden;\n}\n\n#title{\n  color: grey;\n}\n\n#picture-container{\n  position: relative;\n}\n\n.logo{\n  float: left;\n}\n\n.menu{\n  float: right;\n}\n\n.menu a{\n  display: inline-block;\n  margin-left: 16px;\n}\n/*#create-button{\n  margin-left: 8px;\n  vertical-align: middle;\n}\n\n#link{\n  margin-top: 15px;\n  margin-bottom: 70px;\n  font-size: 13px;\n}*/\n\n.tint{\n  display: inline-block;\n  max-width: 100%;\n  width: 100;\n}\n\n.main-statement{\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  display: block;\n  color: white;\n  max-width: 1024px;\n  margin: 0 24px;\n  transform: translate(-50%, -50%);\n}\n\n/*.margin-top{\n  margin-top: 120px;\n}*/\n\n\n.login-btn {\n\tbackground-color:transparent;\n\t-moz-border-radius:6px;\n\t-webkit-border-radius:6px;\n\tborder-radius:6px;\n\tborder:1px solid #6c6c6d;\n\tdisplay:inline-block;\n\tcursor:pointer;\n\tcolor:#6c6c6d;\n\tfont-family:'Hind', sans-serif;\n\tfont-size:15px;\n\tpadding:6px 7px;\n\ttext-decoration:none;\n}\n.login-btn:hover {\n\tbackground-color:transparent;\n}\n.login-btn:active {\n\tposition:relative;\n\ttop:1px;\n}\n\n\n/*.number{\n  color: #949596;\n  font-size: 14px;\n}\n\n.types{\n  font-size: 12px;\n  font-weight: bold;\n}*/\n", ""]);
+	exports.push([module.id, "*{\n  box-sizing: border-box;\n}\nbody, html{\n  height:100%;\n  overflow-x: hidden;\n}\nbody{\n  margin: 0px;\n  font-family: 'Hind', sans-serif;\n}\n\na{\n  text-decoration: none;\n}\n\n#header {\n  /*position: absolute;\n  top: 0;\n  left: 0;*/\n  padding: 21px;\n  z-index: 999;\n  width: 100%;\n  /*border-bottom: 1px solid #fff;*/\n  overflow: hidden;\n}\n\n#picture-container{\n  position: relative;\n}\n\n.logo{\n  float: left;\n  font-size: 30px;\n}\n\n.menu{\n  float: right;\n}\n\n.menu a{\n  display: inline-block;\n  margin-left: 24px;\n}\n/*#create-button{\n  margin-left: 8px;\n  vertical-align: middle;\n}\n\n#link{\n  margin-top: 15px;\n  margin-bottom: 70px;\n  font-size: 13px;\n}*/\n\n.tint{\n  display: inline-block;\n  max-width: 100%;\n  width: 100;\n}\n\n.main-statement{\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  display: block;\n  color: white;\n  max-width: 1024px;\n  margin: 0 24px;\n  transform: translate(-50%, -50%);\n}\n\n/*.margin-top{\n  margin-top: 120px;\n}*/\n\n\n.login-btn {\n\tbackground-color:transparent;\n\t-moz-border-radius:6px;\n\t-webkit-border-radius:6px;\n\tborder-radius:6px;\n\tborder:1px solid #6c6c6d;\n\tdisplay:inline-block;\n\tcursor:pointer;\n\tcolor:#6c6c6d;\n\tfont-family:'Hind', sans-serif;\n\tfont-size:15px;\n\tpadding:6px 7px;\n\ttext-decoration:none;\n}\n.login-btn:hover {\n\tbackground-color:transparent;\n}\n.login-btn:active {\n\tposition:relative;\n\ttop:1px;\n}\n\n\n/*.number{\n  color: #949596;\n  font-size: 14px;\n}\n\n.types{\n  font-size: 12px;\n  font-weight: bold;\n}*/\n", ""]);
 	
 	// exports
 
@@ -23364,6 +23364,10 @@
 	var _Header = __webpack_require__(/*! ./Header */ 256);
 	
 	var _Header2 = _interopRequireDefault(_Header);
+	
+	var _Footer = __webpack_require__(/*! ./Footer */ 267);
+	
+	var _Footer2 = _interopRequireDefault(_Footer);
 	
 	var _App = __webpack_require__(/*! ./App */ 257);
 	
@@ -28771,7 +28775,7 @@
 	        _react2.default.createElement(
 	          _reactRouterDom.NavLink,
 	          { to: '/login' },
-	          'Log In/Sign Up with Google'
+	          'Log In with Google'
 	        )
 	      ) : _react2.default.createElement(
 	        'span',
@@ -29902,6 +29906,91 @@
 	/******/ ])
 	});
 	;
+
+/***/ }),
+/* 267 */
+/*!***********************************************!*\
+  !*** ./react-client/src/components/Footer.js ***!
+  \***********************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 190);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Header = function Header(_ref) {
+	  var loginStatus = _ref.loginStatus,
+	      logoutClick = _ref.logoutClick;
+	
+	  return _react2.default.createElement(
+	    'div',
+	    { id: 'header' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'logo' },
+	      _react2.default.createElement(
+	        _reactRouterDom.NavLink,
+	        { to: '/' },
+	        'CodeRaising'
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'menu' },
+	      _react2.default.createElement(
+	        _reactRouterDom.NavLink,
+	        { to: '/about' },
+	        'About'
+	      ),
+	      _react2.default.createElement(
+	        _reactRouterDom.NavLink,
+	        { to: '/posts' },
+	        'Posts'
+	      ),
+	      _react2.default.createElement(
+	        _reactRouterDom.NavLink,
+	        { to: '/charities' },
+	        'Charities'
+	      ),
+	      !loginStatus ? _react2.default.createElement(
+	        'span',
+	        { className: 'login' },
+	        _react2.default.createElement(
+	          _reactRouterDom.NavLink,
+	          { to: '/login' },
+	          'Log In with Google'
+	        )
+	      ) : _react2.default.createElement(
+	        'span',
+	        { className: 'profile-logout' },
+	        _react2.default.createElement(
+	          _reactRouterDom.NavLink,
+	          { to: '/profile' },
+	          'Profile'
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { href: '#', onClick: function onClick() {
+	              return logoutClick();
+	            } },
+	          'Log Out'
+	        )
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = Header;
 
 /***/ })
 /******/ ]);
