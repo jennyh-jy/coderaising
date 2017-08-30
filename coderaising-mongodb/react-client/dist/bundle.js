@@ -29928,69 +29928,15 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Header = function Header(_ref) {
-	  var loginStatus = _ref.loginStatus,
-	      logoutClick = _ref.logoutClick;
-	
+	var Footer = function Footer() {
 	  return _react2.default.createElement(
 	    'div',
-	    { id: 'header' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'logo' },
-	      _react2.default.createElement(
-	        _reactRouterDom.NavLink,
-	        { to: '/' },
-	        'CodeRaising'
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'menu' },
-	      _react2.default.createElement(
-	        _reactRouterDom.NavLink,
-	        { to: '/about' },
-	        'About'
-	      ),
-	      _react2.default.createElement(
-	        _reactRouterDom.NavLink,
-	        { to: '/posts' },
-	        'Posts'
-	      ),
-	      _react2.default.createElement(
-	        _reactRouterDom.NavLink,
-	        { to: '/charities' },
-	        'Charities'
-	      ),
-	      !loginStatus ? _react2.default.createElement(
-	        'span',
-	        { className: 'login' },
-	        _react2.default.createElement(
-	          _reactRouterDom.NavLink,
-	          { to: '/login' },
-	          'Log In with Google'
-	        )
-	      ) : _react2.default.createElement(
-	        'span',
-	        { className: 'profile-logout' },
-	        _react2.default.createElement(
-	          _reactRouterDom.NavLink,
-	          { to: '/profile' },
-	          'Profile'
-	        ),
-	        _react2.default.createElement(
-	          'a',
-	          { href: '#', onClick: function onClick() {
-	              return logoutClick();
-	            } },
-	          'Log Out'
-	        )
-	      )
-	    )
+	    { id: 'footer' },
+	    '\xA92017 CODERAISING. ALL RIGHTS RESERVED'
 	  );
 	};
 	
-	exports.default = Header;
+	exports.default = Footer;
 
 /***/ })
 /******/ ]);
