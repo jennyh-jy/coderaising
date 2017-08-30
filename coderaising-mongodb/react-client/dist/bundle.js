@@ -28980,7 +28980,7 @@
 	
 	    _this.state = {
 	      posts: [],
-	      selectedPost: null
+	      selectedCategory: null
 	    };
 	    return _this;
 	  }
@@ -28997,8 +28997,17 @@
 	      });
 	    }
 	  }, {
+	    key: 'categoryChange',
+	    value: function categoryChange(event) {
+	      this.setState({
+	        selectedCategory: event.target.value
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this3 = this;
+	
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'margin-top' },
@@ -29011,7 +29020,37 @@
 	            'New Post'
 	          )
 	        ),
-	        this.state.posts.map(function (post, i) {
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          'categories: ',
+	          _react2.default.createElement(
+	            'select',
+	            { name: 'categories', onChange: function onChange(e) {
+	                return _this3.categoryChange(e);
+	              } },
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'C++' },
+	              'C++'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'JavaScript' },
+	              'JavaScript'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'select', selected: 'selected' },
+	              'select'
+	            )
+	          )
+	        ),
+	        this.state.posts.filter(function (post, i) {
+	          if (_this3.state.selectedCategory === null || _this3.state.selectedCategory === 'select') {
+	            return true;
+	          }return post.categories.includes(_this3.state.selectedCategory);
+	        }).map(function (post, i) {
 	          return _react2.default.createElement(
 	            'div',
 	            null,
@@ -29022,6 +29061,8 @@
 	              { to: '/posts/' + post.number },
 	              post.title
 	            ),
+	            '   ',
+	            post.categories,
 	            '   ',
 	            post.username,
 	            '   ',
@@ -29605,18 +29646,32 @@
 	        ' ',
 	        _react2.default.createElement('br', null),
 	        'meetup: ',
-	        this.state.currentUser.meetup,
-	        _react2.default.createElement('br', null),
-	        'Balance: KRW ',
-	        this.state.currentUser.balance,
+	        this.state.currentUser.meetup.map(function (post, i) {
+	          return _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	              _reactRouterDom.Link,
+	              { to: '/posts/' + Object.keys(post)[0] },
+	              post[Object.keys(post)[0]]
+	            ),
+	            ' ',
+	            _react2.default.createElement('br', null)
+	          );
+	        }),
 	        _react2.default.createElement(
-	          'button',
-	          { type: 'button', onClick: function onClick() {
-	              return _this4.depositClick();
-	            } },
-	          'Make a Deposit'
+	          'div',
+	          null,
+	          'Balance: KRW ',
+	          this.state.currentUser.balance,
+	          _react2.default.createElement(
+	            'button',
+	            { type: 'button', onClick: function onClick() {
+	                return _this4.depositClick();
+	              } },
+	            'Make a Deposit'
+	          )
 	        ),
-	        _react2.default.createElement('br', null),
 	        'Your credit cards',
 	        _react2.default.createElement(
 	          'button',
@@ -29895,7 +29950,9 @@
 	        _axios2.default.get('http://localhost:8000/api/getUser').then(function (res) {
 	          if (res.data.balance >= 1000) {
 	            // logged in user balance update
-	            _axios2.default.put('http://localhost:8000/api/updateUserBalance', { meetupTitle: _this2.state.selectedPost.title }).then(function (res) {
+	            _axios2.default.put('http://localhost:8000/api/updateUserBalance', {
+	              meetupTitle: _this2.state.selectedPost.title,
+	              meetupNumber: _this2.state.selectedPost.number }).then(function (res) {
 	              console.log("logged in user's has been updated");
 	            }).catch(function (err) {
 	              return console.log('Logged in user balance update error');

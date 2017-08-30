@@ -31,8 +31,10 @@ exports.loggedInUserUpdate = (req, res) => {
       console.log(err);
       res.sendStatus(500);
     } else {
+      const meetUp = {};
+      meetUp[req.body.meetupNumber] = req.body.meetupTitle;
       obj.balance -= 1000;
-      obj.meetup.push(req.body.meetupTitle)
+      obj.meetup.push(meetUp);
       obj.save((err, obj) => {
         if (err) {
           console.log(err);

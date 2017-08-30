@@ -12,7 +12,7 @@ const userSchema = new Schema({
     },
     imageUrl: String,
   },
-  meetup: [String],
+  meetup: [],
   balance: {
     type: Number,
     default: 0,

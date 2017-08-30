@@ -8,7 +8,7 @@ class Posts extends React.Component {
     super(props);
     this.state = {
       posts: [],
-      selectedPost: null,
+      selectedCategory: null,
     };
   }
 
@@ -20,13 +20,31 @@ class Posts extends React.Component {
     .catch(err => console.log(err));
   }
 
+  categoryChange(event) {
+    this.setState({
+      selectedCategory: event.target.value
+    })
+  }
+
   render() {
     return (
       <div className="margin-top">
       <button type="button"><Link to="/newpost">New Post</Link></button>
-        {this.state.posts.map((post, i) =>
+      <div>
+      categories: <select name="categories" onChange={e => this.categoryChange(e)}>
+                 <option value="C++">C++</option>
+                 <option value="JavaScript">JavaScript</option>
+                 <option value="select" selected="selected">select</option>
+                 </select>
+      </div>
+        {this.state.posts.filter((post, i) => {
+          if (this.state.selectedCategory === null || this.state.selectedCategory === 'select') {
+            return true;
+          } return post.categories.includes(this.state.selectedCategory)
+        })
+          .map((post, i) =>
           <div>
-          {post.number}  <Link to={`/posts/${post.number}`}>{post.title}</Link>   {post.username}   {post.createdAt}
+          {post.number}  <Link to={`/posts/${post.number}`}>{post.title}</Link>   {post.categories}   {post.username}   {post.createdAt}
           </div>
         )}
       </div>
