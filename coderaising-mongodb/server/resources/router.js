@@ -25,7 +25,7 @@ router.post('/newpost', postController.createOne);
 router.get('/allUsers', userController.retrieve);
 router.get('/profile', userController.loggedInUserRetrieve);
 router.get('/getUser', userController.loggedInUserRetrieve);
-router.put('/updateUserBalance', userController.loggedInUserBalanceUpdate);
+router.put('/updateUserBalance', userController.loggedInUserUpdate);
 router.put('/updatePostOwnerBalance', userController.postOwnerBalanceUpdate);
 router.put('/deposit', userController.userAccountDeposit);
 

@@ -25,13 +25,14 @@ exports.retrieve = (req, res) => {
   });
 };
 
-exports.loggedInUserBalanceUpdate = (req, res) => {
+exports.loggedInUserUpdate = (req, res) => {
   User.findOne({'_id': req.session.passport.user}, (err, obj) => {
     if (err) {
       console.log(err);
       res.sendStatus(500);
     } else {
       obj.balance -= 1000;
+      obj.meetup.push(req.body.meetupTitle)
       obj.save((err, obj) => {
         if (err) {
           console.log(err);

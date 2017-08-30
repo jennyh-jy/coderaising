@@ -23365,43 +23365,43 @@
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _Footer = __webpack_require__(/*! ./Footer */ 267);
+	var _Footer = __webpack_require__(/*! ./Footer */ 257);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
-	var _App = __webpack_require__(/*! ./App */ 257);
+	var _App = __webpack_require__(/*! ./App */ 258);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _About = __webpack_require__(/*! ./About */ 258);
+	var _About = __webpack_require__(/*! ./About */ 259);
 	
 	var _About2 = _interopRequireDefault(_About);
 	
-	var _Posts = __webpack_require__(/*! ./Posts */ 259);
+	var _Posts = __webpack_require__(/*! ./Posts */ 260);
 	
 	var _Posts2 = _interopRequireDefault(_Posts);
 	
-	var _Charities = __webpack_require__(/*! ./Charities */ 260);
+	var _Charities = __webpack_require__(/*! ./Charities */ 261);
 	
 	var _Charities2 = _interopRequireDefault(_Charities);
 	
-	var _Login = __webpack_require__(/*! ./Login */ 265);
+	var _Login = __webpack_require__(/*! ./Login */ 263);
 	
 	var _Login2 = _interopRequireDefault(_Login);
 	
-	var _Profile = __webpack_require__(/*! ./Profile */ 262);
+	var _Profile = __webpack_require__(/*! ./Profile */ 265);
 	
 	var _Profile2 = _interopRequireDefault(_Profile);
 	
-	var _Newpost = __webpack_require__(/*! ./Newpost */ 263);
+	var _Newpost = __webpack_require__(/*! ./Newpost */ 266);
 	
 	var _Newpost2 = _interopRequireDefault(_Newpost);
 	
-	var _EachPost = __webpack_require__(/*! ./EachPost */ 264);
+	var _EachPost = __webpack_require__(/*! ./EachPost */ 267);
 	
 	var _EachPost2 = _interopRequireDefault(_EachPost);
 	
-	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 261);
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 262);
 	
 	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
 	
@@ -28801,6 +28801,37 @@
 
 /***/ }),
 /* 257 */
+/*!***********************************************!*\
+  !*** ./react-client/src/components/Footer.js ***!
+  \***********************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 190);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Footer = function Footer() {
+	  return _react2.default.createElement(
+	    'div',
+	    { id: 'footer' },
+	    '\xA92017 CODERAISING. ALL RIGHTS RESERVED'
+	  );
+	};
+	
+	exports.default = Footer;
+
+/***/ }),
+/* 258 */
 /*!********************************************!*\
   !*** ./react-client/src/components/App.js ***!
   \********************************************/
@@ -28878,7 +28909,7 @@
 	// });
 
 /***/ }),
-/* 258 */
+/* 259 */
 /*!**********************************************!*\
   !*** ./react-client/src/components/About.js ***!
   \**********************************************/
@@ -28907,7 +28938,7 @@
 	exports.default = About;
 
 /***/ }),
-/* 259 */
+/* 260 */
 /*!**********************************************!*\
   !*** ./react-client/src/components/Posts.js ***!
   \**********************************************/
@@ -29007,7 +29038,7 @@
 	exports.default = Posts;
 
 /***/ }),
-/* 260 */
+/* 261 */
 /*!**************************************************!*\
   !*** ./react-client/src/components/Charities.js ***!
   \**************************************************/
@@ -29031,7 +29062,7 @@
 	
 	var _axios2 = _interopRequireDefault(_axios);
 	
-	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 261);
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 262);
 	
 	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
 	
@@ -29143,7 +29174,7 @@
 	exports.default = Charities;
 
 /***/ }),
-/* 261 */
+/* 262 */
 /*!****************************************!*\
   !*** ./react-client/src/isLoggedIn.js ***!
   \****************************************/
@@ -29168,445 +29199,7 @@
 	};
 
 /***/ }),
-/* 262 */
-/*!************************************************!*\
-  !*** ./react-client/src/components/Profile.js ***!
-  \************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 190);
-	
-	var _axios = __webpack_require__(/*! axios */ 230);
-	
-	var _axios2 = _interopRequireDefault(_axios);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Profile = function (_React$Component) {
-	  _inherits(Profile, _React$Component);
-	
-	  function Profile(props) {
-	    _classCallCheck(this, Profile);
-	
-	    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
-	
-	    _this.state = {
-	      currentUser: null
-	    };
-	    return _this;
-	  }
-	
-	  _createClass(Profile, [{
-	    key: 'fetch',
-	    value: function fetch() {
-	      var _this2 = this;
-	
-	      _axios2.default.get('http://localhost:8000/api/getUser/').then(function (res) {
-	        _this2.setState({ currentUser: res.data });
-	      }).catch(function (err) {
-	        return console.log(err);
-	      });
-	    }
-	  }, {
-	    key: 'depositClick',
-	    value: function depositClick() {
-	      var _this3 = this;
-	
-	      if (confirm('5000 won will be transferred from your linked credit card. Do you want to proceed?') === true) {
-	        _axios2.default.put('http://localhost:8000/api/deposit').then(function (res) {
-	          console.log("5000 won has been deposited into user's account");
-	          alert('5000 won has been deposited into your account');
-	          _this3.fetch();
-	        }).catch(function (err) {
-	          return console.log(err);
-	        });
-	      }
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.fetch();
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this4 = this;
-	
-	      return !this.state.currentUser ? _react2.default.createElement('div', null) : _react2.default.createElement(
-	        'div',
-	        { className: 'margin-top' },
-	        _react2.default.createElement(
-	          'h3',
-	          null,
-	          'Hello ',
-	          this.state.currentUser.google.name.split(" ")[0],
-	          '!'
-	        ),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('img', { src: this.state.currentUser.google.imageUrl }),
-	        _react2.default.createElement('br', null),
-	        'Name: ',
-	        this.state.currentUser.google.name,
-	        ' ',
-	        _react2.default.createElement('br', null),
-	        'Email: ',
-	        this.state.currentUser.google.email,
-	        ' ',
-	        _react2.default.createElement('br', null),
-	        'Balance: KRW ',
-	        this.state.currentUser.balance,
-	        _react2.default.createElement(
-	          'button',
-	          { type: 'button', onClick: function onClick() {
-	              return _this4.depositClick();
-	            } },
-	          'Make a Deposit'
-	        ),
-	        _react2.default.createElement('br', null),
-	        'Your credit cards',
-	        _react2.default.createElement(
-	          'button',
-	          { type: 'button' },
-	          'Link a credit card'
-	        ),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('img', {
-	          src: 'http://www.infomerchant.net/images/creditcards/visalogo-big.gif',
-	          style: { width: "45px", height: "30px", verticalAlign: "middle" }
-	        }),
-	        'Visa #2038'
-	      );
-	    }
-	  }]);
-	
-	  return Profile;
-	}(_react2.default.Component);
-	
-	exports.default = Profile;
-
-/***/ }),
 /* 263 */
-/*!************************************************!*\
-  !*** ./react-client/src/components/Newpost.js ***!
-  \************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _axios = __webpack_require__(/*! axios */ 230);
-	
-	var _axios2 = _interopRequireDefault(_axios);
-	
-	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 261);
-	
-	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Newpost = function (_React$Component) {
-	  _inherits(Newpost, _React$Component);
-	
-	  function Newpost(props) {
-	    _classCallCheck(this, Newpost);
-	
-	    var _this = _possibleConstructorReturn(this, (Newpost.__proto__ || Object.getPrototypeOf(Newpost)).call(this, props));
-	
-	    _this.state = {
-	      posts: [],
-	      currentNumber: null,
-	      currentUsername: null,
-	      currentUserEmail: null,
-	      titleValue: null,
-	      contentValue: null,
-	      isTitleTyped: false,
-	      isContentTyped: false
-	    };
-	    return _this;
-	  }
-	
-	  _createClass(Newpost, [{
-	    key: 'titleChange',
-	    value: function titleChange(event) {
-	      this.setState({
-	        titleValue: event.target.value,
-	        isTitleTyped: true
-	      });
-	    }
-	  }, {
-	    key: 'contentChange',
-	    value: function contentChange(event) {
-	      this.setState({
-	        contentValue: event.target.value,
-	        isContentTyped: true
-	      });
-	    }
-	  }, {
-	    key: 'buttonClick',
-	    value: function buttonClick() {
-	      var _this2 = this;
-	
-	      var number = this.state.posts.length + 1;
-	      _axios2.default.get('http://localhost:8000/api/getUser').then(function (res) {
-	        _this2.setState({
-	          currentNumber: number
-	        });
-	      });
-	      var newpost = {
-	        number: number,
-	        username: this.state.currentUsername,
-	        email: this.state.currentUserEmail,
-	        title: this.state.titleValue,
-	        content: this.state.contentValue
-	      };
-	      _axios2.default.post('http://localhost:8000/api/newpost', newpost).then(function (response) {
-	        alert('Your post has been submitted!');
-	      }).then(function () {
-	        _this2.props.history.push('/posts');
-	      }).catch(function (err) {
-	        return console.log(err);
-	      });
-	    }
-	  }, {
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      if (!(0, _isLoggedIn2.default)()) {
-	        alert('You should log in to proceed');
-	        this.props.history.push('/login');
-	      }
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this3 = this;
-	
-	      _axios2.default.get('http://localhost:8000/api/posts').then(function (res) {
-	        _this3.setState({ posts: res.data });
-	      }).catch(function (res) {
-	        return console.log('Failed to fetch posts data');
-	      });
-	      _axios2.default.get('http://localhost:8000/api/getUser').then(function (res) {
-	        _this3.setState({
-	          currentUsername: res.data.google.name,
-	          currentUserEmail: res.data.google.email
-	        });
-	      }).catch(function (err) {
-	        return console.log(err);
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this4 = this;
-	
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'margin-top' },
-	        'Title: ',
-	        _react2.default.createElement('input', { type: 'text', id: 'title-input', style: { fontSize: '10pt', width: 430, height: 25 }, placeholder: 'What kind of programming skills do you want to donate?', onChange: function onChange(e) {
-	            return _this4.titleChange(e);
-	          } }),
-	        _react2.default.createElement('br', null),
-	        'Content: ',
-	        _react2.default.createElement('input', { type: 'text', id: 'content-input', style: { fontSize: '10pt', width: 430, height: 200 }, placeholder: 'How do you want to donate your skills? Please be as specific as possible!', onChange: function onChange(e) {
-	            return _this4.contentChange(e);
-	          } }),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement(
-	          'button',
-	          { type: 'button', id: 'submit-button', onClick: function onClick() {
-	              return _this4.buttonClick();
-	            } },
-	          'Submit'
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return Newpost;
-	}(_react2.default.Component);
-	
-	;
-	
-	exports.default = Newpost;
-
-/***/ }),
-/* 264 */
-/*!*************************************************!*\
-  !*** ./react-client/src/components/EachPost.js ***!
-  \*************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 190);
-	
-	var _axios = __webpack_require__(/*! axios */ 230);
-	
-	var _axios2 = _interopRequireDefault(_axios);
-	
-	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 261);
-	
-	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var EachPost = function (_React$Component) {
-	  _inherits(EachPost, _React$Component);
-	
-	  function EachPost(props) {
-	    _classCallCheck(this, EachPost);
-	
-	    var _this = _possibleConstructorReturn(this, (EachPost.__proto__ || Object.getPrototypeOf(EachPost)).call(this, props));
-	
-	    _this.state = {
-	      selectedPost: null,
-	      selectedPostOwnerEmail: null
-	    };
-	    return _this;
-	  }
-	
-	  _createClass(EachPost, [{
-	    key: 'registerClick',
-	    value: function registerClick() {
-	      var _this2 = this;
-	
-	      if (confirm("If you register for this session, 1000 won will be deducted from your account. Do you really want to proceed?") === true) {
-	        _axios2.default.get('http://localhost:8000/api/getUser').then(function (res) {
-	          if (res.data.balance >= 1000) {
-	            // logged in user balance update
-	            _axios2.default.put('http://localhost:8000/api/updateUserBalance').then(function (res) {
-	              console.log("logged in user's balance has been updated");
-	            }).catch(function (err) {
-	              return console.log('Logged in user balance update error');
-	            });
-	            //post owner balance update
-	            _axios2.default.put('http://localhost:8000/api/updatePostOwnerBalance', { email: _this2.state.selectedPostOwnerEmail }).then(function (res) {
-	              alert('You have been registered!');
-	            }).catch(function (err) {
-	              return console.log('Post owner balance update error');
-	            });
-	          } else {
-	            alert("돈없다 충전해라");
-	          }
-	        });
-	      }
-	    }
-	  }, {
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      if (!(0, _isLoggedIn2.default)()) {
-	        alert('You should log in to proceed');
-	        this.props.history.push('/login');
-	      }
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this3 = this;
-	
-	      _axios2.default.get('http://localhost:8000/api/posts/' + this.props.match.params.number).then(function (res) {
-	        _this3.setState({
-	          selectedPost: res.data,
-	          selectedPostOwnerEmail: res.data.email
-	        });
-	      }).catch(function (err) {
-	        return console.log(err);
-	      });
-	
-	      // axios.get('http://localhost:8000/api/getUser')
-	      // .then(res => {
-	      //   this.setState({loggedInUserBalance: res.data.balance});
-	      // })
-	      // .catch(err => console.log(err));
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this4 = this;
-	
-	      return !this.state.selectedPost ? _react2.default.createElement('div', null) : _react2.default.createElement(
-	        'div',
-	        { className: 'margin-top' },
-	        'Username: ',
-	        this.state.selectedPost.username,
-	        ' ',
-	        _react2.default.createElement('br', null),
-	        'Title: ',
-	        this.state.selectedPost.title,
-	        ' ',
-	        _react2.default.createElement('br', null),
-	        'Content: ',
-	        this.state.selectedPost.content,
-	        ' ',
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement(
-	          'button',
-	          { type: 'button', id: 'register-button', onClick: function onClick() {
-	              return _this4.registerClick();
-	            } },
-	          'Register'
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return EachPost;
-	}(_react2.default.Component);
-	
-	exports.default = (0, _reactRouterDom.withRouter)(EachPost);
-
-/***/ }),
-/* 265 */
 /*!**********************************************!*\
   !*** ./react-client/src/components/Login.js ***!
   \**********************************************/
@@ -29624,7 +29217,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactGoogleLoginComponent = __webpack_require__(/*! react-google-login-component */ 266);
+	var _reactGoogleLoginComponent = __webpack_require__(/*! react-google-login-component */ 264);
 	
 	var _axios = __webpack_require__(/*! axios */ 230);
 	
@@ -29714,7 +29307,7 @@
 	exports.default = Login;
 
 /***/ }),
-/* 266 */
+/* 264 */
 /*!*****************************************************************************!*\
   !*** ./~/react-google-login-component/dist/react-google-login-component.js ***!
   \*****************************************************************************/
@@ -29908,10 +29501,10 @@
 	;
 
 /***/ }),
-/* 267 */
-/*!***********************************************!*\
-  !*** ./react-client/src/components/Footer.js ***!
-  \***********************************************/
+/* 265 */
+/*!************************************************!*\
+  !*** ./react-client/src/components/Profile.js ***!
+  \************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29920,23 +29513,471 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
 	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 190);
 	
+	var _axios = __webpack_require__(/*! axios */ 230);
+	
+	var _axios2 = _interopRequireDefault(_axios);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Footer = function Footer() {
-	  return _react2.default.createElement(
-	    'div',
-	    { id: 'footer' },
-	    '\xA92017 CODERAISING. ALL RIGHTS RESERVED'
-	  );
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	exports.default = Footer;
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Profile = function (_React$Component) {
+	  _inherits(Profile, _React$Component);
+	
+	  function Profile(props) {
+	    _classCallCheck(this, Profile);
+	
+	    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
+	
+	    _this.state = {
+	      currentUser: null
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(Profile, [{
+	    key: 'fetch',
+	    value: function fetch() {
+	      var _this2 = this;
+	
+	      _axios2.default.get('http://localhost:8000/api/getUser/').then(function (res) {
+	        _this2.setState({ currentUser: res.data });
+	      }).catch(function (err) {
+	        return console.log(err);
+	      });
+	    }
+	  }, {
+	    key: 'depositClick',
+	    value: function depositClick() {
+	      var _this3 = this;
+	
+	      if (confirm('5000 won will be transferred from your linked credit card. Do you want to proceed?') === true) {
+	        _axios2.default.put('http://localhost:8000/api/deposit').then(function (res) {
+	          console.log("5000 won has been deposited into user's account");
+	          alert('5000 won has been deposited into your account');
+	          _this3.fetch();
+	        }).catch(function (err) {
+	          return console.log(err);
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.fetch();
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this4 = this;
+	
+	      return !this.state.currentUser ? _react2.default.createElement('div', null) : _react2.default.createElement(
+	        'div',
+	        { className: 'margin-top' },
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'Hello ',
+	          this.state.currentUser.google.name.split(" ")[0],
+	          '!'
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement('img', { src: this.state.currentUser.google.imageUrl }),
+	        _react2.default.createElement('br', null),
+	        'Name: ',
+	        this.state.currentUser.google.name,
+	        ' ',
+	        _react2.default.createElement('br', null),
+	        'Email: ',
+	        this.state.currentUser.google.email,
+	        ' ',
+	        _react2.default.createElement('br', null),
+	        'meetup: ',
+	        this.state.currentUser.meetup,
+	        _react2.default.createElement('br', null),
+	        'Balance: KRW ',
+	        this.state.currentUser.balance,
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'button', onClick: function onClick() {
+	              return _this4.depositClick();
+	            } },
+	          'Make a Deposit'
+	        ),
+	        _react2.default.createElement('br', null),
+	        'Your credit cards',
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'button' },
+	          'Link a credit card'
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement('img', {
+	          src: 'http://www.infomerchant.net/images/creditcards/visalogo-big.gif',
+	          style: { width: "45px", height: "30px", verticalAlign: "middle" }
+	        }),
+	        'Visa #2038'
+	      );
+	    }
+	  }]);
+	
+	  return Profile;
+	}(_react2.default.Component);
+	
+	exports.default = Profile;
+
+/***/ }),
+/* 266 */
+/*!************************************************!*\
+  !*** ./react-client/src/components/Newpost.js ***!
+  \************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _axios = __webpack_require__(/*! axios */ 230);
+	
+	var _axios2 = _interopRequireDefault(_axios);
+	
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 262);
+	
+	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Newpost = function (_React$Component) {
+	  _inherits(Newpost, _React$Component);
+	
+	  function Newpost(props) {
+	    _classCallCheck(this, Newpost);
+	
+	    var _this = _possibleConstructorReturn(this, (Newpost.__proto__ || Object.getPrototypeOf(Newpost)).call(this, props));
+	
+	    _this.state = {
+	      posts: [],
+	      currentNumber: null,
+	      currentUsername: null,
+	      currentUserEmail: null,
+	      titleValue: null,
+	      contentValue: null,
+	      categoryValue: null,
+	      isTitleTyped: false,
+	      isContentTyped: false
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(Newpost, [{
+	    key: 'titleChange',
+	    value: function titleChange(event) {
+	      this.setState({
+	        titleValue: event.target.value,
+	        isTitleTyped: true
+	      });
+	    }
+	  }, {
+	    key: 'contentChange',
+	    value: function contentChange(event) {
+	      this.setState({
+	        contentValue: event.target.value,
+	        isContentTyped: true
+	      });
+	    }
+	  }, {
+	    key: 'categoryChange',
+	    value: function categoryChange(event) {
+	      this.setState({
+	        categoryValue: event.target.value
+	      });
+	    }
+	  }, {
+	    key: 'buttonClick',
+	    value: function buttonClick() {
+	      var _this2 = this;
+	
+	      var number = this.state.posts.length + 1;
+	      _axios2.default.get('http://localhost:8000/api/getUser').then(function (res) {
+	        _this2.setState({
+	          currentNumber: number
+	        });
+	      });
+	      var newpost = {
+	        number: number,
+	        username: this.state.currentUsername,
+	        email: this.state.currentUserEmail,
+	        categories: this.state.categoryValue,
+	        title: this.state.titleValue,
+	        content: this.state.contentValue
+	      };
+	      _axios2.default.post('http://localhost:8000/api/newpost', newpost).then(function (response) {
+	        alert('Your post has been submitted!');
+	      }).then(function () {
+	        _this2.props.history.push('/posts');
+	      }).catch(function (err) {
+	        return console.log(err);
+	      });
+	    }
+	  }, {
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      if (!(0, _isLoggedIn2.default)()) {
+	        alert('You should log in to proceed');
+	        this.props.history.push('/login');
+	      }
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this3 = this;
+	
+	      _axios2.default.get('http://localhost:8000/api/posts').then(function (res) {
+	        _this3.setState({ posts: res.data });
+	      }).catch(function (res) {
+	        return console.log('Failed to fetch posts data');
+	      });
+	      _axios2.default.get('http://localhost:8000/api/getUser').then(function (res) {
+	        _this3.setState({
+	          currentUsername: res.data.google.name,
+	          currentUserEmail: res.data.google.email
+	        });
+	      }).catch(function (err) {
+	        return console.log(err);
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this4 = this;
+	
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'margin-top' },
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          'categories: ',
+	          _react2.default.createElement(
+	            'select',
+	            { name: 'categories', onChange: function onChange(e) {
+	                return _this4.categoryChange(e);
+	              } },
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'C++' },
+	              'C++'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'JavaScript' },
+	              'JavaScript'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: 'select', selected: 'selected' },
+	              '\uC120\uD0DD\uD558\uC138\uC694'
+	            )
+	          )
+	        ),
+	        'Title: ',
+	        _react2.default.createElement('input', { type: 'text', id: 'title-input', style: { fontSize: '10pt', width: 430, height: 25 }, placeholder: 'What kind of programming skills do you want to donate?', onChange: function onChange(e) {
+	            return _this4.titleChange(e);
+	          } }),
+	        _react2.default.createElement('br', null),
+	        'Content: ',
+	        _react2.default.createElement('input', { type: 'text', id: 'content-input', style: { fontSize: '10pt', width: 430, height: 200 }, placeholder: 'How do you want to donate your skills? Please be as specific as possible!', onChange: function onChange(e) {
+	            return _this4.contentChange(e);
+	          } }),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'button', id: 'submit-button', onClick: function onClick() {
+	              return _this4.buttonClick();
+	            } },
+	          'Submit'
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Newpost;
+	}(_react2.default.Component);
+	
+	;
+	
+	exports.default = Newpost;
+
+/***/ }),
+/* 267 */
+/*!*************************************************!*\
+  !*** ./react-client/src/components/EachPost.js ***!
+  \*************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 190);
+	
+	var _axios = __webpack_require__(/*! axios */ 230);
+	
+	var _axios2 = _interopRequireDefault(_axios);
+	
+	var _isLoggedIn = __webpack_require__(/*! ../isLoggedIn */ 262);
+	
+	var _isLoggedIn2 = _interopRequireDefault(_isLoggedIn);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var EachPost = function (_React$Component) {
+	  _inherits(EachPost, _React$Component);
+	
+	  function EachPost(props) {
+	    _classCallCheck(this, EachPost);
+	
+	    var _this = _possibleConstructorReturn(this, (EachPost.__proto__ || Object.getPrototypeOf(EachPost)).call(this, props));
+	
+	    _this.state = {
+	      selectedPost: null,
+	      selectedPostOwnerEmail: null
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(EachPost, [{
+	    key: 'registerClick',
+	    value: function registerClick() {
+	      var _this2 = this;
+	
+	      if (confirm("If you register for this session, 1000 won will be deducted from your account. Do you really want to proceed?") === true) {
+	        _axios2.default.get('http://localhost:8000/api/getUser').then(function (res) {
+	          if (res.data.balance >= 1000) {
+	            // logged in user balance update
+	            _axios2.default.put('http://localhost:8000/api/updateUserBalance', { meetupTitle: _this2.state.selectedPost.title }).then(function (res) {
+	              console.log("logged in user's has been updated");
+	            }).catch(function (err) {
+	              return console.log('Logged in user balance update error');
+	            });
+	            //post owner balance update
+	            _axios2.default.put('http://localhost:8000/api/updatePostOwnerBalance', { email: _this2.state.selectedPostOwnerEmail }).then(function (res) {
+	              alert('You have been registered!');
+	            }).catch(function (err) {
+	              return console.log('Post owner balance update error');
+	            });
+	          } else {
+	            alert("돈없다 충전해라");
+	          }
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      if (!(0, _isLoggedIn2.default)()) {
+	        alert('You should log in to proceed');
+	        this.props.history.push('/login');
+	      }
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this3 = this;
+	
+	      _axios2.default.get('http://localhost:8000/api/posts/' + this.props.match.params.number).then(function (res) {
+	        _this3.setState({
+	          selectedPost: res.data,
+	          selectedPostOwnerEmail: res.data.email
+	        });
+	      }).catch(function (err) {
+	        return console.log(err);
+	      });
+	
+	      // axios.get('http://localhost:8000/api/getUser')
+	      // .then(res => {
+	      //   this.setState({loggedInUserBalance: res.data.balance});
+	      // })
+	      // .catch(err => console.log(err));
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this4 = this;
+	
+	      return !this.state.selectedPost ? _react2.default.createElement('div', null) : _react2.default.createElement(
+	        'div',
+	        { className: 'margin-top' },
+	        'Username: ',
+	        this.state.selectedPost.username,
+	        ' ',
+	        _react2.default.createElement('br', null),
+	        'category: ',
+	        this.state.selectedPost.categories,
+	        _react2.default.createElement('br', null),
+	        'Title: ',
+	        this.state.selectedPost.title,
+	        ' ',
+	        _react2.default.createElement('br', null),
+	        'Content: ',
+	        this.state.selectedPost.content,
+	        ' ',
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'button', id: 'register-button', onClick: function onClick() {
+	              return _this4.registerClick();
+	            } },
+	          'Register'
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return EachPost;
+	}(_react2.default.Component);
+	
+	exports.default = (0, _reactRouterDom.withRouter)(EachPost);
 
 /***/ })
 /******/ ]);

@@ -48,6 +48,7 @@ class Profile extends React.Component {
           <img src={this.state.currentUser.google.imageUrl} /><br />
           Name: {this.state.currentUser.google.name} <br />
           Email: {this.state.currentUser.google.email} <br />
+          meetup: {this.state.currentUser.meetup}<br />
           Balance: KRW {this.state.currentUser.balance}
           <button type="button" onClick={() => this.depositClick()}>Make a Deposit</button><br />
           Your credit cards
