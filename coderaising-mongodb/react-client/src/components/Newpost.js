@@ -14,6 +14,7 @@ class Newpost extends React.Component {
       currentUserEmail: null,
       titleValue: null,
       contentValue: null,
+      categoryValue: null,
       isTitleTyped: false,
       isContentTyped: false,
     };
@@ -33,6 +34,12 @@ class Newpost extends React.Component {
     });
   }
 
+  categoryChange(event) {
+    this.setState({
+      categoryValue: event.target.value
+    })
+  }
+
   buttonClick() {
     const number = this.state.posts.length + 1;
     axios.get('http://localhost:8000/api/getUser')
@@ -45,6 +52,7 @@ class Newpost extends React.Component {
       number,
       username: this.state.currentUsername,
       email: this.state.currentUserEmail,
+      categories: this.state.categoryValue,
       title: this.state.titleValue,
       content: this.state.contentValue,
     }
@@ -84,6 +92,13 @@ class Newpost extends React.Component {
   render() {
     return (
       <div className="margin-top">
+        <div>
+        categories: <select name="categories" onChange={e => this.categoryChange(e)}>
+                   <option value="C++">C++</option>
+                   <option value="JavaScript">JavaScript</option>
+                   <option value="select" selected="selected">선택하세요</option>
+                   </select>
+        </div>
         Title: <input type="text" id="title-input" style={{fontSize: '10pt', width: 430, height: 25}} placeholder="What kind of programming skills do you want to donate?" onChange={e => this.titleChange(e)} /><br />
         Content: <input type="text" id="content-input" style={{fontSize: '10pt', width: 430, height: 200}} placeholder="How do you want to donate your skills? Please be as specific as possible!" onChange={e => this.contentChange(e)} /><br />
         <button type="button" id="submit-button" onClick={() => this.buttonClick()}>Submit</button>
