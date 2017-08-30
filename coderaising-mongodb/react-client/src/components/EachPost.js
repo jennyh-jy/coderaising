@@ -25,9 +25,11 @@ class EachPost extends React.Component {
       .then(res => {
         if (res.data.balance >= 1000) {
           // logged in user balance update
-          axios.put('http://localhost:8000/api/updateUserBalance')
+          axios.put('http://localhost:8000/api/updateUserBalance', {
+            meetupTitle: this.state.selectedPost.title,
+            meetupNumber: this.state.selectedPost.number})
           .then(res => {
-            console.log("logged in user's balance has been updated");
+            console.log("logged in user's has been updated");
           })
           .catch(err => console.log('Logged in user balance update error'));
           //post owner balance update
