@@ -3,13 +3,22 @@ import React from 'react';
 const App = () => {
   return (
     <div id="picture-container">
-    <span className="main-statement">kjqehrdkajsreawnr,asnrlaknwr,awrn,amsndf,asmnra,mwrn,amwrna,wrn</span>
-    <img src="https://s3.us-east-2.amazonaws.com/coderaising-cs/pexels-photo-306534-2.jpg" className="tint" />
-    1. At CodeRaising, dsjnkafjkndfv <br/>
-    2. dmsalknmkldf <br/>
-    3. dmsaklfm <br/>
-
-    Contact Us
+      <span className="main-statement">kjqehrdkajsreawnr,asnrl</span>
+      <img src="https://s3.us-east-2.amazonaws.com/coderaising-cs/pexels-photo-306534-2.jpg" className="tint" />
+      <div className="index-content">
+      1. At CodeRaising, dsjnkafjkndfv <br/>
+      2. dmsalknmkldf <br/>
+      3. dmsaklfm <br/>
+      4. dmsaklfm <br/>
+      4. dmsaklfm <br/>
+      4. dmsaklfm <br/>
+      4. dmsaklfm <br/>
+      4. dmsaklfm <br/>
+      4. dmsaklfm <br/>
+      4. dmsaklfm <br/>
+      4. dmsaklfm <br/>
+      Contact Us
+      </div>
     </div>
   );
 }
