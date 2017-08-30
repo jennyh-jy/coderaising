@@ -15,10 +15,8 @@ const Header = ({loginStatus, logoutClick}) => {
         : <span className="profile-logout"><NavLink to="/profile">Profile</NavLink>
         <a href='#' onClick={() => logoutClick()}>Log Out</a></span>}
       </div>
-
     </div>
   );
-
 };
 
 export default Header;
