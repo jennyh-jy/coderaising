@@ -48,9 +48,15 @@ class Profile extends React.Component {
           <img src={this.state.currentUser.google.imageUrl} /><br />
           Name: {this.state.currentUser.google.name} <br />
           Email: {this.state.currentUser.google.email} <br />
-          meetup: {this.state.currentUser.meetup}<br />
+          meetup: {this.state.currentUser.meetup.map((post, i) =>
+                  <div>
+                    <Link to={`/posts/${Object.keys(post)[0]}`}>{post[Object.keys(post)[0]]}</Link> <br />
+                  </div>
+                  )}
+          <div>
           Balance: KRW {this.state.currentUser.balance}
-          <button type="button" onClick={() => this.depositClick()}>Make a Deposit</button><br />
+          <button type="button" onClick={() => this.depositClick()}>Make a Deposit</button>
+          </div>
           Your credit cards
           <button type="button">Link a credit card</button><br />
           <img
