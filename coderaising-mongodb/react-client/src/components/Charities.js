@@ -59,6 +59,7 @@ class Charities extends React.Component {
     return (
       <div className="margin-top">
       <h1>Charities</h1>
+      <button type="button"><Link to="/newcharity">New Charity</Link></button>
         {this.state.charities.map((charity, i) =>
           <div>
           {charity.name}  {charity.balance}원  <button type="button" className={charity.name} onClick={this.donateClick.bind(this)}>Donate</button>
