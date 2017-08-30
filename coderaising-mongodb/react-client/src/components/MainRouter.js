@@ -16,6 +16,7 @@ import Login from './Login';
 import Profile from './Profile';
 import Newpost from './Newpost';
 import EachPost from './EachPost';
+import NewCharity from './NewCharity';
 import isLoggedIn, { setLoggedIn } from '../isLoggedIn';
 
 
@@ -76,7 +77,8 @@ class MainRouter extends React.Component {
             <Route path="/charities" component={Charities} />
             <Route path="/login" component={Login} />
             <Route path="/profile" component={Profile} />
-          </div>
+            <Route path="/newcharity" component={NewCharity} />
+         </div>
         <Footer/>
         </div>
       </Router>
