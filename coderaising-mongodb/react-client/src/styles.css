@@ -1,5 +1,9 @@
+*{
+  box-sizing: border-box;
+}
 body, html{
   height:100%;
+  overflow-x: hidden;
 }
 body{
   margin: 0px;
@@ -14,9 +18,11 @@ a{
   /*position: absolute;
   top: 0;
   left: 0;*/
+  padding: 24px;
   z-index: 999;
   width: 100%;
   /*border-bottom: 1px solid #fff;*/
+  overflow: hidden;
 }
 
 #title{
@@ -27,6 +33,18 @@ a{
   position: relative;
 }
 
+.logo{
+  float: left;
+}
+
+.menu{
+  float: right;
+}
+
+.menu a{
+  display: inline-block;
+  margin-left: 16px;
+}
 /*#create-button{
   margin-left: 8px;
   vertical-align: middle;

@@ -46,7 +46,7 @@ class EachPost extends React.Component {
   componentWillMount() {
     if (!isLoggedIn()) {
       alert('You should log in to proceed');
-      this.props.history.push('/auth/google');
+      this.props.history.push('/login');
     }
   }
 
