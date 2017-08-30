@@ -30,6 +30,7 @@ router.put('/updatePostOwnerBalance', userController.postOwnerBalanceUpdate);
 router.put('/deposit', userController.userAccountDeposit);
 
 router.get('/charities', charityController.retrieve);
+router.post('/newcharity', charityController.createOne);
 router.put('/updateCharityBalance', charityController.charityBalanceUpdate);
 
 
