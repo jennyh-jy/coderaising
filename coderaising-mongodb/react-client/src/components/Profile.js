@@ -12,6 +12,8 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       currentUser: null,
+      depositValue: null,
+      isdepositTyped: false,
     };
   }
 
@@ -23,12 +25,19 @@ class Profile extends React.Component {
     .catch(err => console.log(err));
   }
 
+  depositChange(event) {
+    this.setState({
+      depositValue: event.target.value,
+      isdepositTyped: true,
+    });
+  }
+
   depositClick() {
-    if (confirm('5000 won will be transferred from your linked credit card. Do you want to proceed?') === true) {
-      axios.put('http://localhost:8000/api/deposit')
+    if (confirm(`${this.state.depositValue}won will be transferred from your linked credit card. Do you want to proceed?`) === true) {
+      axios.put('http://localhost:8000/api/deposit', {deposit: this.state.depositValue})
       .then(res => {
-        console.log("5000 won has been deposited into user's account");
-        alert('5000 won has been deposited into your account');
+        console.log(`${this.state.depositValue} won has been deposited into user's account`);
+        alert(`${this.state.depositValue} won has been deposited into your account`);
         this.fetch();
       })
       .catch(err => console.log(err));
@@ -55,7 +64,7 @@ class Profile extends React.Component {
                   )}
           <div>
           Balance: KRW {this.state.currentUser.balance}
-          <button type="button" onClick={() => this.depositClick()}>Make a Deposit</button>
+          <input type="text" placeholder="얼마충전할래" onChange={e => this.depositChange(e)} /> <button type="button" onClick={() => this.depositClick()}>Make a Deposit</button>
           </div>
           Your credit cards
           <button type="button">Link a credit card</button><br />
