@@ -10,7 +10,7 @@ class Charities extends React.Component {
     super(props);
     this.state = {
       charities: [],
-      selectedCharity: null,
+      selectedCharityName: null,
       donationValue: null,
       isDonationTyped: false
     };
@@ -36,21 +36,18 @@ class Charities extends React.Component {
       alert('You should log in to proceed');
       this.props.history.push('/login');
     } else if (confirm(`기부하면 ${this.state.donationValue}원이 차감됩니다. 정말 기부할래?`) === true) {
-      this.setState({selectedCharity: event.target.className});
+      this.setState({selectedCharityName: event.target.className});
       axios.get('http://localhost:8000/api/getUser')
       .then(res => {
         if (res.data.balance >= this.state.donationValue) {
           //logged in user balance update
-          axios.put('http://localhost:8000/api/loggedInUserUpdate', {balance: this.state.donationValue})
+          axios.put('http://localhost:8000/api/loggedInUser', {balance: this.state.donationValue})
           .then(res => {
             console.log("logged in user's balance has been updated");
           })
           .catch(err => console.log('Logged in user balance update error'));
           //charity balance update
-          axios.put('http://localhost:8000/api/updateCharityBalance', {
-            name: this.state.selectedCharity,
-            balance: this.state.donationValue
-          })
+          axios.put(`http://localhost:8000/api/charity/${this.state.selectedCharityName}`, {balance: this.state.donationValue})
           .then(res => {
             alert('기부되었습니다! ㄱㅅㄱㅅ');
             window.location = '/charities';

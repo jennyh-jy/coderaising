@@ -21,17 +21,18 @@ router.get('/loginStatus', (req, res) => {
 router.get('/posts', postController.retrieve);
 router.get('/posts/:number', postController.retrieveOne);
 router.post('/newpost', postController.createOne);
+router.put('/post/:number', postController.eachPostUpdate);
 
 router.get('/allUsers', userController.retrieve);
 router.get('/profile', userController.loggedInUserRetrieve);
 router.get('/getUser', userController.loggedInUserRetrieve);
-router.put('/loggedInUserUpdate', userController.loggedInUserUpdate);
+router.put('/loggedInUser', userController.loggedInUserUpdate);
 router.put('/postOwnerBalanceUpdate', userController.postOwnerBalanceUpdate);
 router.put('/deposit', userController.userAccountDeposit);
 
 router.get('/charities', charityController.retrieve);
 router.post('/newcharity', charityController.createOne);
-router.put('/updateCharityBalance', charityController.charityBalanceUpdate);
+router.put('/charity/:name', charityController.charityBalanceUpdate);
 
 
 module.exports = router;

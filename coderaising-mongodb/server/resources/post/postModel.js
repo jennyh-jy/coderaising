@@ -11,7 +11,11 @@ const postSchema = new Schema({
   title: String,
   categories: String,
   content: String,
-  limit: Number,
+  limit: {
+    type: Number,
+    default: 0,
+  },
+  selectedlimit: Number,
   createdAt: {
     type: Date,
     default: Date.now,
