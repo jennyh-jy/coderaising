@@ -15,7 +15,7 @@ const Header = ({loginStatus, logoutClick}) => {
         <NavLink to="/posts">Posts</NavLink>
         <NavLink to="/charities">Charities</NavLink>
         {!loginStatus
-        ? <span className="login"><NavLink to="/login">Login with Google</NavLink></span>
+        ? <span className="login"><NavLink to="/login">Login</NavLink></span>
         : <span className="profile-logout"><NavLink to="/profile">Profile</NavLink>
         <a href='#' onClick={() => logoutClick()}>Log Out</a></span>}
       </div>

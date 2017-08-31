@@ -22,7 +22,7 @@ a{
   padding: 18px 30px;
   z-index: 999;
   width: 100%;
-  border-bottom: 1px solid #a8a7a6;
+  border-bottom: 1px solid #c1c1c1;
   overflow: hidden;
 }
 
@@ -34,7 +34,10 @@ a{
   color: #d8d8d8;
   background: #4e4e4f;
 }
-
+/*#footer.lessBody {
+  position: fixed;
+  bottom: 0;
+}*/
 #picture-container{
   position: relative;
 }
@@ -42,15 +45,11 @@ a{
 .logo{
   float: left;
   font-size: 30px;
+  line-height: 48px;
 }
-
-/*.logo a{
-  color: #4e4e4f;
-}*/
 
 .menu{
   float: right;
-  vertical-align: middle;
   line-height: 48px;
 }
 
@@ -64,41 +63,149 @@ a{
 	color: #e25e28;
 }
 
-.main-statement{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: block;
-  color: white;
-  max-width: 1024px;
-  margin: 0 28px;
-  transform: translate(-50%, -50%);
-}
-
 .content-padding{
   padding: 20px;
 }
-/*#create-button{
-  margin-left: 8px;
-  vertical-align: middle;
+
+.main-statement{
+  position: absolute;
+  /*top: 50%;
+  left: 50%;*/
+  z-index: 10;
+  display: block;
+  color: white;
+  max-width: 1024px;
+  /*margin: 0 28px;*/
+  /*transform: translate(-50%, -50%);*/
 }
 
-#link{
-  margin-top: 15px;
-  margin-bottom: 70px;
-  font-size: 13px;
-}*/
+.left-statement{
+  width: 50%;
+  height: 417.66px;
+  float: left;
+  border-collapse: collapse;
+  text-align: right;
+  padding: 87px 20px;
+}
 
-.tint{
+.right-statement{
+  width: 50%;
+  height: 417.66px;
+  float: right;
+  border-collapse: collapse;
+  text-align: left;
+  padding: 87px 20px;
+}
+
+.index-img{
   display: inline-block;
   max-width: 100%;
-  width: 100;
 }
 
-/*.margin-top{
-  margin-top: 120px;
-}*/
+.img-tint{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: calc(100% - 6px);
+  background: rgba(0,0,0,.30);
+}
 
+.leftpane {
+  width: 33.3%;
+  height: 100%;
+  float: left;
+  background-color: rosybrown;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.middlepane {
+  width: 33.3%;
+  height: 100%;
+  float: left;
+  background-color: royalblue;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.rightpane {
+  width: 33.3%;
+  height: 100%;
+  position: relative;
+  float: right;
+  background-color: yellow;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.loginpage{
+  text-align: center;
+}
+
+.login-text{
+  color: #4e4e4f;
+  font-size: 28px;
+  margin-top: 15px;
+}
+
+.googlelogin-btn {
+	background-color:transparent;
+	-moz-border-radius:1px;
+	-webkit-border-radius:1px;
+	border-radius:1px;
+	border:1px solid #ff4d1c;
+	display:inline-block;
+	cursor:pointer;
+	font-family:'Hind', sans-serif;
+	font-size:15px;
+	text-decoration:none;
+  margin-top:30px;
+}
+.googlelogin-btn:hover {
+	background-color: #ffece5;
+}
+.googlelogin-btn:active {
+	position:relative;
+	top:1px;
+}
+.googlelogin-btn a{
+  color:#ff4d1c;
+}
+
+.locallogin-email{
+  position: relative;
+  padding-top: 10px;
+}
+
+input:focus ~ .floating-label,
+input:not(:focus):valid ~ .floating-label{
+  /*top: -6px;*/
+  top: 8px;
+  bottom: 10px;
+  left: 10px;
+  font-size: 11px;
+  opacity: 1;
+}
+
+.email-input{
+  border: 0;
+  border-bottom: 1px solid #d1d1d1;
+  outline: 0;
+  background: transparent;
+  font-size: 17px;
+  width: 200px;
+  height: 25px;
+}
+
+.floating-label {
+  position: relative;
+  pointer-events: none;
+  left: -198px;
+  transition: 0.2s ease all;
+  color: #4e4e4f;
+}
 
 /*.login-btn {
 	background-color:transparent;
@@ -120,10 +227,4 @@ a{
 .login-btn:active {
 	position:relative;
 	top:1px;
-}*/
-
-
-/*.types{
-  font-size: 12px;
-  font-weight: bold;
 }*/

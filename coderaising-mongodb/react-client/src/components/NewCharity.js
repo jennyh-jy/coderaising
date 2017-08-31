@@ -49,13 +49,9 @@ class NewCharity extends React.Component {
     }
   }
 
-  componentDidMount() {
-
-  }
-
   render() {
     return (
-      <div className="margin-top">
+      <div className="content-padding">
         name: <input type="text" id="title-input" style={{fontSize: '10pt', width: 430, height: 25}} placeholder="Name of the charity" onChange={e => this.nameValue(e)} /><br />
         Content: <input type="text" id="content-input" style={{fontSize: '10pt', width: 430, height: 200}} placeholder="Why you want to support this charity" onChange={e => this.contentChange(e)} /><br />
         <button type="button" id="submit-button" onClick={() => this.buttonClick()}>Submit</button>

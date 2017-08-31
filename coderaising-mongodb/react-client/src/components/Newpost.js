@@ -93,11 +93,11 @@ class Newpost extends React.Component {
     return (
       <div className="content-padding">
         <div>
-        categories: <select name="categories" onChange={e => this.categoryChange(e)}>
-                   <option value="C++">C++</option>
-                   <option value="JavaScript">JavaScript</option>
-                   <option value="select" selected="selected">선택하세요</option>
-                   </select>
+        categories: <select onChange={e => this.categoryChange(e)}>
+          <option value="--SELECT--">--SELECT--</option>
+          <option value="C++">C++</option>
+          <option value="JavaScript">JavaScript</option>
+        </select>
         </div>
         Title: <input type="text" id="title-input" style={{fontSize: '10pt', width: 430, height: 25}} placeholder="What kind of programming skills do you want to donate?" onChange={e => this.titleChange(e)} /><br />
         Content: <input type="text" id="content-input" style={{fontSize: '10pt', width: 430, height: 200}} placeholder="How do you want to donate your skills? Please be as specific as possible!" onChange={e => this.contentChange(e)} /><br />
