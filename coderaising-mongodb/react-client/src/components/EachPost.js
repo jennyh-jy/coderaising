@@ -25,7 +25,7 @@ class EachPost extends React.Component {
       .then(res => {
         if (res.data.balance >= 1000) {
           // logged in user balance update
-          axios.put('http://localhost:8000/api/updateUserBalance', {
+          axios.put('http://localhost:8000/api/loggedInUserUpdate', {
             meetupTitle: this.state.selectedPost.title,
             meetupNumber: this.state.selectedPost.number,
             balance : 1000
@@ -35,7 +35,7 @@ class EachPost extends React.Component {
           })
           .catch(err => console.log('Logged in user balance update error'));
           //post owner balance update
-          axios.put('http://localhost:8000/api/updatePostOwnerBalance', {username: this.state.selectedPost.username})
+          axios.put('http://localhost:8000/api/postOwnerBalanceUpdate', {username: this.state.selectedPost.username})
           .then(res => {
             alert('You have been registered!');
           })

@@ -41,7 +41,7 @@ class Charities extends React.Component {
       .then(res => {
         if (res.data.balance >= this.state.donationValue) {
           //logged in user balance update
-          axios.put('http://localhost:8000/api/updateUserBalance', {balance: this.state.donationValue})
+          axios.put('http://localhost:8000/api/loggedInUserUpdate', {balance: this.state.donationValue})
           .then(res => {
             console.log("logged in user's balance has been updated");
           })
