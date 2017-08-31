@@ -36,3 +36,23 @@ exports.retrieveOne = (req, res) => {
     }
   });
 };
+
+exports.eachPostUpdate = (req, res) => {
+  Post.findOne({number: req.params.number}, (err, obj) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      obj.limit += 1;
+      obj.save((err, obj) => {
+        if (err) {
+          console.log(err);
+          res.sendStatus(500);
+        } else {
+          console.log("selected Post has been updated!")
+          res.json(obj);
+        }
+      });
+    }
+  });
+};

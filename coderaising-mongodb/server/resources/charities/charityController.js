@@ -36,7 +36,7 @@ exports.retrieve = (req, res) => {
 };
 
 exports.charityBalanceUpdate = (req, res) => {
-  Charity.findOne({'name': req.body.name}, (err, obj) => {
+  Charity.findOne({'name': req.params.name}, (err, obj) => {
     if (err) {
       console.log(err);
       res.sendStatus(500);

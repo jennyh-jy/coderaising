@@ -24,22 +24,43 @@ class EachPost extends React.Component {
       axios.get('http://localhost:8000/api/getUser')
       .then(res => {
         if (res.data.balance >= 1000) {
-          // logged in user balance update
-          axios.put('http://localhost:8000/api/loggedInUserUpdate', {
-            meetupTitle: this.state.selectedPost.title,
-            meetupNumber: this.state.selectedPost.number,
-            balance : 1000
-          })
+          axios.get(`http://localhost:8000/api/posts/${this.props.match.params.number}`)
           .then(res => {
-            console.log("logged in user's has been updated");
+            if (res.data.limit < res.data.selectedlimit) {
+              axios.put(`http://localhost:8000/api/post/${this.props.match.params.number}`)
+              .then(res => {
+                console.log("selected Post has been updated");
+              })
+              .catch(err => console.log(err))
+              // logged in user balance update
+              axios.put('http://localhost:8000/api/loggedInUser', {
+                meetupTitle: this.state.selectedPost.title,
+                meetupNumber: this.state.selectedPost.number,
+                balance : 1000
+              })
+              .then(res => {
+                console.log("logged in user's has been updated");
+              })
+              .catch(err => console.log('Logged in user balance update error'));
+              //post owner balance update
+              axios.put('http://localhost:8000/api/postOwnerBalanceUpdate', {username: this.state.selectedPost.username})
+              .then(res => {
+                alert('You have been registered!');
+              })
+              .catch(err => console.log('Post owner balance update error'));
+              //등록된 selectedPost 업데이트해서 보여줌
+              axios.get(`http://localhost:8000/api/posts/${this.props.match.params.number}`)
+              .then(res => {
+                this.setState({
+                  selectedPost: res.data,
+                  selectedPostOwnerEmail: res.data.email
+                });
+              })
+              .catch(err => console.log(err));
+            } else {
+              alert("풀방이야임마");
+            }
           })
-          .catch(err => console.log('Logged in user balance update error'));
-          //post owner balance update
-          axios.put('http://localhost:8000/api/postOwnerBalanceUpdate', {username: this.state.selectedPost.username})
-          .then(res => {
-            alert('You have been registered!');
-          })
-          .catch(err => console.log('Post owner balance update error'));
         } else {
           alert("돈없다 충전해라");
         }
@@ -80,6 +101,7 @@ class EachPost extends React.Component {
           category: {this.state.selectedPost.categories}<br />
           Title: {this.state.selectedPost.title} <br />
           Content: {this.state.selectedPost.content} <br />
+          등록된 인원: {this.state.selectedPost.limit} 제한인원: {this.state.selectedPost.selectedlimit}<br />
           <button type="button" id="register-button" onClick={() => this.registerClick()}>Register</button>
         </div>
     )

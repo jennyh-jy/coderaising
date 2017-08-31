@@ -14,9 +14,11 @@ class Newpost extends React.Component {
       currentUserEmail: null,
       titleValue: null,
       contentValue: null,
+      selectedLimitValue: null,
       categoryValue: null,
       isTitleTyped: false,
       isContentTyped: false,
+      isSelectedlimitTyped: false,
     };
   }
 
@@ -31,6 +33,13 @@ class Newpost extends React.Component {
     this.setState({
       contentValue: event.target.value,
       isContentTyped: true,
+    });
+  }
+
+  selectedLimitChange(event) {
+    this.setState({
+      selectedLimitValue: event.target.value,
+      isSelectedlimitTyped: true,
     });
   }
 
@@ -55,6 +64,7 @@ class Newpost extends React.Component {
       categories: this.state.categoryValue,
       title: this.state.titleValue,
       content: this.state.contentValue,
+      selectedlimit: this.state.selectedLimitValue
     }
     axios.post('http://localhost:8000/api/newpost', newpost)
     .then(response => {
@@ -101,6 +111,7 @@ class Newpost extends React.Component {
         </div>
         Title: <input type="text" id="title-input" style={{fontSize: '10pt', width: 430, height: 25}} placeholder="What kind of programming skills do you want to donate?" onChange={e => this.titleChange(e)} /><br />
         Content: <input type="text" id="content-input" style={{fontSize: '10pt', width: 430, height: 200}} placeholder="How do you want to donate your skills? Please be as specific as possible!" onChange={e => this.contentChange(e)} /><br />
+        limit: <input type="text" placeholder="몇명까지 가능해" onChange={e => this.selectedLimitChange(e)} /><br />
         <button type="button" id="submit-button" onClick={() => this.buttonClick()}>Submit</button>
       </div>
     );
