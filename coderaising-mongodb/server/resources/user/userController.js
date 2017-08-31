@@ -49,7 +49,7 @@ exports.loggedInUserUpdate = (req, res) => {
 };
 
 exports.postOwnerBalanceUpdate = (req, res) => {
-  User.findOne({'google.email': req.body.email}, (err, obj) => {
+  User.findOne({'google.name': req.body.username}, (err, obj) => {
     if (err) {
       console.log(err);
       res.sendStatus(500);

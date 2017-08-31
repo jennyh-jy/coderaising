@@ -27,13 +27,15 @@ class EachPost extends React.Component {
           // logged in user balance update
           axios.put('http://localhost:8000/api/updateUserBalance', {
             meetupTitle: this.state.selectedPost.title,
-            meetupNumber: this.state.selectedPost.number})
+            meetupNumber: this.state.selectedPost.number,
+            balance : 1000
+          })
           .then(res => {
             console.log("logged in user's has been updated");
           })
           .catch(err => console.log('Logged in user balance update error'));
           //post owner balance update
-          axios.put('http://localhost:8000/api/updatePostOwnerBalance', {email: this.state.selectedPostOwnerEmail})
+          axios.put('http://localhost:8000/api/updatePostOwnerBalance', {username: this.state.selectedPost.username})
           .then(res => {
             alert('You have been registered!');
           })
