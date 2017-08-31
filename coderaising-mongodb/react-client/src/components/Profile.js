@@ -38,7 +38,7 @@ class Profile extends React.Component {
       .then(res => {
         console.log(`${this.state.depositValue} won has been deposited into user's account`);
         alert(`${this.state.depositValue} won has been deposited into your account`);
-        this.fetch();
+        window.location = '/profile'
       })
       .catch(err => console.log(err));
     }
