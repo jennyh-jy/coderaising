@@ -9,8 +9,9 @@ const postSchema = new Schema({
   username: String,
   email: String,
   title: String,
-  categories: String, 
+  categories: String,
   content: String,
+  limit: Number,
   createdAt: {
     type: Date,
     default: Date.now,

@@ -33,7 +33,7 @@ exports.loggedInUserUpdate = (req, res) => {
     } else {
       const meetUp = {};
       meetUp[req.body.meetupNumber] = req.body.meetupTitle;
-      obj.balance -= 1000;
+      obj.balance -= req.body.balance;
       obj.meetup.push(meetUp);
       obj.save((err, obj) => {
         if (err) {
@@ -74,7 +74,7 @@ exports.userAccountDeposit = (req, res) => {
       console.log(err);
       res.sendStatus(500);
     } else {
-      obj.balance += 5000;
+      obj.balance += Number(req.body.deposit);
       obj.save((err, obj) => {
         if (err) {
           console.log(err);
