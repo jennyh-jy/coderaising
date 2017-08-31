@@ -10,3 +10,13 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+// const Footer = ({bodyheight}) => {
+//   const lessBody = bodyheight ? 'lessBody' : '';
+//   return (
+//     <div id="footer" className={lessBody}>
+//     ©2017 CODERAISING. ALL RIGHTS RESERVED
+//     </div>
+//   );
+// };

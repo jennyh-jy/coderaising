@@ -1,62 +1,31 @@
 import React from 'react';
-import { GoogleLogin } from 'react-google-login-component';
-import axios from 'axios';
+
 
 class Login extends React.Component{
   constructor (props) {
     super(props);
   }
 
-  // responseGoogle (googleUser) {
-  //   const id_token = googleUser.getAuthResponse().id_token;
-  //   console.log({accessToken: id_token});
-  //   //anything else you want to do(save to localStorage)...
-  //
-  //   // axios.post('http://localhost:8000/newpost', newpost)
-  //   //   .then(response => {
-  //   //     console.log('Post has been submitted!');
-  //   //     alert('Your post has been submitted!');
-  //   //   })
-  //   //   .then(() => {
-  //   //     this.props.history.push('/posts');
-  //   //   })
-  //   //   .catch(response => console.log('Failed to post'));
-  //   //
-  //
-  // }
-  //
-  // onSignIn(googleUser) {
-  //   const profile = googleUser.getBasicProfile();
-  //   const id_token = googleUser.getAuthResponse().id_token;
-  //   console.log(profile);
-  //   console.log('ID token: ' + id_token); // Do not send to your backend! Use an ID token instead.
-  //   console.log('Name: ' + profile.getName());
-  //   console.log('Image URL: ' + profile.getImageUrl());
-  //   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-  // }
-  //
-  // signOut() {
-  //   const auth2 = gapi.auth2.getAuthInstance();
-  //   auth2.signOut().then(() => {
-  //     console.log('User signed out.');
-  //   });
-  // }
-  //
-  // componentDidMount() {
-  //   gapi.signin2.render('g-signin2', {
-  //     'scope': 'profile email',
-  //     'width': 150,
-  //     'height': 30,
-  //     'longtitle': false,
-  //     'theme': 'light',
-  //     'onsuccess': this.onSignIn
-  //   });
-  // }
-
   render () {
     return (
-      <div className="content-padding">
-        <a href="/auth/google">Google Sign In</a>
+      <div className="content-padding loginpage">
+      <div className="login-text">Log In</div>
+
+      <div className="googlelogin-btn">
+        <a href="/auth/google">
+          <div>
+            <img
+              src="https://image.flaticon.com/icons/svg/124/124013.svg"
+              style={{width: "55px", height:"55px", float: "left"}}/>
+          </div>
+          <div style={{width: "250px", height:"55px", padding:"20px 0px 0px 0px"}}>Continue with Google</div>
+        </a>
+      </div>
+      <div className="locallogin-email">
+        <input className="email-input" required />
+        <span className="floating-label">Email</span>
+      </div>
+
       </div>
     );
   }
@@ -64,3 +33,40 @@ class Login extends React.Component{
 }
 
 export default Login;
+
+// <input className="password-input" required />
+// <span className="floating-label">Password</span>
+// </div>
+
+// .locallogin-email{
+//   position: relative;
+//   padding-top: 10px;
+// }
+//
+// input:focus ~ .floating-label,
+// input:not(:focus):valid ~ .floating-label{
+//   top: 8px;
+//   bottom: 10px;
+//   left: 10px;
+//   font-size: 11px;
+//   opacity: 1;
+// }
+//
+// .email-input{
+//   border: 0;
+//   border-bottom: 1px solid #d1d1d1;
+//   outline: 0;
+//   background: transparent;
+//   font-size: 17px;
+//   width: 200px;
+//   height: 35px;
+// }
+//
+// .floating-label {
+//   position: absolute;
+//   pointer-events: none;
+//   left: 10px;
+//   top: 18px;
+//   transition: 0.2s ease all;
+//   color: #4e4e4f;
+// }

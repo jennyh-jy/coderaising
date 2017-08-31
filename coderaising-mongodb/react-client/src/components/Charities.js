@@ -57,7 +57,7 @@ class Charities extends React.Component {
 
   render() {
     return (
-      <div className="margin-top">
+      <div className="content-padding">
       <h1>Charities</h1>
       <button type="button"><Link to="/newcharity">New Charity</Link></button>
         {this.state.charities.map((charity, i) =>
