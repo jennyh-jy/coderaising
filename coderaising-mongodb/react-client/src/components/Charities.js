@@ -66,14 +66,22 @@ class Charities extends React.Component {
 
   render() {
     return (
-      <div className="content-padding">
-      <h1>Charities</h1>
-      <button type="button"><Link to="/newcharity">New Charity</Link></button>
+    <div>
+      <div id="picture-container">
+        <span className="main-statement-others">
+          Charities you can support
+        </span>
+        <a href="#" className="new-btn"><Link to="/newcharity">Register a Charity</Link></a>
+      <img src="https://s3.us-east-2.amazonaws.com/coderaising-cs/pexels-photo-339620.jpg" className="background-img" />
+      <div className="img-tint-others"></div>
+      </div>
+       <div className="content-padding">
         {this.state.charities.map((charity, i) =>
           <div>
           {charity.name}  기부된 금액 {charity.balance}원  <input type="text" placeholder="얼마낼래" onChange={e => this.donationChange(e)} /> <button type="button" className={charity.name} onClick={this.donateClick.bind(this)}>Donate</button>
           </div>
         )}
+        </div>
       </div>
     );
   }
