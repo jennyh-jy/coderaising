@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import axios from 'axios';
 
+import FooterAbsolute from './FooterAbsolute';
 import isLoggedIn from '../isLoggedIn';
 
 
@@ -99,13 +100,16 @@ class EachPost extends React.Component {
     return (
     (!this.state.selectedPost)
       ? <div></div>
-      : <div className="content-padding">
+      : <div>
+        <div className="content-padding">
           Username: {this.state.selectedPost.username} <br />
           category: {this.state.selectedPost.categories}<br />
           Title: {this.state.selectedPost.title} <br />
           Content: {this.state.selectedPost.content} <br />
           등록된 인원: {this.state.selectedPost.limit} 제한인원: {this.state.selectedPost.selectedlimit}<br />
           <button type="button" id="register-button" onClick={() => this.registerClick()}>Register</button>
+        </div>
+        <FooterAbsolute />
         </div>
     )
   }

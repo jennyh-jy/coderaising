@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { Dropdown, Form } from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
 
+import FooterAbsolute from './FooterAbsolute';
 import isLoggedIn from '../isLoggedIn';
 
 
@@ -102,32 +103,21 @@ class Newpost extends React.Component {
 
   render() {
     return (
+      <div>
       <div className="content-padding">
-        <div>
-        categories: <select onChange={e => this.categoryChange(e)}>
-          <option value="--SELECT--">--SELECT--</option>
-          <option value="C++">C++</option>
-          <option value="JavaScript">JavaScript</option>
-        </select>
-        </div>
-        Title: <input type="text" id="title-input" style={{fontSize: '10pt', width: 430, height: 25}} placeholder="What kind of programming skills do you want to donate?" onChange={e => this.titleChange(e)} /><br />
-        Content: <input type="text" id="content-input" style={{fontSize: '10pt', width: 430, height: 200}} placeholder="How do you want to donate your skills? Please be as specific as possible!" onChange={e => this.contentChange(e)} /><br />
-        limit: <input type="text" placeholder="몇명까지 가능해" onChange={e => this.selectedLimitChange(e)} /><br />
-        <button type="button" id="submit-button" onClick={() => this.buttonClick()}>Submit</button>
 
-      <Dropdown
-        placeholder='Select Category'
-        fluid selection options={[{ value: "C++", text: 'C++' }, { value: "JavaScript", text: 'JavaScript' }]}
-        onChange={this.categoryChange.bind(this)}/>
         <Form>
           <Form.Group widths='equal'>
             <Form.Input label='Meetup Title' placeholder='What kind of programming skills do you want to donate?' onChange={this.titleChange.bind(this)}/>
+            <Form.Select label='Category' options={[{ value: "C++", text: 'C++' }, { value: "JavaScript", text: 'JavaScript' }]} placeholder='Select Category' onChange={this.categoryChange.bind(this)}/>
             <Form.Input label='Capacity' placeholder='몇명까지?' onChange={this.selectedLimitChange.bind(this)}/>
           </Form.Group>
           <Form.TextArea label='Content' placeholder='How do you want to donate your skills? Please be as specific as possible!' onChange={this.contentChange.bind(this)}/>
           <Form.Button onClick={this.buttonClick.bind(this)}>Submit</Form.Button>
         </Form>
 
+      </div>
+      <FooterAbsolute />
       </div>
     );
   }
@@ -140,3 +130,9 @@ export default Newpost;
         // Content: <input type="text" id="content-input" style={{fontSize: '10pt', width: 430, height: 200}} placeholder="How do you want to donate your skills? Please be as specific as possible!" onChange={e => this.contentChange(e)} /><br />
         // limit: <input type="text" placeholder="몇명까지 가능해" onChange={e => this.selectedLimitChange(e)} /><br />
         // <button type="button" id="submit-button" onClick={() => this.buttonClick()}>Submit</button>
+
+
+        // <Dropdown
+        //   placeholder='Select Category'
+        //   fluid selection options={[{ value: "C++", text: 'C++' }, { value: "JavaScript", text: 'JavaScript' }]}
+        //   />

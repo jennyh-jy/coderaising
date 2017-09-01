@@ -30,14 +30,6 @@ h2, h3{
   overflow: hidden;
 }
 
-#footer{
-  width: 100%;
-  padding: 7px;
-  text-align: center;
-  font-size: 14px;
-  color: #d8d8d8;
-  background: #4e4e4f;
-}
 /*#footer.lessBody {
   position: fixed;
   bottom: 0;
@@ -45,6 +37,26 @@ h2, h3{
 
 #picture-container{
   position: relative;
+}
+
+.footer-static{
+  width: 100%;
+  padding: 7px;
+  text-align: center;
+  font-size: 14px;
+  color: #d8d8d8;
+  background: #4e4e4f;
+}
+
+.footer-absolute{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 7px;
+  text-align: center;
+  font-size: 14px;
+  color: #d8d8d8;
+  background: #4e4e4f;
 }
 
 .logo{

@@ -1,15 +1,15 @@
 import React from 'react';
 
 
-const Footer = () => {
+const FooterStatic = () => {
   return (
-    <div id="footer">
+    <div className="footer-static">
     ©2017 CODERAISING. ALL RIGHTS RESERVED
     </div>
   );
 };
 
-export default Footer;
+export default FooterStatic;
 
 
 // const Footer = ({bodyheight}) => {
