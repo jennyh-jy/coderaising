@@ -67,7 +67,8 @@ class EachPost extends React.Component {
             }
           })
         } else {
-          alert("돈없거나 이미햇움");
+          alert("돈없거나 이미등록햇어임마");
+        }
       })
     }
   }
