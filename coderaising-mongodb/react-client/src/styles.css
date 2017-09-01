@@ -15,6 +15,10 @@ a{
   text-decoration: none;
 }
 
+h2, h3{
+  color: #4e4e4f;
+}
+
 #header {
   /*position: absolute;
   top: 0;
@@ -38,13 +42,14 @@ a{
   position: fixed;
   bottom: 0;
 }*/
+
 #picture-container{
   position: relative;
 }
 
 .logo{
   float: left;
-  font-size: 30px;
+  font-size: 32px;
   line-height: 48px;
 }
 
@@ -52,13 +57,12 @@ a{
   float: right;
   line-height: 48px;
 }
-
 .menu a{
   display: inline-block;
   margin-left: 26px;
   color: #4e4e4f;
+  font-size: 17px;
 }
-
 .menu a:hover{
 	color: #e25e28;
 }
@@ -67,7 +71,7 @@ a{
   padding: 20px;
 }
 
-.main-statement{
+.main-statement-index{
   position: absolute;
   /*top: 50%;
   left: 50%;*/
@@ -97,12 +101,12 @@ a{
   padding: 87px 20px;
 }
 
-.index-img{
+.background-img{
   display: inline-block;
   max-width: 100%;
 }
 
-.img-tint{
+.img-tint-index{
   position: absolute;
   top: 0;
   left: 0;
@@ -140,6 +144,55 @@ a{
   text-align: center;
 }
 
+.main-statement-others{
+  position: absolute;
+  top: 130px;
+  left: 20px;
+  z-index: 10;
+  display: block;
+  color: white;
+  font-size: 25px;
+  max-width: 1024px;
+  /*text-align: left;
+  padding-top: 150px;
+  padding-left: 20px;*/
+}
+
+.img-tint-others{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: calc(100% - 6px);
+  background: rgba(0,0,0,.60);
+}
+
+.new-btn {
+	background-color:transparent;
+	border-radius:6px;
+	border:1px solid white;
+	display:inline-block;
+	cursor:pointer;
+	font-family:'Hind', sans-serif;
+	font-size:14px;
+	padding:7px 8px;
+	text-decoration:none;
+  z-index: 7;
+
+  position: absolute;
+  top: 120px;
+  left: 630px;
+  color: white;
+  /*max-width: 1024px;
+
+  float: right;
+  margin-right: 20px;*/
+}
+.new-btn a{
+  color: white;
+}
+
 .loginpage{
   text-align: center;
 }
@@ -152,8 +205,6 @@ a{
 
 .googlelogin-btn {
 	background-color:transparent;
-	-moz-border-radius:1px;
-	-webkit-border-radius:1px;
 	border-radius:1px;
 	border:1px solid #ff4d1c;
 	display:inline-block;
@@ -174,57 +225,38 @@ a{
   color:#ff4d1c;
 }
 
-.locallogin-email{
+/*.locallogin-email{
   position: relative;
-  padding-top: 10px;
-}
+  padding-top: 30px;
+}*/
 
-input:focus ~ .floating-label,
-input:not(:focus):valid ~ .floating-label{
-  /*top: -6px;*/
-  top: 8px;
-  bottom: 10px;
-  left: 10px;
-  font-size: 11px;
-  opacity: 1;
-}
 
-.email-input{
+
+
+/*.email-input{
   border: 0;
   border-bottom: 1px solid #d1d1d1;
   outline: 0;
   background: transparent;
   font-size: 17px;
   width: 200px;
-  height: 25px;
+  height: 50px;
 }
 
 .floating-label {
   position: relative;
   pointer-events: none;
-  left: -198px;
+  left: -200px;
+  top: 11px;
   transition: 0.2s ease all;
   color: #4e4e4f;
 }
 
-/*.login-btn {
-	background-color:transparent;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:1px solid #6c6c6d;
-	display:inline-block;
-	cursor:pointer;
-	color:#6c6c6d;
-	font-family:'Hind', sans-serif;
-	font-size:15px;
-	padding:6px 7px;
-	text-decoration:none;
-}
-.login-btn:hover {
-	background-color:transparent;
-}
-.login-btn:active {
-	position:relative;
-	top:1px;
+input:focus ~ .floating-label,
+input:not(:focus):valid ~ .floating-label{
+  top: 8px;
+  bottom: 10px;
+  left: 10px;
+  font-size: 11px;
+  opacity: 1;
 }*/

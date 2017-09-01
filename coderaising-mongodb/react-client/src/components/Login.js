@@ -21,10 +21,6 @@ class Login extends React.Component{
           <div style={{width: "250px", height:"55px", padding:"20px 0px 0px 0px"}}>Continue with Google</div>
         </a>
       </div>
-      <div className="locallogin-email">
-        <input className="email-input" required />
-        <span className="floating-label">Email</span>
-      </div>
 
       </div>
     );
@@ -33,6 +29,11 @@ class Login extends React.Component{
 }
 
 export default Login;
+<div className="locallogin-email">
+  <input className="email-input" required />
+<span className="floating-label">Email</span>
+</div>
+
 
 // <input className="password-input" required />
 // <span className="floating-label">Password</span>
