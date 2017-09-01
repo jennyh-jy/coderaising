@@ -78,7 +78,7 @@ class MainRouter extends React.Component {
             <Route path="/login" component={Login} />
             <Route path="/profile" component={Profile} />
             <Route path="/newcharity" component={NewCharity} />
-         </div>
+          </div>
         <Footer/>
         </div>
       </Router>
@@ -87,3 +87,6 @@ class MainRouter extends React.Component {
 }
 
 export default MainRouter;
+
+// <div id="main-body">
+// <Footer bodyheight={bodyheight}/>
