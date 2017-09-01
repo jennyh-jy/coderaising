@@ -17,6 +17,7 @@ class EachPost extends React.Component {
     this.state = {
       selectedPost: null,
       selectedPostOwnerEmail: null,
+      registrar: null,
     };
   }
 
@@ -24,11 +25,15 @@ class EachPost extends React.Component {
     if (confirm("If you register for this session, 1000 won will be deducted from your account. Do you really want to proceed?") === true) {
       axios.get('http://localhost:8000/api/getUser')
       .then(res => {
-        if (res.data.balance >= 1000) {
+        this.setState({
+          registrar: res.data.google.email
+        });
+        console.log(this.state.selectedPost.registrar);
+        if (res.data.balance >= 1000 && !this.state.selectedPost.registrar.includes(res.data.google.email)) {
           axios.get(`http://localhost:8000/api/posts/${this.props.match.params.number}`)
           .then(res => {
             if (res.data.limit < res.data.selectedlimit) {
-              axios.put(`http://localhost:8000/api/post/${this.props.match.params.number}`)
+              axios.put(`http://localhost:8000/api/post/${this.props.match.params.number}`, {registrar: this.state.registrar})
               .then(res => {
                 console.log("selected Post has been updated");
               })
@@ -54,7 +59,6 @@ class EachPost extends React.Component {
               .then(res => {
                 this.setState({
                   selectedPost: res.data,
-                  selectedPostOwnerEmail: res.data.email
                 });
               })
               .catch(err => console.log(err));
@@ -63,8 +67,7 @@ class EachPost extends React.Component {
             }
           })
         } else {
-          alert("돈없다 충전해라");
-        }
+          alert("돈없거나 이미햇움");
       })
     }
   }

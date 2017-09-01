@@ -115,6 +115,7 @@ class Newpost extends React.Component {
           <Form.TextArea label='Content' placeholder='How do you want to donate your skills? Please be as specific as possible!' onChange={this.contentChange.bind(this)}/>
           <Form.Button onClick={this.buttonClick.bind(this)}>Submit</Form.Button>
         </Form>
+
       </div>
       <FooterAbsolute />
       </div>

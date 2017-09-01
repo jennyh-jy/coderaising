@@ -43,6 +43,7 @@ exports.eachPostUpdate = (req, res) => {
       console.log(err);
       res.sendStatus(500);
     } else {
+      obj.registrar.push(req.body.registrar);
       obj.limit += 1;
       obj.save((err, obj) => {
         if (err) {
