@@ -4,7 +4,7 @@ const App = () => {
   return (
     <div>
       <div id="picture-container">
-        <div className="main-statement">
+        <div className="main-statement-index">
           <div className="left-statement">
           <p>
             Programmers ?
@@ -19,8 +19,8 @@ const App = () => {
           </p>
           </div>
         </div>
-        <img src="https://s3.us-east-2.amazonaws.com/coderaising-cs/pexels-photo-306534-2.jpg" className="index-img" />
-        <div className="img-tint"></div>
+        <img src="https://s3.us-east-2.amazonaws.com/coderaising-cs/pexels-photo-306534-2.jpg" className="background-img" />
+        <div className="img-tint-index"></div>
       </div>
       <div className="index-content content-padding">
         <div className="leftpane">left</div>

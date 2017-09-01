@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Dropdown, Table } from 'semantic-ui-react'
 
-const DEFAULT_CATEGORY = '--SELECT--';
+const DEFAULT_CATEGORY = ["C++", "JavaScript"];
 
 class Posts extends React.Component {
   constructor(props) {
@@ -13,10 +14,10 @@ class Posts extends React.Component {
     };
   }
 
-  categoryChange(event) {
+  categoryChange(event, { value }) {
     this.setState({
-      selectedCategory: event.target.value
-    })
+      selectedCategory: value.length ? value : DEFAULT_CATEGORY,
+    });
   }
 
   componentDidMount() {
@@ -29,26 +30,53 @@ class Posts extends React.Component {
 
   render() {
     return (
-      <div className="content-padding">
-      <button type="button"><Link to="/newpost">New Post</Link></button>
       <div>
-      Categories: <select onChange={this.categoryChange.bind(this)}>
-          <option value="--SELECT--">--SELECT--</option>
-          <option value="C++">C++</option>
-          <option value="JavaScript">JavaScript</option>
-        </select>
+
+      <div id="picture-container">
+        <span className="main-statement-others">
+          Upcoming meetups
+        </span>
+        <a href="#" className="new-btn"><Link to="/newpost">Organize a Meetup</Link></a>
+      <img src="https://s3.us-east-2.amazonaws.com/coderaising-cs/pexels-photo-196655-2.jpg" className="background-img" />
+      <div className="img-tint-others"></div>
       </div>
+
+  <div className="content-padding">
+  Categories:
+  <Dropdown
+    placeholder='All categories'
+    fluid multiple search selection options={[{ value: "C++", text: 'C++' }, { value: "JavaScript", text: 'JavaScript' }]}
+    onChange={this.categoryChange.bind(this)}/>
+
+    <Table basic='very'>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>Meetup Title</Table.HeaderCell>
+            <Table.HeaderCell>Category</Table.HeaderCell>
+            <Table.HeaderCell>By</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+
+        <Table.Body>
         {this.state.posts.filter((post, i) => {
           if (this.state.selectedCategory === DEFAULT_CATEGORY) {
             return true;
           }
-          return post.categories === this.state.selectedCategory;
+          return this.state.selectedCategory.includes(post.categories);
         })
           .map((post, i) =>
-          <div>
-          {post.number}  <Link to={`/posts/${post.number}`}>{post.title}</Link>   {post.categories}   {post.username}   {post.createdAt}
-          </div>
+          <Table.Row>
+            <Table.Cell><Link to={`/posts/${post.number}`}>{post.title}</Link></Table.Cell>
+            <Table.Cell>{post.categories}</Table.Cell>
+            <Table.Cell>{post.username}</Table.Cell>
+          </Table.Row>
         )}
+        </Table.Body>
+      </Table>
+
+
+
+        </div>
       </div>
     );
   }
