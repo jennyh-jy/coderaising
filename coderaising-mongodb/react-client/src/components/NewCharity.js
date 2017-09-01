@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
+import FooterAbsolute from './FooterAbsolute';
 import isLoggedIn from '../isLoggedIn';
 
 
@@ -51,10 +52,13 @@ class NewCharity extends React.Component {
 
   render() {
     return (
-      <div className="content-padding">
-        name: <input type="text" id="title-input" style={{fontSize: '10pt', width: 430, height: 25}} placeholder="Name of the charity" onChange={e => this.nameValue(e)} /><br />
-        Content: <input type="text" id="content-input" style={{fontSize: '10pt', width: 430, height: 200}} placeholder="Why you want to support this charity" onChange={e => this.contentChange(e)} /><br />
-        <button type="button" id="submit-button" onClick={() => this.buttonClick()}>Submit</button>
+      <div>
+        <div className="content-padding">
+          name: <input type="text" id="title-input" style={{fontSize: '10pt', width: 430, height: 25}} placeholder="Name of the charity" onChange={e => this.nameValue(e)} /><br />
+          Content: <input type="text" id="content-input" style={{fontSize: '10pt', width: 430, height: 200}} placeholder="Why you want to support this charity" onChange={e => this.contentChange(e)} /><br />
+          <button type="button" id="submit-button" onClick={() => this.buttonClick()}>Submit</button>
+        </div>
+        <FooterAbsolute />
       </div>
     );
   }

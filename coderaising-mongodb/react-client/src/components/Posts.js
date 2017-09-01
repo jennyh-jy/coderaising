@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Dropdown, Table } from 'semantic-ui-react'
+import { Dropdown, Table } from 'semantic-ui-react';
+import TimeAgo from 'react-timeago';
+
+import FooterStatic from './FooterStatic';
 
 const DEFAULT_CATEGORY = ["C++", "JavaScript"];
 
@@ -54,6 +57,7 @@ class Posts extends React.Component {
             <Table.HeaderCell>Meetup Title</Table.HeaderCell>
             <Table.HeaderCell>Category</Table.HeaderCell>
             <Table.HeaderCell>By</Table.HeaderCell>
+            <Table.HeaderCell>Posted At</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
@@ -64,11 +68,12 @@ class Posts extends React.Component {
           }
           return this.state.selectedCategory.includes(post.categories);
         })
-          .map((post, i) =>
+          .reverse().map((post, i) =>
           <Table.Row>
             <Table.Cell><Link to={`/posts/${post.number}`}>{post.title}</Link></Table.Cell>
             <Table.Cell>{post.categories}</Table.Cell>
             <Table.Cell>{post.username}</Table.Cell>
+            <Table.Cell><TimeAgo date={post.createdAt} /></Table.Cell>
           </Table.Row>
         )}
         </Table.Body>
@@ -77,6 +82,7 @@ class Posts extends React.Component {
 
 
         </div>
+        <FooterStatic />
       </div>
     );
   }

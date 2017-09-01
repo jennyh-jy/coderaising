@@ -1,4 +1,5 @@
 import React from 'react';
+import FooterStatic from './FooterStatic';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <div className="rightpane">right</div>
       Contact Us (optional)
     </div>
+    <FooterStatic />
   </div>
   );
 }

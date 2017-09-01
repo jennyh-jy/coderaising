@@ -1,5 +1,6 @@
 import React from 'react';
 
+import FooterAbsolute from './FooterAbsolute';
 
 class Login extends React.Component{
   constructor (props) {
@@ -8,20 +9,24 @@ class Login extends React.Component{
 
   render () {
     return (
-      <div className="content-padding loginpage">
-      <div className="login-text">Log In</div>
+      <div>
+        <div className="content-padding loginpage">
+        <div className="login-text">Log In</div>
 
-      <div className="googlelogin-btn">
-        <a href="/auth/google">
-          <div>
-            <img
-              src="https://image.flaticon.com/icons/svg/124/124013.svg"
-              style={{width: "55px", height:"55px", float: "left"}}/>
-          </div>
-          <div style={{width: "250px", height:"55px", padding:"20px 0px 0px 0px"}}>Continue with Google</div>
-        </a>
+        <div className="googlelogin-btn">
+          <a href="/auth/google">
+            <div>
+              <img
+                src="https://image.flaticon.com/icons/svg/124/124013.svg"
+                style={{width: "55px", height:"55px", float: "left"}}/>
+            </div>
+            <div style={{width: "250px", height:"55px", padding:"20px 0px 0px 0px"}}>Continue with Google</div>
+          </a>
+        </div>
+
       </div>
 
+      <FooterAbsolute />
       </div>
     );
   }
@@ -29,10 +34,10 @@ class Login extends React.Component{
 }
 
 export default Login;
-<div className="locallogin-email">
-  <input className="email-input" required />
-<span className="floating-label">Email</span>
-</div>
+// <div className="locallogin-email">
+//   <input className="email-input" required />
+// <span className="floating-label">Email</span>
+// </div>
 
 
 // <input className="password-input" required />

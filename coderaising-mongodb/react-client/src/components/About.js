@@ -1,4 +1,5 @@
 import React from 'react';
+import FooterStatic from './FooterStatic';
 
 const About = () => {
   return (
@@ -16,7 +17,7 @@ const About = () => {
       CodeRaising is...
       </p>
       </div>
-
+      <FooterStatic />
     </div>
   );
 }

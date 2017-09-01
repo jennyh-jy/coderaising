@@ -6,6 +6,8 @@ import {
 } from 'react-router-dom';
 import axios from 'axios';
 
+import FooterAbsolute from './FooterAbsolute';
+
 
 class Profile extends React.Component {
   constructor(props) {
@@ -52,7 +54,8 @@ class Profile extends React.Component {
     return (
     (!this.state.currentUser)
       ? <div></div>
-      : <div className="content-padding">
+      : <div>
+      <div className="content-padding">
           <h3>Hello {this.state.currentUser.google.name.split(" ")[0]}!</h3><br />
           <img src={this.state.currentUser.google.imageUrl} /><br />
           Name: {this.state.currentUser.google.name} <br />
@@ -72,6 +75,8 @@ class Profile extends React.Component {
             src="http://www.infomerchant.net/images/creditcards/visalogo-big.gif"
             style={{width: "45px", height:"30px", verticalAlign:"middle"}}
           />Visa #2038
+        </div>
+        <FooterAbsolute />
         </div>
     )
   }

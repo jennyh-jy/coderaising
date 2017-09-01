@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import FooterStatic from './FooterStatic';
 import isLoggedIn from '../isLoggedIn';
 
 
@@ -82,6 +83,7 @@ class Charities extends React.Component {
           </div>
         )}
         </div>
+        <FooterStatic />
       </div>
     );
   }

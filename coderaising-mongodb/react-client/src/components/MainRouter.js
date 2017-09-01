@@ -7,7 +7,6 @@ import {
 import axios from 'axios';
 
 import Header from './Header';
-import Footer from './Footer';
 import App from './App';
 import About from './About';
 import Posts from './Posts';
@@ -79,7 +78,6 @@ class MainRouter extends React.Component {
             <Route path="/profile" component={Profile} />
             <Route path="/newcharity" component={NewCharity} />
           </div>
-        <Footer/>
         </div>
       </Router>
     );
