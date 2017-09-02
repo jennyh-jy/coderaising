@@ -1,10 +1,9 @@
 import React from 'react';
 
-
 const FooterStatic = () => {
   return (
     <div className="footer-static">
-    ©2017 CODERAISING. ALL RIGHTS RESERVED
+      ©2017 CODERAISING. ALL RIGHTS RESERVED
     </div>
   );
 };

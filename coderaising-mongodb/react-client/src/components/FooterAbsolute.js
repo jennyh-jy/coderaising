@@ -1,10 +1,9 @@
 import React from 'react';
 
-
 const FooterAbsolute = () => {
   return (
     <div className="footer-absolute">
-    ©2017 CODERAISING. ALL RIGHTS RESERVED
+      ©2017 CODERAISING. ALL RIGHTS RESERVED
     </div>
   );
 };

@@ -76,9 +76,8 @@ class Charities extends React.Component {
         <span className="main-statement-others">
           Charities you can support
         </span>
-        <a href="#" className="new-btn"><Link to="/newcharity">Register a Charity</Link></a>
+        <Link to="/newcharity" className="new-btn">Register a Charity</Link>
       <img src="https://s3.us-east-2.amazonaws.com/coderaising-cs/pexels-photo-339620.jpg" className="background-img" />
-      <div className="img-tint-others"></div>
       </div>
        <div id="content-padding">
 
@@ -95,7 +94,7 @@ class Charities extends React.Component {
            </List.Content>
            {(charity.balance / DONATION_GOAL * 100) >= 100
              ? <Progress percent={100} success>{charity.name} has reached their donation goal!</Progress>
-             : <Progress percent={charity.balance / DONATION_GOAL * 100} progress color='yellow' />}
+             : <Progress percent={Math.floor(charity.balance / DONATION_GOAL * 100)} progress color='yellow' />}
 
          </List.Item>
        )}
