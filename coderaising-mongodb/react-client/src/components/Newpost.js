@@ -5,6 +5,21 @@ import { Form } from 'semantic-ui-react'
 import FooterAbsolute from './FooterAbsolute';
 import isLoggedIn from '../isLoggedIn';
 
+const options = [
+  { value: "HTML", text: 'HTML' },
+  { value: "CSS", text: 'CSS' },
+  { value: "JavaScript", text: 'JavaScript' },
+  { value: "React", text: 'React' },
+  { value: "AngularJS", text: 'AngularJS' },
+  { value: "Node.js", text: 'Node.js' },
+  { value: "Python", text: 'Python' },
+  { value: "Django", text: 'Django' },
+  { value: "Java", text: 'Java' },
+  { value: "C++", text: 'C++' },
+  { value: "SQL", text: 'SQL' },
+  { value: "Git", text: 'Git' },
+  { value: "Etc", text: 'Etc' },
+];
 
 class Newpost extends React.Component {
   constructor(props) {
@@ -113,21 +128,7 @@ class Newpost extends React.Component {
               onChange={this.titleChange.bind(this)}/>
             <Form.Select required label='Category'
               placeholder='All categories'
-              options={[
-                { value: "HTML", text: 'HTML' },
-                { value: "CSS", text: 'CSS' },
-                { value: "JavaScript", text: 'JavaScript' },
-                { value: "React", text: 'React' },
-                { value: "AngularJS", text: 'AngularJS' },
-                { value: "Node.js", text: 'Node.js' },
-                { value: "Python", text: 'Python' },
-                { value: "Django", text: 'Django' },
-                { value: "Java", text: 'Java' },
-                { value: "C++", text: 'C++' },
-                { value: "SQL", text: 'SQL' },
-                { value: "Git", text: 'Git' },
-                { value: "Etc", text: 'Etc' },
-              ]}
+              options={options}
               placeholder='Select Category'
               onChange={this.categoryChange.bind(this)}/>
             <Form.Input label='Capacity' placeholder='몇명까지?' onChange={this.selectedLimitChange.bind(this)}/>

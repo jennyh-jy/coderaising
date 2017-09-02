@@ -102,7 +102,6 @@ class EachPost extends React.Component {
 
         <Item.Group divided>
             <Item>
-
               <Item.Content>
                 <Item.Header>{this.state.selectedPost.title}</Item.Header>
                 <Item.Meta>
@@ -120,12 +119,7 @@ class EachPost extends React.Component {
                 </Item.Extra>
               </Item.Content>
             </Item>
-
           </Item.Group>
-
-
-
-
         </div>
         <FooterAbsolute />
         </div>

@@ -41,6 +41,8 @@ exports.charityBalanceUpdate = (req, res) => {
       console.log(err);
       res.sendStatus(500);
     } else {
+      console.log(req.body);
+      console.log(obj);
       obj.balance += Number(req.body.balance);
       obj.save((err, obj) => {
         if (err) {
