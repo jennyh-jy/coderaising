@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Form } from 'semantic-ui-react'
 
 import FooterAbsolute from './FooterAbsolute';
 import isLoggedIn from '../isLoggedIn';
@@ -30,7 +31,7 @@ class NewCharity extends React.Component {
 
   buttonClick() {
     const newcharity = {
-      name: this.state.contentValue,
+      name: this.state.nameValue,
       content: this.state.contentValue,
     }
     axios.post('http://localhost:8000/api/newcharity', newcharity)
@@ -38,7 +39,7 @@ class NewCharity extends React.Component {
       alert('Your charity has been submitted!');
     })
     .then(() => {
-      this.props.history.push('/Charities');
+      this.props.history.push('/charities');
     })
     .catch(err => console.log(err));
   }
@@ -53,10 +54,15 @@ class NewCharity extends React.Component {
   render() {
     return (
       <div>
-        <div className="content-padding">
-          name: <input type="text" id="title-input" style={{fontSize: '10pt', width: 430, height: 25}} placeholder="Name of the charity" onChange={e => this.nameValue(e)} /><br />
-          Content: <input type="text" id="content-input" style={{fontSize: '10pt', width: 430, height: 200}} placeholder="Why you want to support this charity" onChange={e => this.contentChange(e)} /><br />
-          <button type="button" id="submit-button" onClick={() => this.buttonClick()}>Submit</button>
+        <div id="content-padding">
+        <Form>
+          <Form.Group widths='equal'>
+            <Form.Input label='Name' placeholder='Name of the charity' onChange={this.nameValue.bind(this)} />
+          </Form.Group>
+          <Form.TextArea label='Content' placeholder='Why you want to support this charity?' onChange={this.contentChange.bind(this)}/>
+          <Form.Button onClick={this.buttonClick.bind(this)}>Submit</Form.Button>
+        </Form>
+
         </div>
         <FooterAbsolute />
       </div>

@@ -104,15 +104,35 @@ class Newpost extends React.Component {
   render() {
     return (
       <div>
-      <div className="content-padding">
+      <div id="content-padding">
 
         <Form>
           <Form.Group widths='equal'>
-            <Form.Input label='Meetup Title' placeholder='What kind of programming skills do you want to donate?' onChange={this.titleChange.bind(this)}/>
-            <Form.Select label='Category' options={[{ value: "C++", text: 'C++' }, { value: "JavaScript", text: 'JavaScript' }]} placeholder='Select Category' onChange={this.categoryChange.bind(this)}/>
+            <Form.Input required label='Meetup Title'
+              placeholder='What kind of programming skills do you want to donate?'
+              onChange={this.titleChange.bind(this)}/>
+            <Form.Select required label='Category'
+              placeholder='All categories'
+              options={[
+                { value: "HTML", text: 'HTML' },
+                { value: "CSS", text: 'CSS' },
+                { value: "JavaScript", text: 'JavaScript' },
+                { value: "React", text: 'React' },
+                { value: "AngularJS", text: 'AngularJS' },
+                { value: "Node.js", text: 'Node.js' },
+                { value: "Python", text: 'Python' },
+                { value: "Django", text: 'Django' },
+                { value: "Java", text: 'Java' },
+                { value: "C++", text: 'C++' },
+                { value: "SQL", text: 'SQL' },
+                { value: "Git", text: 'Git' },
+                { value: "Etc", text: 'Etc' },
+              ]}
+              placeholder='Select Category'
+              onChange={this.categoryChange.bind(this)}/>
             <Form.Input label='Capacity' placeholder='몇명까지?' onChange={this.selectedLimitChange.bind(this)}/>
           </Form.Group>
-          <Form.TextArea label='Content' placeholder='How do you want to donate your skills? Please be as specific as possible!' onChange={this.contentChange.bind(this)}/>
+          <Form.TextArea required label='Content' placeholder='How do you want to donate your skills? Please be as specific as possible!' onChange={this.contentChange.bind(this)}/>
           <Form.Button onClick={this.buttonClick.bind(this)}>Submit</Form.Button>
         </Form>
 

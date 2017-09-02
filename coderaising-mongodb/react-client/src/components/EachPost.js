@@ -6,6 +6,8 @@ import {
   withRouter
 } from 'react-router-dom';
 import axios from 'axios';
+import { Button, Icon, Image as ImageComponent, Item, Label } from 'semantic-ui-react';
+
 
 import FooterAbsolute from './FooterAbsolute';
 import isLoggedIn from '../isLoggedIn';
@@ -54,14 +56,8 @@ class EachPost extends React.Component {
                 alert('You have been registered!');
               })
               .catch(err => console.log('Post owner balance update error'));
-              //등록된 selectedPost 업데이트해서 보여줌
-              axios.get(`http://localhost:8000/api/posts/${this.props.match.params.number}`)
-              .then(res => {
-                this.setState({
-                  selectedPost: res.data,
-                });
-              })
-              .catch(err => console.log(err));
+
+              this.props.history.push('/posts');
             } else {
               alert("풀방이야임마");
             }
@@ -102,13 +98,34 @@ class EachPost extends React.Component {
     (!this.state.selectedPost)
       ? <div></div>
       : <div>
-        <div className="content-padding">
-          Username: {this.state.selectedPost.username} <br />
-          category: {this.state.selectedPost.categories}<br />
-          Title: {this.state.selectedPost.title} <br />
-          Content: {this.state.selectedPost.content} <br />
-          등록된 인원: {this.state.selectedPost.limit} 제한인원: {this.state.selectedPost.selectedlimit}<br />
-          <button type="button" id="register-button" onClick={() => this.registerClick()}>Register</button>
+        <div id="content-padding">
+
+        <Item.Group divided>
+            <Item>
+
+              <Item.Content>
+                <Item.Header>{this.state.selectedPost.title}</Item.Header>
+                <Item.Meta>
+                  <span>제한인원 : {this.state.selectedPost.limit}/{this.state.selectedPost.selectedlimit}명</span>
+                </Item.Meta>
+                <Item.Description>
+                {this.state.selectedPost.content}</Item.Description>
+                <Item.Extra>
+                  <Button primary floated='right' onClick={this.registerClick.bind(this)}>
+                    Register
+                    <Icon name='right chevron' />
+                  </Button>
+                  <Label>{this.state.selectedPost.categories}</Label>
+                  Posted by {this.state.selectedPost.username}
+                </Item.Extra>
+              </Item.Content>
+            </Item>
+
+          </Item.Group>
+
+
+
+
         </div>
         <FooterAbsolute />
         </div>

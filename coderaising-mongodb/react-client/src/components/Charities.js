@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Button, Confirm, List, Progress } from 'semantic-ui-react';
 
 import FooterStatic from './FooterStatic';
 import isLoggedIn from '../isLoggedIn';
 
+const DONATION_GOAL = 100000;
 
 class Charities extends React.Component {
   constructor(props) {
@@ -13,6 +15,7 @@ class Charities extends React.Component {
       charities: [],
       selectedCharityName: null,
       donationValue: null,
+      donationInputField: '',
       isDonationTyped: false
     };
   }
@@ -51,6 +54,7 @@ class Charities extends React.Component {
           axios.put(`http://localhost:8000/api/charity/${this.state.selectedCharityName}`, {balance: this.state.donationValue})
           .then(res => {
             alert('기부되었습니다! ㄱㅅㄱㅅ');
+            this.fetch();
             window.location = '/charities';
           })
           .catch(err => console.log(err));
@@ -76,12 +80,27 @@ class Charities extends React.Component {
       <img src="https://s3.us-east-2.amazonaws.com/coderaising-cs/pexels-photo-339620.jpg" className="background-img" />
       <div className="img-tint-others"></div>
       </div>
-       <div className="content-padding">
-        {this.state.charities.map((charity, i) =>
-          <div>
-          {charity.name}  기부된 금액 {charity.balance}원  <input type="text" placeholder="얼마낼래" onChange={e => this.donationChange(e)} /> <button type="button" className={charity.name} onClick={this.donateClick.bind(this)}>Donate</button>
-          </div>
-        )}
+       <div id="content-padding">
+
+       <List divided relaxed>
+
+       {this.state.charities.map((charity, i) =>
+         <List.Item>
+           <List.Icon name='github' size='large' verticalAlign='middle' />
+           <List.Content>
+             <List.Header as='a'>{charity.name}</List.Header>
+             <List.Description as='a'>기부된 금액 {charity.balance}원</List.Description>
+             <input type="text" placeholder="얼마낼래" onChange={e => this.donationChange(e)} />
+             <button type="button" className={charity.name} onClick={this.donateClick.bind(this)}>Donate</button>
+           </List.Content>
+           {(charity.balance / DONATION_GOAL * 100) >= 100
+             ? <Progress percent={100} success>{charity.name} has reached their donation goal!</Progress>
+             : <Progress percent={charity.balance / DONATION_GOAL * 100} progress color='yellow' />}
+
+         </List.Item>
+       )}
+         </List>
+
         </div>
         <FooterStatic />
       </div>

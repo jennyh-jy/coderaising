@@ -5,6 +5,7 @@ import {
   Link
 } from 'react-router-dom';
 import axios from 'axios';
+import { Form, Item, Button, Icon } from 'semantic-ui-react';
 
 import FooterAbsolute from './FooterAbsolute';
 
@@ -15,7 +16,6 @@ class Profile extends React.Component {
     this.state = {
       currentUser: null,
       depositValue: null,
-      isdepositTyped: false,
     };
   }
 
@@ -30,7 +30,6 @@ class Profile extends React.Component {
   depositChange(event) {
     this.setState({
       depositValue: event.target.value,
-      isdepositTyped: true,
     });
   }
 
@@ -40,7 +39,10 @@ class Profile extends React.Component {
       .then(res => {
         console.log(`${this.state.depositValue} won has been deposited into user's account`);
         alert(`${this.state.depositValue} won has been deposited into your account`);
-        window.location = '/profile'
+        this.fetch();
+        this.setState({
+          depositValue: "",
+        });
       })
       .catch(err => console.log(err));
     }
@@ -55,26 +57,30 @@ class Profile extends React.Component {
     (!this.state.currentUser)
       ? <div></div>
       : <div>
-      <div className="content-padding">
-          <h3>Hello {this.state.currentUser.google.name.split(" ")[0]}!</h3><br />
-          <img src={this.state.currentUser.google.imageUrl} /><br />
-          Name: {this.state.currentUser.google.name} <br />
-          Email: {this.state.currentUser.google.email} <br />
-          meetup: {this.state.currentUser.meetup.map((post, i) =>
+      <div id="content-padding">
+
+      <Item.Group items={[
+        {
+          image: this.state.currentUser.google.imageUrl,
+          header: this.state.currentUser.google.name,
+          description:
+                this.state.currentUser.meetup.map((post, i) =>
                   <div>
                     <Link to={`/posts/${Object.keys(post)[0]}`}>{post[Object.keys(post)[0]]}</Link> <br />
                   </div>
-                  )}
-          <div>
-          Balance: KRW {this.state.currentUser.balance}
-          <input type="text" placeholder="얼마충전할래" onChange={e => this.depositChange(e)} /> <button type="button" onClick={() => this.depositClick()}>Make a Deposit</button>
-          </div>
-          Your credit cards
-          <button type="button">Link a credit card</button><br />
-          <img
-            src="http://www.infomerchant.net/images/creditcards/visalogo-big.gif"
-            style={{width: "45px", height:"30px", verticalAlign:"middle"}}
-          />Visa #2038
+                ),
+          meta: this.state.currentUser.google.email,
+          extra: 'Balance: KRW '+ this.state.currentUser.balance,
+        }
+      ]} />
+      <Form.Input value={this.state.depositValue} placeholder='얼마충전할래' onChange={this.depositChange.bind(this)} style={{display : 'inline-block'}}/>
+
+        <Button primary onClick={this.depositClick.bind(this)} style={{display : 'inline-block'}}>
+          Make a Deposit
+          <Icon name='right chevron' />
+        </Button>
+
+
         </div>
         <FooterAbsolute />
         </div>
@@ -83,3 +89,12 @@ class Profile extends React.Component {
 }
 
 export default Profile;
+
+// <h3>Hello {this.state.currentUser.google.name.split(" ")[0]}!</h3><br />
+
+// Your credit cards
+// <button type="button">Link a credit card</button><br />
+// <img
+//   src="http://www.infomerchant.net/images/creditcards/visalogo-big.gif"
+//   style={{width: "45px", height:"30px", verticalAlign:"middle"}}
+// />Visa #2038

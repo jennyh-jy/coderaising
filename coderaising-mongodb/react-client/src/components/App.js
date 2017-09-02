@@ -23,7 +23,7 @@ const App = () => {
         <img src="https://s3.us-east-2.amazonaws.com/coderaising-cs/pexels-photo-306534-2.jpg" className="background-img" />
         <div className="img-tint-index"></div>
       </div>
-      <div className="index-content content-padding">
+      <div id="content-padding" className="index-content">
         <div className="leftpane">left</div>
         <div className="middlepane">middle</div>
         <div className="rightpane">right</div>

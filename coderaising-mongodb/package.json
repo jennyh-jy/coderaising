@@ -25,6 +25,7 @@
     "react-dom": "^15.3.2",
     "react-google-login-component": "^0.8.0",
     "react-router-dom": "^4.1.2",
+    "react-timeago": "^3.4.3",
     "semantic-ui-react": "^0.72.0"
   },
   "devDependencies": {
