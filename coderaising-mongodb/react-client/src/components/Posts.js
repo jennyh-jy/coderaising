@@ -6,7 +6,8 @@ import TimeAgo from 'react-timeago';
 
 import FooterStatic from './FooterStatic';
 
-const DEFAULT_CATEGORY = ["C++", "JavaScript"];
+
+const DEFAULT_CATEGORY = ["HTML", "CSS", "JavaScript", "React", "AngularJS", "Node.js", "Python", "Django", "Java", "C++", "SQL", "Git", "Etc"];
 
 class Posts extends React.Component {
   constructor(props) {
@@ -44,20 +45,40 @@ class Posts extends React.Component {
       <div className="img-tint-others"></div>
       </div>
 
-  <div className="content-padding">
-  Categories:
-  <Dropdown
-    placeholder='All categories'
-    fluid multiple search selection options={[{ value: "C++", text: 'C++' }, { value: "JavaScript", text: 'JavaScript' }]}
-    onChange={this.categoryChange.bind(this)}/>
+  <div id="content-padding">
+    <div style={{marginBottom: "50"}}>
+      <h3 style={{marginLeft: "60"}}>Categories:</h3>
+      <center>
+      <Dropdown
+        placeholder='All categories'
+        fluid multiple search selection options={[
+          { value: "HTML", text: 'HTML' },
+          { value: "CSS", text: 'CSS' },
+          { value: "JavaScript", text: 'JavaScript' },
+          { value: "React", text: 'React' },
+          { value: "AngularJS", text: 'AngularJS' },
+          { value: "Node.js", text: 'Node.js' },
+          { value: "Python", text: 'Python' },
+          { value: "Django", text: 'Django' },
+          { value: "Java", text: 'Java' },
+          { value: "C++", text: 'C++' },
+          { value: "SQL", text: 'SQL' },
+          { value: "Git", text: 'Git' },
+          { value: "Etc", text: 'Etc' },
+        ]}
+        onChange={this.categoryChange.bind(this)}
+        style={{width: 1000}} />
+      </center>
+    </div>
 
-    <Table basic='very'>
+    <center>
+    <Table basic='very' style={{width: 1000}}>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Meetup Title</Table.HeaderCell>
-            <Table.HeaderCell>Category</Table.HeaderCell>
-            <Table.HeaderCell>By</Table.HeaderCell>
-            <Table.HeaderCell>Posted At</Table.HeaderCell>
+            <Table.HeaderCell><h4>Meetup Title</h4></Table.HeaderCell>
+            <Table.HeaderCell><h4>Category</h4></Table.HeaderCell>
+            <Table.HeaderCell><h4>By</h4></Table.HeaderCell>
+            <Table.HeaderCell><h4>Posted At</h4></Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
@@ -70,7 +91,7 @@ class Posts extends React.Component {
         })
           .reverse().map((post, i) =>
           <Table.Row>
-            <Table.Cell><Link to={`/posts/${post.number}`}>{post.title}</Link></Table.Cell>
+            <Table.Cell><Link to={`/posts/${post.number}`}><b>{post.title}</b></Link></Table.Cell>
             <Table.Cell>{post.categories}</Table.Cell>
             <Table.Cell>{post.username}</Table.Cell>
             <Table.Cell><TimeAgo date={post.createdAt} /></Table.Cell>
@@ -78,7 +99,7 @@ class Posts extends React.Component {
         )}
         </Table.Body>
       </Table>
-
+      </center>
 
 
         </div>

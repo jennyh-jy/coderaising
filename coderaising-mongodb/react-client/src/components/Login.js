@@ -10,7 +10,7 @@ class Login extends React.Component{
   render () {
     return (
       <div>
-        <div className="content-padding loginpage">
+        <div id="content-padding" className="loginpage">
         <div className="login-text">Log In</div>
 
         <div className="googlelogin-btn">
