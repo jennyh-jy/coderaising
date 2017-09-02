@@ -257,6 +257,10 @@ h4{
   color:#ff4d1c;
 }
 
+.donationGoal {
+  float: right; 
+}
+
 /*.locallogin-email{
   position: relative;
   padding-top: 30px;

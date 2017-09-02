@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Button, Confirm, List, Progress } from 'semantic-ui-react';
+import { Form, Button, Confirm, List, Progress } from 'semantic-ui-react';
 
 import FooterStatic from './FooterStatic';
 import isLoggedIn from '../isLoggedIn';
@@ -90,12 +90,21 @@ class Charities extends React.Component {
            <List.Content>
              <List.Header as='a'>{charity.name}</List.Header>
              <List.Description as='a'>기부된 금액 {charity.balance}원</List.Description>
-             <input type="text" placeholder="얼마낼래" onChange={e => this.donationChange(e)} />
-             <button type="button" className={charity.name} onClick={this.donateClick.bind(this)}>Donate</button>
+             <Form.Input label='기부하기' placeholder='얼마낼래?' onChange={e => this.donationChange(e)}/>
+             <Form.Button onClick={this.donateClick.bind(this)}>Donate</Form.Button>
            </List.Content>
            {(charity.balance / DONATION_GOAL * 100) >= 100
-             ? <Progress percent={100} success>{charity.name} has reached their donation goal!</Progress>
-             : <Progress percent={charity.balance / DONATION_GOAL * 100} progress color='yellow' />}
+             ? <div>
+               <Progress percent={100} success>{charity.name} has reached their donation goal!</Progress>
+               <span>기부된 금액 {charity.balance}원</span>
+               <span className='donationGoal'>목표액 {DONATION_GOAL}</span>
+               </div>
+             : <div>
+               <Progress percent={charity.balance / DONATION_GOAL * 100} progress color='yellow' />
+               <span>기부된 금액 {charity.balance}원</span>
+               <span className='donationGoal'>목표액 {DONATION_GOAL}</span>
+               </div>
+            }
 
          </List.Item>
        )}
