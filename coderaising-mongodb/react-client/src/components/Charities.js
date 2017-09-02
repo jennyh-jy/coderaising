@@ -35,12 +35,15 @@ class Charities extends React.Component {
     });
   }
 
-  donateClick(event) {
+  donateClick(event, name) {
     if (!isLoggedIn()) {
       alert('You should log in to proceed');
       this.props.history.push('/login');
     } else if (confirm(`기부하면 ${this.state.donationValue}원이 차감됩니다. 정말 기부할래?`) === true) {
-      this.setState({selectedCharityName: event.target.className});
+      this.setState({
+        selectedCharityName: name
+      });
+      console.log(event.target.data);
       axios.get('http://localhost:8000/api/getUser')
       .then(res => {
         if (res.data.balance >= this.state.donationValue) {
@@ -88,24 +91,25 @@ class Charities extends React.Component {
          <List.Item>
            <List.Icon name='github' size='large' verticalAlign='middle' />
            <List.Content>
-             <List.Header as='a'>{charity.name}</List.Header>
-             <List.Description as='a'>기부된 금액 {charity.balance}원</List.Description>
-             <Form.Input label='기부하기' placeholder='얼마낼래?' onChange={e => this.donationChange(e)}/>
-             <Form.Button onClick={this.donateClick.bind(this)}>Donate</Form.Button>
+             <List.Header className="header"as='a'>{charity.name}</List.Header>
+             <p />
+             <span className="donate"><Form.Button onClick={e => this.donateClick(e, charity.name)}>Donate</Form.Button></span>
+             <span className="donate"><Form.Input placeholder='기부금액?' onChange={e => this.donationChange(e)}/></span>
            </List.Content>
            {(charity.balance / DONATION_GOAL * 100) >= 100
-             ? <div>
+             ? <div className="goal">
                <Progress percent={100} success>{charity.name} has reached their donation goal!</Progress>
-               <span>기부된 금액 {charity.balance}원</span>
-               <span className='donationGoal'>목표액 {DONATION_GOAL}</span>
+               <span>기부된 금액 {charity.balance}₩</span>
+               <span className="donationGoal">목표액 {DONATION_GOAL}₩</span>
                </div>
-             : <div>
+             : <div className="goal">
                <Progress percent={charity.balance / DONATION_GOAL * 100} progress color='yellow' />
-               <span>기부된 금액 {charity.balance}원</span>
-               <span className='donationGoal'>목표액 {DONATION_GOAL}</span>
+               <span>기부된 금액 {charity.balance}₩</span>
+               <span className="donationGoal">목표액 {DONATION_GOAL}₩</span>
                </div>
             }
-
+            <br />
+            <br />
          </List.Item>
        )}
          </List>

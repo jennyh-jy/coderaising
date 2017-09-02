@@ -258,9 +258,20 @@ h4{
 }
 
 .donationGoal {
-  float: right; 
+  float: right;
 }
 
+.goal {
+  padding-top: 10px;
+}
+
+.donate {
+  float: right;
+}
+
+.header {
+  font-size: 22px;
+}
 /*.locallogin-email{
   position: relative;
   padding-top: 30px;
